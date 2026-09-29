@@ -1,11 +1,12 @@
 import React from "react";
-import { Box, Container, Typography, Grid, Chip } from "@mui/material";
+import { Box, Container, Typography, Grid, Chip, Button } from "@mui/material";
 import { motion } from "framer-motion";
 import {
   GraduationCap,
   Calendar,
   MapPin,
   FileText,
+  ExternalLink,
 } from "lucide-react";
 import { education } from "../../data/portfolioData";
 
@@ -228,10 +229,35 @@ export default function Education() {
                             color: "var(--text-secondary)",
                             fontWeight: 600,
                             lineHeight: 1.6,
+                            mb: item.publicationUrl ? 1.5 : 0,
                           }}
                         >
                           {item.thesis}
                         </Typography>
+                        {item.publicationUrl && (
+                          <Button
+                            variant="outlined"
+                            size="small"
+                            href={item.publicationUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            endIcon={<ExternalLink size={14} />}
+                            sx={{
+                              borderRadius: "8px",
+                              borderColor: "var(--border-accent)",
+                              color: "var(--accent-cyan)",
+                              fontWeight: 700,
+                              textTransform: "none",
+                              fontSize: "0.8rem",
+                              "&:hover": {
+                                borderColor: "var(--accent-cyan)",
+                                backgroundColor: "rgba(0, 240, 255, 0.08)",
+                              },
+                            }}
+                          >
+                            IEEE Xplore Publication
+                          </Button>
+                        )}
                       </Box>
                     )}
 

@@ -210,7 +210,7 @@ export default function Navbar() {
             <Button
               variant="outlined"
               size="small"
-              href="https://sohidul-islam.vercel.app"
+              href="/Sohidul Islam CV.pdf" download="Sohidul_Islam_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               startIcon={<Download size={16} />}
@@ -322,7 +322,7 @@ export default function Navbar() {
           <Button
             fullWidth
             variant="contained"
-            href="https://sohidul-islam.vercel.app"
+            href="/Sohidul Islam CV.pdf" download="Sohidul_Islam_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             startIcon={<Download size={18} />}

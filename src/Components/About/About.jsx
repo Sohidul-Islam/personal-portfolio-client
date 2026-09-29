@@ -31,6 +31,14 @@ const pillars = [
   },
 ];
 
+
+const featuredLinks = [
+  { label: "OurStoryz Live", url: "https://developer.ourstoryz.com/" },
+  { label: "GloryPOS Live", url: "http://glorypos.com/" },
+  { label: "LYXA Live", url: "https://lyxa.ai/" },
+  { label: "IEEE Research", url: "https://ieeexplore.ieee.org/document/11005193" },
+];
+
 export default function About() {
   return (
     <Box

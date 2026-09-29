@@ -6,6 +6,16 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import { projects } from "../../data/portfolioData";
 import ProjectModal from "../ProjectModal/ProjectModal";
 
+
+const getFaviconUrl = (url) => {
+  try {
+    const domain = new URL(url).hostname;
+    return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+  } catch (e) {
+    return null;
+  }
+};
+
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -98,6 +108,79 @@ export default function Projects() {
                 >
                   {/* Card Header & Badge */}
                   <Box>
+                    {/* Project Overview Image / Favicon Banner */}
+                    <Box
+                      sx={{
+                        height: 120,
+                        width: "100%",
+                        borderRadius: "16px",
+                        mb: 2.5,
+                        overflow: "hidden",
+                        position: "relative",
+                        backgroundColor: "var(--bg-primary)",
+                        border: "1px solid var(--border-subtle)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        background:
+                          "linear-gradient(135deg, rgba(0, 240, 255, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%)",
+                      }}
+                    >
+                      {project.image ? (
+                        <Box
+                          component="img"
+                          src={project.image}
+                          alt={project.title}
+                          sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+                        />
+                      ) : (
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1.5,
+                            px: 2.5,
+                            py: 1.5,
+                            backgroundColor: "rgba(255, 255, 255, 0.03)",
+                            borderRadius: "12px",
+                            border: "1px solid var(--border-subtle)",
+                          }}
+                        >
+                          {project.liveUrl && getFaviconUrl(project.liveUrl) && (
+                            <Box
+                              component="img"
+                              src={getFaviconUrl(project.liveUrl)}
+                              alt={project.title}
+                              onError={(e) => {
+                                e.target.style.display = "none";
+                              }}
+                              sx={{
+                                width: 32,
+                                height: 32,
+                                borderRadius: "8px",
+                                objectFit: "contain",
+                              }}
+                            />
+                          )}
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              fontWeight: 700,
+                              color: "var(--accent-cyan)",
+                              fontSize: "0.85rem",
+                              whiteSpace: "nowrap",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                              maxWidth: 180,
+                            }}
+                          >
+                            {project.liveUrl
+                              ? new URL(project.liveUrl).hostname
+                              : project.title}
+                          </Typography>
+                        </Box>
+                      )}
+                    </Box>
                     <Box
                       sx={{
                         display: "flex",

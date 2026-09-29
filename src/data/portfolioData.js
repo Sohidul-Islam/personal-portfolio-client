@@ -194,7 +194,7 @@ export const projects = [
             "Built Stripe payment integration and scalable relational data architecture using TypeORM and MySQL."
         ],
         technologies: ["React.js", "Node.js", "AWS Cognito", "AWS SQS", "AWS SNS", "AWS SES", "TypeORM", "MySQL", "Stripe"],
-        liveUrl: "https://sohidul-islam.vercel.app",
+        liveUrl: "https://developer.ourstoryz.com/",
         githubUrl: "https://github.com/Sohidul-Islam"
     },
     {
@@ -214,7 +214,7 @@ export const projects = [
             "Implemented Document AI Parser and responsive admin tools for managing pets, owners, licenses, payments, and analytical reports."
         ],
         technologies: ["T3 Stack", "Next.js", "TypeScript", "tRPC", "Drizzle ORM", "PostgreSQL", "Document AI", "Clerk", "Authorize.Net", "Mailgun"],
-        liveUrl: "https://sohidul-islam.vercel.app",
+        liveUrl: "http://authorize.net/",
         githubUrl: "https://github.com/Sohidul-Islam"
     },
     {
@@ -234,7 +234,7 @@ export const projects = [
             "Supported multi-branch operations with a high-concurrency scalable architecture built with React.js, Node.js, Express.js, MySQL, and Socket.IO."
         ],
         technologies: ["React.js", "Node.js", "Express.js", "MySQL", "Socket.IO", "Android Web POS", "BullMQ"],
-        liveUrl: "https://sohidul-islam.vercel.app",
+        liveUrl: "http://glorypos.com/",
         githubUrl: "https://github.com/Sohidul-Islam"
     },
     {
@@ -254,7 +254,7 @@ export const projects = [
             "Improved platform performance, response speeds, and user experience with tailored modular components."
         ],
         technologies: ["React.js", "Redux", "Zone Mapping Engine", "Admin Super-Dashboard", "JavaScript", "CSS3"],
-        liveUrl: "https://sohidul-islam.vercel.app",
+        liveUrl: "https://lyxa.ai/",
         githubUrl: "https://github.com/Sohidul-Islam"
     },
     {
@@ -286,6 +286,15 @@ export const awards = [
         date: "December 28, 2025",
         badge: "Company Gala Award",
         description: "Recognised as an outstanding software engineer at the Mediusware annual gala event for high-impact technical performance, AI automation integrations, and full-stack software delivery."
+    },
+    {
+        id: "ieee-publication",
+        title: "Bangla Speech Emotion Recognition Research",
+        organization: "IEEE Xplore Publication",
+        date: "2025",
+        badge: "IEEE Research",
+        description: "Published research paper on Machine Learning & Deep Learning methods for Bangla speech emotion recognition.",
+        link: "https://ieeexplore.ieee.org/document/11005193"
     }
 ];
 
@@ -299,6 +308,7 @@ export const education = [
         grade: "CGPA: 3.93 / 4.00",
         badge: "High Honors",
         thesis: "Bangla Speech Emotion Recognition Using Machine Learning and Deep Learning Methods.",
+        publicationUrl: "https://ieeexplore.ieee.org/document/11005193",
         details: "Focus on Algorithms, Software Architecture, Machine Learning, Deep Learning, and Web Systems."
     },
     {
