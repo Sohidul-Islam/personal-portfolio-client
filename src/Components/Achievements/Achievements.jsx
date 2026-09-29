@@ -1,11 +1,8 @@
 import React from "react";
-import { Box, Container, Typography, Grid, Paper, Chip } from "@mui/material";
+import { Box, Container, Typography, Chip } from "@mui/material";
 import { motion } from "framer-motion";
 import {
-  Award,
   Trophy,
-  Star,
-  Sparkles,
   Calendar,
   Building2,
 } from "lucide-react";

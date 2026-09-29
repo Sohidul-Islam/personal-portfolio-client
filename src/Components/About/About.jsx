@@ -1,17 +1,14 @@
 import React from "react";
-import { Box, Container, Typography, Grid, Paper, Chip } from "@mui/material";
+import { Box, Container, Typography, Grid, Chip } from "@mui/material";
 import { motion } from "framer-motion";
 import {
   Code,
   Cloud,
   Bot,
-  ShieldCheck,
-  Zap,
   Award,
   BookOpen,
   MapPin,
 } from "lucide-react";
-import { personalInfo } from "../../data/portfolioData";
 
 const pillars = [
   {
