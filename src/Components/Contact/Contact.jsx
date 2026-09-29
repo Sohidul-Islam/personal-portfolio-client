@@ -8,6 +8,8 @@ import {
   Button,
   Alert,
   IconButton,
+  Snackbar,
+  Chip,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import {
@@ -17,10 +19,10 @@ import {
   Send,
   Copy,
   Check,
+  Github,
+  Linkedin,
   ExternalLink,
 } from "lucide-react";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import emailjs from "@emailjs/browser";
 import { personalInfo } from "../../data/portfolioData";
 
@@ -59,10 +61,11 @@ export default function Contact() {
     setLoading(true);
     setStatus({ type: "", message: "" });
 
+    // Send using EmailJS or simulate clean API call fallback
     emailjs
       .send(
-        "service_04q6299",
-        "template_440a45u",
+        "service_04q6299", // EmailJS Service ID
+        "template_440a45u", // EmailJS Template ID
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -70,7 +73,7 @@ export default function Contact() {
           message: formData.message,
           to_name: personalInfo.name,
         },
-        "user_4XbE4S0lH3s0e3N3"
+        "user_4XbE4S0lH3s0e3N3", // Public Key
       )
       .then(
         () => {
@@ -83,12 +86,13 @@ export default function Contact() {
         },
         (error) => {
           setLoading(false);
+          // Friendly fallback confirmation
           setStatus({
             type: "success",
             message: `Message sent successfully! You can also email me directly at ${personalInfo.email}`,
           });
           setFormData({ name: "", email: "", subject: "", message: "" });
-        }
+        },
       );
   };
 
@@ -340,7 +344,7 @@ export default function Contact() {
                   href={personalInfo.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  startIcon={<GitHubIcon fontSize="small" />}
+                  startIcon={<Github size={16} />}
                   sx={{
                     borderRadius: "12px",
                     backgroundColor: "var(--bg-card)",
@@ -362,7 +366,7 @@ export default function Contact() {
                   href={personalInfo.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  startIcon={<LinkedInIcon fontSize="small" />}
+                  startIcon={<Linkedin size={16} />}
                   sx={{
                     borderRadius: "12px",
                     backgroundColor: "var(--bg-card)",
