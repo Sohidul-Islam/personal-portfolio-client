@@ -5,8 +5,6 @@ import {
   GraduationCap,
   Calendar,
   MapPin,
-  Award,
-  BookOpen,
   FileText,
 } from "lucide-react";
 import { education } from "../../data/portfolioData";

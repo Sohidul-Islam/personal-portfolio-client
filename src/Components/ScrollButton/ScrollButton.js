@@ -1,7 +1,6 @@
-import { Button } from '@mui/material';
 import React, { useState } from 'react'
 import NavigationIcon from '@mui/icons-material/Navigation';
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { animateScroll as scroll } from 'react-scroll'
 import styled from 'styled-components';
 const ScrollButton = () => {
 

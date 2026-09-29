@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
-import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import { width } from '@mui/system';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 import { TypeAnimation } from 'react-type-animation';
@@ -13,10 +10,6 @@ import { TypeAnimation } from 'react-type-animation';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 //Icon List end
-
-// Image list start
-import img1 from '../../images/me_with_bg-1.png'
-// Image list end
 
 // Custom components start
 import ButtonType1 from './../ButtonType1/ButtonType1';
@@ -33,12 +26,11 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
-const darkTheme = createTheme({ palette: { mode: 'dark' } });
 const lightTheme = createTheme({ palette: { mode: 'light' } });
 
 
 const Home = () => {
-    const [themeColor, setThemeColor] = useState(lightTheme);
+    const [themeColor] = useState(lightTheme);
     return (
         <ThemeProvider theme={themeColor}>
             <Box sx={{ flexGrow: 1 }} id="home">

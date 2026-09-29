@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import Education from '../Education/Education'
-import Experience from '../Experience/Experience'
 import Navigation from '../NavigationTypeTwo/Navigation'
 import ProfessionalSkills from '../ProfessionalSkills/ProfessionalSkills'
 import Interveiw from '../Interveiw/Interveiw'
@@ -29,7 +28,7 @@ text-transform: uppercase;
 `
 export default function Resume() {
 
-    const [NavItem, setNavItem] = useState([
+    const [NavItem] = useState([
         {
             itemName: 'Education',
             path: '/',

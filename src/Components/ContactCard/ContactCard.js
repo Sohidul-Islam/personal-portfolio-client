@@ -3,9 +3,6 @@ import { Box } from '@mui/system';
 import React from 'react'
 import styled from 'styled-components';
 import image from '../../images/shufol.jpg'
-import ButtonType1 from '../ButtonType1/ButtonType1';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FindWithMe from '../FindWithMe/FindWithMe';
 
 const ContactCard = () => {
@@ -78,18 +75,6 @@ const ContactCard = () => {
     &:hover{
         transform: scale(1.2);
      }
-    `;
-    const CardButtonBox = styled(Box)`
-    
-    `;
-    const CardButton = styled.a`
-    font-size: 16px !important;
-    line-height: 30px;
-    font-weight: 600;
-    text-decoration: none;
-    color: #ff014f;
-    text-transform: uppercase;
-    margin-right: 16px;
     `;
 
     const CardBox = styled(Box)`

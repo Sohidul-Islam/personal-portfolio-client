@@ -1,11 +1,10 @@
 import { Box } from '@mui/system';
-import React, { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Responsive from '../../Utilities/Responsive';
-import Loader from '../Loader/Loader';
 
-const [size, device, device2] = Responsive;
+const [, , device2] = Responsive;
 const NavContainer = styled(Box)`
     display: flex;
     background: linear-gradient(145deg, #e2e8ec, #ffffff);

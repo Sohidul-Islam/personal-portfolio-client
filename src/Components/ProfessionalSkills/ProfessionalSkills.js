@@ -3,7 +3,6 @@ import { Box } from '@mui/system'
 import React from 'react'
 import styled from 'styled-components'
 import Loader from '../Loader/Loader'
-import TimeLine from '../Timeline/TimeLine'
 
 const Text1 = styled(Typography)`
     font-size: 18px !important;

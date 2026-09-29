@@ -1,12 +1,9 @@
 import { Box, Grid, Grow, Typography } from '@mui/material'
 import React from 'react'
 import styled from 'styled-components'
-import Responsive from '../../Utilities/Responsive'
 import TimeLine from '../Timeline/TimeLine'
 
 export default function Achievement() {
-
-    const [size, device, device2] = Responsive;
 
     const Text1 = styled(Typography)`
 font-size: 18px !important;

@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Heart from "@mui/icons-material/Favorite";
 

@@ -1,9 +1,8 @@
 import React from 'react'
 import './TimeLine.css';
 import styled from 'styled-components';
-import { Divider, Grid, Grow } from '@mui/material';
+import { Divider, Grow } from '@mui/material';
 import { Box } from '@mui/system';
-import { Link } from 'react-router-dom';
 
 const Heading = styled(Box)`
     display: flex;

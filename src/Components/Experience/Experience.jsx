@@ -1,8 +1,7 @@
 import React from "react";
-import { Box, Container, Typography, Grid, Chip, Paper } from "@mui/material";
+import { Box, Container, Typography, Chip } from "@mui/material";
 import { motion } from "framer-motion";
 import {
-  Briefcase,
   Calendar,
   MapPin,
   CheckCircle2,

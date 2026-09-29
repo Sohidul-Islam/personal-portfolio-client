@@ -28,4 +28,5 @@ const device2 = {
     desktopL: `(max-width: ${size.desktop})`
 };
 
-export default [size, device, device2];
+const responsive = [size, device, device2];
+export default responsive;

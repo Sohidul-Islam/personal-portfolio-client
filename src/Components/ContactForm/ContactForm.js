@@ -2,13 +2,11 @@ import { Alert, Box, Snackbar, TextField } from '@mui/material';
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import styled from 'styled-components';
-import Responsive from '../../Utilities/Responsive';
 import EmailJSConfig from '../../Config/email.config';
 // import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
 
-    const [size, device, device2] = Responsive;
     const [open, setOpen] = useState(false);
     const [success, setSuccess] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
@@ -36,21 +34,8 @@ const ContactForm = () => {
     margin: 2%;
     width: 96%;
     `;
-    const FormContentInnerHalf = styled(Box)`
-    widht: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    `;
     const InputFieldColOne = styled(TextField)`
         width: 100%;
-    `;
-    const InputFieldColTwo = styled(TextField)`
-        width: 46%;
-        @media ${device2.mobileL}{
-        width: 100%;
-        margin: 8px 0px !important;
-        }
     `;
     const Button = styled.button`
     width: 100%;
@@ -90,7 +75,7 @@ const ContactForm = () => {
         if (email?.name?.length > 0 && email?.email?.length > 0 && email?.subject?.length > 0 && email?.message?.length > 0) {
 
 
-            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email?.email)) {
+            if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email?.email)) {
                 setErrorMessage("");
                 emailSender();
             }

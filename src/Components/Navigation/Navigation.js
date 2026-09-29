@@ -8,15 +8,13 @@ import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link } from 'react-scroll'
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 // image section
 import img1 from '../../images/me-2.png';
@@ -25,7 +23,6 @@ import Home from '../Home/Home';
 import Features from './../Features/Features';
 import Portfolio from './../Portfolio/Portfolio';
 import Resume from '../Resume/Resume';
-import Testimonials from '../Testimonials/Testimonials';
 import Contact from '../Contact/Contact';
 import ScrollButton from '../ScrollButton/ScrollButton';
 const drawerWidth = 240;
@@ -40,7 +37,6 @@ const navItems = ['HOME',
     'CONTACTS',
 ];
 
-const darkTheme = createTheme({ palette: { mode: 'dark' } });
 const lightTheme = createTheme({ palette: { mode: 'light' } });
 
 const theme = createTheme({
@@ -102,7 +98,7 @@ const Navigation = (props) => {
         setMobileOpen((prevState) => !prevState);
     };
 
-    const [themeColor, setThemeColor] = useState(lightTheme);
+    const [themeColor] = useState(lightTheme);
 
 
 
