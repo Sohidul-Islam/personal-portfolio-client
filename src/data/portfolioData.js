@@ -214,7 +214,7 @@ export const projects = [
             "Implemented Document AI Parser and responsive admin tools for managing pets, owners, licenses, payments, and analytical reports."
         ],
         technologies: ["T3 Stack", "Next.js", "TypeScript", "tRPC", "Drizzle ORM", "PostgreSQL", "Document AI", "Clerk", "Authorize.Net", "Mailgun"],
-        liveUrl: "http://authorize.net/",
+        liveUrl: "https://www.petparentusa.com",
         githubUrl: "https://github.com/Sohidul-Islam"
     },
     {
