@@ -19,10 +19,10 @@ import {
   Send,
   Copy,
   Check,
-  Github,
-  Linkedin,
   ExternalLink,
 } from "lucide-react";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import emailjs from "@emailjs/browser";
 import { personalInfo } from "../../data/portfolioData";
 
@@ -344,7 +344,7 @@ export default function Contact() {
                   href={personalInfo.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  startIcon={<Github size={16} />}
+                  startIcon={<GitHubIcon fontSize="small" />}
                   sx={{
                     borderRadius: "12px",
                     backgroundColor: "var(--bg-card)",
@@ -366,7 +366,7 @@ export default function Contact() {
                   href={personalInfo.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  startIcon={<Linkedin size={16} />}
+                  startIcon={<LinkedInIcon fontSize="small" />}
                   sx={{
                     borderRadius: "12px",
                     backgroundColor: "var(--bg-card)",
