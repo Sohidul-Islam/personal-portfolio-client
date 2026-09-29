@@ -8,6 +8,8 @@ import {
   Award,
   BookOpen,
   MapPin,
+  ExternalLink,
+  FileCheck,
 } from "lucide-react";
 
 const pillars = [
@@ -145,7 +147,8 @@ export default function About() {
                   systems.
                 </Typography>
 
-                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, pt: 1 }}>
+                {/* Key Achievements & Badges */}
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5, mb: 3 }}>
                   <Chip
                     icon={<MapPin size={16} />}
                     label="Based in Dhaka, Bangladesh"
@@ -173,6 +176,64 @@ export default function About() {
                       fontWeight: 700,
                     }}
                   />
+                  <Chip
+                    component="a"
+                    href="https://ieeexplore.ieee.org/document/11005193"
+                    target="_blank"
+                    clickable
+                    icon={<FileCheck size={16} />}
+                    label="IEEE Xplore Publication"
+                    sx={{
+                      backgroundColor: "rgba(139, 92, 246, 0.12)",
+                      color: "var(--accent-violet)",
+                      fontWeight: 700,
+                      border: "1px solid rgba(139, 92, 246, 0.3)",
+                      "&:hover": {
+                        backgroundColor: "rgba(139, 92, 246, 0.2)",
+                      },
+                    }}
+                  />
+                </Box>
+
+                {/* Live System Links */}
+                <Box>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: "var(--text-muted)",
+                      fontWeight: 700,
+                      textTransform: "uppercase",
+                      letterSpacing: "1px",
+                      display: "block",
+                      mb: 1,
+                    }}
+                  >
+                    Featured Live Systems & Projects:
+                  </Typography>
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                    {featuredLinks.map((link, idx) => (
+                      <Chip
+                        key={idx}
+                        component="a"
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        clickable
+                        icon={<ExternalLink size={14} />}
+                        label={link.label}
+                        sx={{
+                          backgroundColor: "var(--bg-primary)",
+                          border: "1px solid var(--border-accent)",
+                          color: "var(--accent-cyan)",
+                          fontWeight: 600,
+                          fontSize: "0.8rem",
+                          "&:hover": {
+                            backgroundColor: "rgba(0, 240, 255, 0.1)",
+                          },
+                        }}
+                      />
+                    ))}
+                  </Box>
                 </Box>
               </Box>
             </motion.div>

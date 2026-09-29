@@ -5,6 +5,7 @@ import {
   Trophy,
   Calendar,
   Building2,
+  ExternalLink,
 } from "lucide-react";
 import { awards } from "../../data/portfolioData";
 
@@ -164,10 +165,35 @@ export default function Achievements() {
 
                   <Typography
                     variant="body1"
-                    sx={{ color: "var(--text-secondary)", lineHeight: 1.7 }}
+                    sx={{ color: "var(--text-secondary)", lineHeight: 1.7, mb: award.link ? 2 : 0 }}
                   >
                     {award.description}
                   </Typography>
+
+                  {award.link && (
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      href={award.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      endIcon={<ExternalLink size={14} />}
+                      sx={{
+                        borderRadius: "8px",
+                        borderColor: "var(--border-accent)",
+                        color: "var(--accent-cyan)",
+                        fontWeight: 700,
+                        textTransform: "none",
+                        fontSize: "0.85rem",
+                        "&:hover": {
+                          borderColor: "var(--accent-cyan)",
+                          backgroundColor: "rgba(0, 240, 255, 0.08)",
+                        },
+                      }}
+                    >
+                      View Publication / Certificate
+                    </Button>
+                  )}
                 </Box>
               </Box>
             </motion.div>
