@@ -2,8 +2,11 @@
 
 export const personalInfo = {
     name: "Sohidul Islam",
+    nickname: "Shufol",
+    fullNameWithNick: "Sohidul Islam (Shufol)",
     handle: "sishufol",
     domain: "sohidul.dev",
+    secondaryDomain: "sishufol.com",
     title: "Software Engineer II | Full-Stack Engineer",
     subtitle: "3+ Years Professional Experience • Scalable Web, Cloud & AI Systems",
     email: "shufol.cse@gmail.com",
