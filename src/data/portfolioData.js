@@ -320,7 +320,7 @@ export const education = [
         id: "hsc",
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Moulavi Shamsul Karim College",
-        period: "2016 – 2018",
+        period: "2018",
         location: "Feni, Bangladesh",
         badge: "Higher Secondary",
         details: "Concentration in Science: Higher Mathematics, Physics, Chemistry, and Information & Communication Technology."
@@ -328,8 +328,8 @@ export const education = [
     {
         id: "ssc",
         degree: "Secondary School Certificate (SSC)",
-        institution: "Chhagalnaiya Pilot High School",
-        period: "2014 – 2016",
+        institution: "Chhagalnaiya Academy",
+        period: "2016",
         location: "Feni, Bangladesh",
         badge: "Secondary School",
         details: "Concentration in General Science, Mathematics, Physics, and Foundational Computing."
