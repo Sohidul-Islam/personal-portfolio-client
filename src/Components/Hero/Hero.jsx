@@ -108,7 +108,7 @@ export default function Hero() {
                     fontFamily: "var(--font-mono)",
                   }}
                 >
-                  Sohidul Islam (sishufol)
+                  Sohidul Islam Shufol (sishufol)
                 </Box>
                 Engineering{" "}
                 <span className="gradient-text">Scalable &amp; Intelligent</span>{" "}
@@ -420,7 +420,7 @@ export default function Hero() {
                 >
                   <img
                     src={profileImg}
-                    alt="Sohidul Islam (sishufol) - Software Engineer II &amp; Full-Stack Developer"
+                    alt="Sohidul Islam Shufol (sishufol / si shufol) - Software Engineer II &amp; Full-Stack Developer"
                     loading="eager"
                     style={{
                       width: "100%",
