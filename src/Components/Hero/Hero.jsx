@@ -100,10 +100,10 @@ export default function Hero() {
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: "2.4rem", sm: "3.4rem", md: "4.1rem" },
+                  fontSize: { xs: "2.1rem", sm: "3.2rem", md: "4.1rem" },
                   fontWeight: 800,
-                  lineHeight: 1.12,
-                  letterSpacing: "-1.5px",
+                  lineHeight: 1.15,
+                  letterSpacing: { xs: "-0.8px", sm: "-1.5px" },
                   color: "var(--text-primary)",
                   mb: 2,
                 }}
