@@ -60,7 +60,7 @@ export default function Footer() {
             variant="body2"
             sx={{ color: "var(--text-secondary)", textAlign: "center" }}
           >
-            © {new Date().getFullYear()} Sohidul Islam (sishufol) • Software Engineer II • sohidul.dev
+            © {new Date().getFullYear()} Sohidul Islam Shufol (sishufol) • Software Engineer II • sohidul.dev
           </Typography>
 
           {/* Back To Top Button */}
