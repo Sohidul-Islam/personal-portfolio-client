@@ -173,7 +173,7 @@ export default function About() {
                     />
                     <Chip
                       icon={<MapPin size={15} />}
-                      label="Dhaka, Bangladesh"
+                      label="Feni, Dhaka 3910, Bangladesh"
                       size="small"
                       sx={{
                         backgroundColor: "var(--bg-primary)",

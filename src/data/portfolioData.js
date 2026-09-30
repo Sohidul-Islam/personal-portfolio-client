@@ -8,7 +8,7 @@ export const personalInfo = {
     subtitle: "3+ Years Professional Experience • Scalable Web, Cloud & AI Systems",
     email: "shufol.cse@gmail.com",
     phone: "01854107699",
-    location: "Basabo, Dhaka, Bangladesh",
+    location: "Chhagalnaiya - Box Mahmud Road, Feni, Dhaka 3910, Bangladesh",
     status: "Available for Senior Roles & Impactful Projects",
 
     socials: {
