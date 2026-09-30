@@ -135,8 +135,8 @@ export default function About() {
                       mb: 2,
                     }}
                   >
-                    I am a{" "}
-                    <strong>Software Engineer II &amp; Full-Stack Specialist</strong>{" "}
+                    I am <strong>Sohidul Islam</strong> (known across developer communities as <strong>sishufol</strong> and creator of <strong>sohidul.dev</strong>), a{" "}
+                    <strong>Software Engineer II &amp; Full-Stack Developer</strong>{" "}
                     with over 3 years of commercial experience delivering enterprise-grade
                     web platforms. I specialize in translating domain complexity into
                     clean architectures, high-performance APIs, and intuitive user experiences.
@@ -160,6 +160,17 @@ export default function About() {
 
                   {/* Credentials Badges */}
                   <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.2, mb: 3.5 }}>
+                    <Chip
+                      icon={<ExternalLink size={15} />}
+                      label="sohidul.dev (Official)"
+                      size="small"
+                      sx={{
+                        backgroundColor: "rgba(0, 240, 255, 0.12)",
+                        color: "var(--accent-cyan)",
+                        fontWeight: 700,
+                        border: "1px solid rgba(0, 240, 255, 0.3)",
+                      }}
+                    />
                     <Chip
                       icon={<MapPin size={15} />}
                       label="Dhaka, Bangladesh"

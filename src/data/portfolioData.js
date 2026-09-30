@@ -2,6 +2,8 @@
 
 export const personalInfo = {
     name: "Sohidul Islam",
+    handle: "sishufol",
+    domain: "sohidul.dev",
     title: "Software Engineer II | Full-Stack Engineer",
     subtitle: "3+ Years Professional Experience • Scalable Web, Cloud & AI Systems",
     email: "shufol.cse@gmail.com",
@@ -12,6 +14,8 @@ export const personalInfo = {
     socials: {
         github: "https://github.com/Sohidul-Islam",
         linkedin: "https://www.linkedin.com/in/sishufol",
+        facebook: "https://www.facebook.com/sishufol",
+        twitter: "https://twitter.com/sishufol",
         portfolio: "https://sohidul-islam.vercel.app",
         leetcode: "https://leetcode.com/u/CSE01806649/",
         codeforces: "https://codeforces.com/profile/sohidul_pciu",
@@ -23,7 +27,9 @@ export const personalInfo = {
     typingRoles: [
         "Software Engineer II",
         "Full-Stack Architect",
-        "AWS Cloud Solutions Engineer",
+        "Full-Stack Developer",
+        "JavaScript & TypeScript Engineer",
+        "AWS Cloud Solutions Architect",
         "AI & Workflow Automation Builder",
         "Real-Time Systems Developer"
     ],

@@ -14,6 +14,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { Mail, ArrowRight, Cpu } from "lucide-react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import FacebookIcon from "@mui/icons-material/Facebook";
 import { personalInfo } from "../../data/portfolioData";
 import profileImg from "../../images/shufol.jpg";
 
@@ -94,6 +95,21 @@ export default function Hero() {
                   mb: 2,
                 }}
               >
+                <Box
+                  component="span"
+                  sx={{
+                    display: "block",
+                    fontSize: { xs: "1.1rem", sm: "1.3rem", md: "1.45rem" },
+                    fontWeight: 700,
+                    letterSpacing: "1.5px",
+                    color: "var(--accent-cyan)",
+                    textTransform: "uppercase",
+                    mb: 1.5,
+                    fontFamily: "var(--font-mono)",
+                  }}
+                >
+                  Sohidul Islam (sishufol)
+                </Box>
                 Engineering{" "}
                 <span className="gradient-text">Scalable &amp; Intelligent</span>{" "}
                 Digital Products.
@@ -285,6 +301,27 @@ export default function Hero() {
                   </IconButton>
 
                   <IconButton
+                    href={personalInfo.socials.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook profile of Sohidul Islam (sishufol)"
+                    sx={{
+                      color: "var(--text-primary)",
+                      border: "1px solid var(--border-subtle)",
+                      backgroundColor: "var(--bg-card)",
+                      borderRadius: "10px",
+                      p: 1.2,
+                      "&:hover": {
+                        borderColor: "var(--accent-cyan)",
+                        color: "var(--accent-cyan)",
+                        transform: "translateY(-2px)",
+                      },
+                    }}
+                  >
+                    <FacebookIcon fontSize="small" />
+                  </IconButton>
+
+                  <IconButton
                     href={`mailto:${personalInfo.email}`}
                     aria-label="Send email to Sohidul Islam"
                     sx={{
@@ -383,7 +420,7 @@ export default function Hero() {
                 >
                   <img
                     src={profileImg}
-                    alt="Sohidul Islam - Software Engineer II"
+                    alt="Sohidul Islam (sishufol) - Software Engineer II &amp; Full-Stack Developer"
                     loading="eager"
                     style={{
                       width: "100%",

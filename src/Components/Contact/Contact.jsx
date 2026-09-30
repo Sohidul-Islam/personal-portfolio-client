@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import FacebookIcon from "@mui/icons-material/Facebook";
 import emailjs from "@emailjs/browser";
 import { personalInfo } from "../../data/portfolioData";
 
@@ -411,6 +412,29 @@ export default function Contact() {
                     </Button>
                     <Button
                       component="a"
+                      href={personalInfo.socials.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      startIcon={<FacebookIcon fontSize="small" />}
+                      size="small"
+                      sx={{
+                        borderRadius: "10px",
+                        backgroundColor: "var(--bg-primary)",
+                        border: "1px solid var(--border-subtle)",
+                        color: "var(--text-primary)",
+                        fontWeight: 600,
+                        textTransform: "none",
+                        fontSize: "0.82rem",
+                        "&:hover": {
+                          borderColor: "var(--accent-cyan)",
+                          color: "var(--accent-cyan)",
+                        },
+                      }}
+                    >
+                      Facebook
+                    </Button>
+                    <Button
+                      component="a"
                       href={personalInfo.socials.leetcode}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -431,6 +455,29 @@ export default function Contact() {
                       }}
                     >
                       LeetCode
+                    </Button>
+                    <Button
+                      component="a"
+                      href={personalInfo.socials.codeforces}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      endIcon={<ExternalLink size={14} />}
+                      size="small"
+                      sx={{
+                        borderRadius: "10px",
+                        backgroundColor: "var(--bg-primary)",
+                        border: "1px solid var(--border-subtle)",
+                        color: "var(--text-primary)",
+                        fontWeight: 600,
+                        textTransform: "none",
+                        fontSize: "0.82rem",
+                        "&:hover": {
+                          borderColor: "var(--accent-violet)",
+                          color: "var(--accent-violet)",
+                        },
+                      }}
+                    >
+                      Codeforces
                     </Button>
                   </Box>
                 </Box>
