@@ -135,7 +135,7 @@ export default function About() {
                       mb: 2,
                     }}
                   >
-                    I am <strong>Sohidul Islam</strong> (known across developer communities as <strong>sishufol</strong> and creator of <strong>sohidul.dev</strong>), a{" "}
+                    I am <strong>Sohidul Islam (Shufol)</strong>, known across developer communities and official platforms as <strong>sishufol</strong> (and <strong>si shufol</strong> / <strong>sohidul.dev</strong> / <strong>sishufol.com</strong>), a{" "}
                     <strong>Software Engineer II &amp; Full-Stack Developer</strong>{" "}
                     with over 3 years of commercial experience delivering enterprise-grade
                     web platforms. I specialize in translating domain complexity into
@@ -162,7 +162,7 @@ export default function About() {
                   <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.2, mb: 3.5 }}>
                     <Chip
                       icon={<ExternalLink size={15} />}
-                      label="sohidul.dev (Official)"
+                      label="sohidul.dev / sishufol.com"
                       size="small"
                       sx={{
                         backgroundColor: "rgba(0, 240, 255, 0.12)",
