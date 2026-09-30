@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Typography, Chip, Button } from "@mui/material";
+import { Box, Container, Typography, Grid, Chip, Button } from "@mui/material";
 import { motion } from "framer-motion";
 import {
   GraduationCap,
@@ -7,16 +7,20 @@ import {
   MapPin,
   FileText,
   ExternalLink,
-  Award,
+  BookOpen,
+  School,
 } from "lucide-react";
 import { education } from "../../data/portfolioData";
 
 export default function Education() {
+  const university = education.find((e) => e.id === "bsc-cse") || education[0];
+  const secondaryEducation = education.filter((e) => e.id !== "bsc-cse");
+
   return (
     <Box
       id="education"
       component="section"
-      aria-label="Academic Background and Research"
+      aria-label="Academic Background and Education"
       sx={{
         py: { xs: 8, md: 12 },
         position: "relative",
@@ -27,7 +31,7 @@ export default function Education() {
     >
       <Container maxWidth="lg">
         {/* Section Header */}
-        <Box sx={{ textAlign: "center", mb: 8 }}>
+        <Box sx={{ textAlign: "center", mb: 7 }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +49,7 @@ export default function Education() {
                 display: "block",
               }}
             >
-              Academic Qualifications &amp; Research
+              Academic Background
             </Typography>
             <Typography
               variant="h2"
@@ -68,20 +72,19 @@ export default function Education() {
                 fontSize: "1rem",
               }}
             >
-              Rigorous computer science foundations combined with published machine learning research.
+              Foundational computer science education and academic background.
             </Typography>
           </motion.div>
         </Box>
 
-        {/* Education Card Container */}
-        <Box sx={{ maxWidth: "860px", mx: "auto" }}>
-          {education.map((item, idx) => (
+        {/* Featured University Degree Card */}
+        {university && (
+          <Box sx={{ maxWidth: "920px", mx: "auto", mb: 4 }}>
             <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              transition={{ duration: 0.5 }}
             >
               <Box
                 className="glass-card"
@@ -89,10 +92,10 @@ export default function Education() {
                   p: { xs: 3.5, sm: 4.5 },
                   borderRadius: "22px",
                   position: "relative",
+                  borderColor: "var(--border-accent)",
+                  boxShadow: "var(--shadow-glow)",
                   transition: "all 0.3s ease",
                   "&:hover": {
-                    borderColor: "var(--border-accent)",
-                    boxShadow: "var(--shadow-glow)",
                     transform: "translateY(-3px)",
                   },
                 }}
@@ -111,8 +114,8 @@ export default function Education() {
                   <Box sx={{ display: "flex", alignItems: "center", gap: 1.8 }}>
                     <Box
                       sx={{
-                        width: 48,
-                        height: 48,
+                        width: 50,
+                        height: 50,
                         borderRadius: "14px",
                         backgroundColor: "var(--bg-primary)",
                         border: "1px solid var(--border-subtle)",
@@ -123,7 +126,7 @@ export default function Education() {
                         flexShrink: 0,
                       }}
                     >
-                      <GraduationCap size={24} />
+                      <GraduationCap size={26} />
                     </Box>
                     <Box>
                       <Typography
@@ -131,29 +134,28 @@ export default function Education() {
                         sx={{
                           fontWeight: 800,
                           color: "var(--text-primary)",
-                          fontSize: { xs: "1.25rem", sm: "1.4rem" },
+                          fontSize: { xs: "1.25rem", sm: "1.45rem" },
                           letterSpacing: "-0.3px",
                         }}
                       >
-                        {item.degree}
+                        {university.degree}
                       </Typography>
                       <Typography
                         variant="subtitle1"
                         sx={{
                           color: "var(--accent-cyan)",
                           fontWeight: 700,
-                          fontSize: "1rem",
+                          fontSize: "1.02rem",
                         }}
                       >
-                        {item.institution}
+                        {university.institution}
                       </Typography>
                     </Box>
                   </Box>
 
-                  {item.badge && (
+                  {university.badge && (
                     <Chip
-                      icon={<Award size={14} color="var(--accent-cyan)" />}
-                      label={item.badge}
+                      label={university.badge}
                       size="small"
                       sx={{
                         backgroundColor: "rgba(0, 240, 255, 0.12)",
@@ -165,7 +167,7 @@ export default function Education() {
                   )}
                 </Box>
 
-                {/* Meta details */}
+                {/* Period & Location (No Results/Grades) */}
                 <Box
                   sx={{
                     display: "flex",
@@ -181,32 +183,20 @@ export default function Education() {
                       variant="caption"
                       sx={{ color: "var(--text-secondary)", fontWeight: 600 }}
                     >
-                      {item.period}
+                      {university.period}
                     </Typography>
                   </Box>
 
                   <Box sx={{ display: "flex", alignItems: "center", gap: 0.6 }}>
                     <MapPin size={14} color="var(--text-muted)" />
                     <Typography variant="caption" sx={{ color: "var(--text-muted)", fontWeight: 600 }}>
-                      {item.location}
+                      {university.location}
                     </Typography>
                   </Box>
-
-                  <Chip
-                    label={item.grade}
-                    size="small"
-                    sx={{
-                      backgroundColor: "var(--bg-primary)",
-                      border: "1px solid var(--border-subtle)",
-                      color: "var(--text-primary)",
-                      fontWeight: 700,
-                      fontSize: "0.75rem",
-                    }}
-                  />
                 </Box>
 
                 {/* Thesis & IEEE Paper Showcase */}
-                {item.thesis && (
+                {university.thesis && (
                   <Box
                     sx={{
                       p: 3,
@@ -235,7 +225,7 @@ export default function Education() {
                           fontSize: "0.72rem",
                         }}
                       >
-                        Undergraduate Thesis &amp; IEEE Published Research
+                        Undergraduate Thesis &amp; Published Research
                       </Typography>
                     </Box>
                     <Typography
@@ -245,17 +235,17 @@ export default function Education() {
                         fontWeight: 600,
                         fontSize: "0.95rem",
                         lineHeight: 1.6,
-                        mb: item.publicationUrl ? 2 : 0,
+                        mb: university.publicationUrl ? 2 : 0,
                       }}
                     >
-                      "{item.thesis}"
+                      "{university.thesis}"
                     </Typography>
 
-                    {item.publicationUrl && (
+                    {university.publicationUrl && (
                       <Button
                         variant="outlined"
                         size="small"
-                        href={item.publicationUrl}
+                        href={university.publicationUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         endIcon={<ExternalLink size={14} />}
@@ -278,17 +268,157 @@ export default function Education() {
                   </Box>
                 )}
 
-                {item.details && (
+                {university.details && (
                   <Typography
                     variant="body2"
                     sx={{ color: "var(--text-secondary)", lineHeight: 1.65, fontSize: "0.9rem" }}
                   >
-                    {item.details}
+                    {university.details}
                   </Typography>
                 )}
               </Box>
             </motion.div>
-          ))}
+          </Box>
+        )}
+
+        {/* College & School Cards Grid (No Results/Grades) */}
+        <Box sx={{ maxWidth: "920px", mx: "auto" }}>
+          <Grid container spacing={3}>
+            {secondaryEducation.map((item, idx) => {
+              const isCollege = item.id === "hsc";
+              const Icon = isCollege ? BookOpen : School;
+
+              return (
+                <Grid item xs={12} sm={6} key={item.id}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    style={{ height: "100%" }}
+                  >
+                    <Box
+                      className="glass-card"
+                      sx={{
+                        p: { xs: 3, sm: 3.5 },
+                        borderRadius: "20px",
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          borderColor: "var(--border-accent)",
+                          boxShadow: "var(--shadow-glow)",
+                          transform: "translateY(-3px)",
+                        },
+                      }}
+                    >
+                      <Box>
+                        {/* Header */}
+                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 2 }}>
+                          <Box
+                            sx={{
+                              width: 42,
+                              height: 42,
+                              borderRadius: "12px",
+                              backgroundColor: "var(--bg-primary)",
+                              border: "1px solid var(--border-subtle)",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              color: isCollege ? "var(--accent-violet)" : "var(--accent-cyan)",
+                            }}
+                          >
+                            <Icon size={20} />
+                          </Box>
+                          <Chip
+                            label={item.badge}
+                            size="small"
+                            sx={{
+                              backgroundColor: "var(--bg-primary)",
+                              border: "1px solid var(--border-subtle)",
+                              color: "var(--text-muted)",
+                              fontSize: "0.72rem",
+                              fontWeight: 600,
+                            }}
+                          />
+                        </Box>
+
+                        <Typography
+                          variant="h3"
+                          sx={{
+                            fontWeight: 800,
+                            color: "var(--text-primary)",
+                            fontSize: "1.15rem",
+                            mb: 0.5,
+                            letterSpacing: "-0.2px",
+                          }}
+                        >
+                          {item.degree}
+                        </Typography>
+
+                        <Typography
+                          variant="subtitle2"
+                          sx={{
+                            color: isCollege ? "var(--accent-violet)" : "var(--accent-cyan)",
+                            fontWeight: 700,
+                            fontSize: "0.95rem",
+                            mb: 2,
+                          }}
+                        >
+                          {item.institution}
+                        </Typography>
+
+                        {/* Period & Location */}
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                            alignItems: "center",
+                            gap: 1.8,
+                            mb: 2,
+                          }}
+                        >
+                          <Box sx={{ display: "flex", alignItems: "center", gap: 0.6 }}>
+                            <Calendar size={13} color="var(--text-muted)" />
+                            <Typography
+                              variant="caption"
+                              sx={{ color: "var(--text-secondary)", fontWeight: 600 }}
+                            >
+                              {item.period}
+                            </Typography>
+                          </Box>
+
+                          <Box sx={{ display: "flex", alignItems: "center", gap: 0.6 }}>
+                            <MapPin size={13} color="var(--text-muted)" />
+                            <Typography variant="caption" sx={{ color: "var(--text-muted)", fontWeight: 600 }}>
+                              {item.location}
+                            </Typography>
+                          </Box>
+                        </Box>
+                      </Box>
+
+                      {item.details && (
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: "var(--text-secondary)",
+                            lineHeight: 1.55,
+                            fontSize: "0.85rem",
+                            pt: 1.5,
+                            borderTop: "1px solid var(--border-subtle)",
+                          }}
+                        >
+                          {item.details}
+                        </Typography>
+                      )}
+                    </Box>
+                  </motion.div>
+                </Grid>
+              );
+            })}
+          </Grid>
         </Box>
       </Container>
     </Box>

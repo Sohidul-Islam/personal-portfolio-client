@@ -1,4 +1,4 @@
-// Grounded, verified portfolio data for Sohidul Islam.
+﻿// Grounded, verified portfolio data for Sohidul Islam.
 
 export const personalInfo = {
     name: "Sohidul Islam",
