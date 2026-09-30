@@ -9,6 +9,7 @@ import {
   Cloud,
   Activity,
   Bot,
+  Brain,
   CheckCircle2,
 } from "lucide-react";
 import { skillCategories } from "../../data/portfolioData";
@@ -49,6 +50,12 @@ const categoryMeta = {
     title: "Real-Time & Architecture",
     desc: "Low-latency WebSocket duplex communication, async message queues, and billing.",
     color: "var(--accent-violet)",
+  },
+  ai_ml_analytics: {
+    icon: Brain,
+    title: "AI, ML & Data Analytics",
+    desc: "Machine learning research, deep neural networks, audio signal processing, and production LLM automation.",
+    color: "var(--accent-rose)",
   },
   ai_automation: {
     icon: Bot,
@@ -199,7 +206,7 @@ export default function Skills() {
                   item
                   xs={12}
                   md={6}
-                  lg={category.id === "ai_automation" ? 12 : 4}
+                  lg={category.id === "ai_ml_analytics" || category.id === "ai_automation" ? 12 : 4}
                   key={category.id}
                 >
                   <motion.div

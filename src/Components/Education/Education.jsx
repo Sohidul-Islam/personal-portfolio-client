@@ -9,6 +9,7 @@ import {
   ExternalLink,
   BookOpen,
   School,
+  Code2,
 } from "lucide-react";
 import { education } from "../../data/portfolioData";
 
@@ -241,30 +242,58 @@ export default function Education() {
                       "{university.thesis}"
                     </Typography>
 
-                    {university.publicationUrl && (
-                      <Button
-                        variant="outlined"
-                        size="small"
-                        href={university.publicationUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        endIcon={<ExternalLink size={14} />}
-                        sx={{
-                          borderRadius: "8px",
-                          borderColor: "var(--border-accent)",
-                          color: "var(--accent-cyan)",
-                          fontWeight: 700,
-                          textTransform: "none",
-                          fontSize: "0.82rem",
-                          "&:hover": {
-                            borderColor: "var(--accent-cyan)",
-                            backgroundColor: "rgba(0, 240, 255, 0.08)",
-                          },
-                        }}
-                      >
-                        View Official Publication on IEEE Xplore
-                      </Button>
-                    )}
+                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5, mt: 2 }}>
+                      {university.publicationUrl && (
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          href={university.publicationUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          endIcon={<ExternalLink size={14} />}
+                          sx={{
+                            borderRadius: "8px",
+                            borderColor: "var(--border-accent)",
+                            color: "var(--accent-cyan)",
+                            fontWeight: 700,
+                            textTransform: "none",
+                            fontSize: "0.82rem",
+                            "&:hover": {
+                              borderColor: "var(--accent-cyan)",
+                              backgroundColor: "rgba(0, 240, 255, 0.08)",
+                            },
+                          }}
+                        >
+                          View Official Publication on IEEE Xplore
+                        </Button>
+                      )}
+
+                      {university.codeUrl && (
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          href={university.codeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          startIcon={<Code2 size={14} />}
+                          endIcon={<ExternalLink size={14} />}
+                          sx={{
+                            borderRadius: "8px",
+                            borderColor: "rgba(139, 92, 246, 0.4)",
+                            color: "var(--accent-violet)",
+                            fontWeight: 700,
+                            textTransform: "none",
+                            fontSize: "0.82rem",
+                            "&:hover": {
+                              borderColor: "var(--accent-violet)",
+                              backgroundColor: "rgba(139, 92, 246, 0.08)",
+                            },
+                          }}
+                        >
+                          Research Codebase (GitHub)
+                        </Button>
+                      )}
+                    </Box>
                   </Box>
                 )}
 

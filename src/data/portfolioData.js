@@ -1,4 +1,4 @@
-﻿// Grounded, verified portfolio data for Sohidul Islam.
+// Grounded, verified portfolio data for Sohidul Islam.
 
 export const personalInfo = {
     name: "Sohidul Islam",
@@ -99,9 +99,13 @@ export const skillCategories = [
         ]
     },
     {
-        id: "ai_automation",
-        label: "AI & Automation",
+        id: "ai_ml_analytics",
+        label: "AI, ML & Data Analytics",
         skills: [
+            { name: "Machine Learning & Deep Learning (CNN, LSTM)", level: "Advanced", icon: "Brain" },
+            { name: "Data Analytics (Pandas, NumPy, Matplotlib)", level: "Advanced", icon: "BarChart3" },
+            { name: "Audio Signal & Speech Processing (MFCC)", level: "Advanced", icon: "Mic" },
+            { name: "Scikit-Learn & Feature Engineering", level: "Advanced", icon: "Cpu" },
             { name: "OpenAI API & LLM Integration", level: "Advanced", icon: "Bot" },
             { name: "Workflow Automation (n8n, Zapier)", level: "Advanced", icon: "Workflow" }
         ]
@@ -294,7 +298,8 @@ export const awards = [
         date: "Published 2025",
         badge: "IEEE Research",
         description: "Co-authored and published peer-reviewed research on Machine Learning & Deep Learning architectures for acoustic emotion classification in the Bangla language.",
-        link: "https://ieeexplore.ieee.org/document/11005193"
+        link: "https://ieeexplore.ieee.org/document/11005193",
+        codeUrl: "https://github.com/Sohidul-Islam/BANGLA-SPEECH-EMOTION-RECOGNITION-USING-MACHINE-LEARNING-AND-DEEP-LEARNING-METHODS"
     }
 ];
 
@@ -305,10 +310,28 @@ export const education = [
         institution: "Port City International University",
         period: "01/2019 – 01/2023",
         location: "Chattogram, Bangladesh",
-        grade: "CGPA: 3.93 / 4.00 (High Honors)",
         badge: "Graduated with High Honors",
         thesis: "Bangla Speech Emotion Recognition Using Machine Learning and Deep Learning Methods.",
         publicationUrl: "https://ieeexplore.ieee.org/document/11005193",
-        details: "Core focus on Data Structures & Algorithms, Distributed Systems, Machine Learning, and Software Architecture. Graduated at the top of the graduating class."
+        codeUrl: "https://github.com/Sohidul-Islam/BANGLA-SPEECH-EMOTION-RECOGNITION-USING-MACHINE-LEARNING-AND-DEEP-LEARNING-METHODS",
+        details: "Comprehensive coursework in Data Structures, Algorithms, Distributed Systems, Machine Learning, and Software Architecture. Published IEEE research author."
+    },
+    {
+        id: "hsc",
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Moulavi Shamsul Karim College",
+        period: "2016 – 2018",
+        location: "Feni, Bangladesh",
+        badge: "Higher Secondary",
+        details: "Concentration in Science: Higher Mathematics, Physics, Chemistry, and Information & Communication Technology."
+    },
+    {
+        id: "ssc",
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Chhagalnaiya Pilot High School",
+        period: "2014 – 2016",
+        location: "Feni, Bangladesh",
+        badge: "Secondary School",
+        details: "Concentration in General Science, Mathematics, Physics, and Foundational Computing."
     }
 ];

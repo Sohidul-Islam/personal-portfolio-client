@@ -5,6 +5,7 @@ import {
   Code,
   Cloud,
   Bot,
+  Brain,
   Award,
   BookOpen,
   MapPin,
@@ -27,9 +28,9 @@ const pillars = [
     color: "var(--accent-violet)",
   },
   {
-    icon: Bot,
-    title: "AI Integration & Automation",
-    desc: "Operationalizing generative LLMs, automated document parsing pipelines, and asynchronous business workflow orchestration with n8n and Zapier.",
+    icon: Brain,
+    title: "AI, ML & Data Analytics",
+    desc: "Machine learning research (deep neural networks, acoustic feature extraction with MFCC), empirical data analytics with Pandas/NumPy, and enterprise LLM automation workflows.",
     color: "var(--accent-rose)",
   },
 ];
@@ -150,10 +151,11 @@ export default function About() {
                       mb: 3.5,
                     }}
                   >
-                    My day-to-day focus spans client-side engineering with React.js and Next.js,
+                    My technical focus spans client-side engineering with React.js and Next.js,
                     resilient microservices with Node.js and NestJS, and cloud infrastructure
-                    on AWS. Additionally, I build automated AI ingestion pipelines and
-                    duplex real-time synchronization channels using WebSockets.
+                    on AWS. Alongside web engineering, I conduct Machine Learning and Data Analytics
+                    research in speech emotion recognition using Python, deep learning neural networks,
+                    and automated AI workflows.
                   </Typography>
 
                   {/* Credentials Badges */}
@@ -171,7 +173,7 @@ export default function About() {
                     />
                     <Chip
                       icon={<BookOpen size={15} />}
-                      label="BSc in CSE (CGPA 3.93 Honors)"
+                      label="BSc in Computer Science (Honors)"
                       size="small"
                       sx={{
                         backgroundColor: "var(--bg-primary)",
@@ -198,7 +200,7 @@ export default function About() {
                       rel="noopener noreferrer"
                       clickable
                       icon={<FileCheck size={15} />}
-                      label="IEEE Xplore Research Author"
+                      label="IEEE Research Author"
                       size="small"
                       sx={{
                         backgroundColor: "rgba(139, 92, 246, 0.12)",
@@ -207,6 +209,25 @@ export default function About() {
                         border: "1px solid rgba(139, 92, 246, 0.3)",
                         "&:hover": {
                           backgroundColor: "rgba(139, 92, 246, 0.2)",
+                        },
+                      }}
+                    />
+                    <Chip
+                      component="a"
+                      href="https://github.com/Sohidul-Islam/BANGLA-SPEECH-EMOTION-RECOGNITION-USING-MACHINE-LEARNING-AND-DEEP-LEARNING-METHODS"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      clickable
+                      icon={<Code size={15} />}
+                      label="Research Codebase (GitHub)"
+                      size="small"
+                      sx={{
+                        backgroundColor: "rgba(0, 240, 255, 0.08)",
+                        color: "var(--accent-cyan)",
+                        fontWeight: 700,
+                        border: "1px solid rgba(0, 240, 255, 0.25)",
+                        "&:hover": {
+                          backgroundColor: "rgba(0, 240, 255, 0.16)",
                         },
                       }}
                     />

@@ -6,6 +6,7 @@ import {
   Calendar,
   Building2,
   ExternalLink,
+  Code2,
 } from "lucide-react";
 import { awards } from "../../data/portfolioData";
 
@@ -194,29 +195,59 @@ export default function Achievements() {
                     {award.description}
                   </Typography>
 
-                  {award.link && (
-                    <Button
-                      variant="outlined"
-                      size="small"
-                      href={award.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      endIcon={<ExternalLink size={14} />}
-                      sx={{
-                        borderRadius: "8px",
-                        borderColor: "var(--border-accent)",
-                        color: "var(--accent-cyan)",
-                        fontWeight: 700,
-                        textTransform: "none",
-                        fontSize: "0.82rem",
-                        "&:hover": {
-                          borderColor: "var(--accent-cyan)",
-                          backgroundColor: "rgba(0, 240, 255, 0.08)",
-                        },
-                      }}
-                    >
-                      View Publication on IEEE Xplore
-                    </Button>
+                  {(award.link || award.codeUrl) && (
+                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5, mt: 2.5 }}>
+                      {award.link && (
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          href={award.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          endIcon={<ExternalLink size={14} />}
+                          sx={{
+                            borderRadius: "8px",
+                            borderColor: "var(--border-accent)",
+                            color: "var(--accent-cyan)",
+                            fontWeight: 700,
+                            textTransform: "none",
+                            fontSize: "0.82rem",
+                            "&:hover": {
+                              borderColor: "var(--accent-cyan)",
+                              backgroundColor: "rgba(0, 240, 255, 0.08)",
+                            },
+                          }}
+                        >
+                          View Publication on IEEE Xplore
+                        </Button>
+                      )}
+
+                      {award.codeUrl && (
+                        <Button
+                          variant="outlined"
+                          size="small"
+                          href={award.codeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          startIcon={<Code2 size={14} />}
+                          endIcon={<ExternalLink size={14} />}
+                          sx={{
+                            borderRadius: "8px",
+                            borderColor: "rgba(139, 92, 246, 0.4)",
+                            color: "var(--accent-violet)",
+                            fontWeight: 700,
+                            textTransform: "none",
+                            fontSize: "0.82rem",
+                            "&:hover": {
+                              borderColor: "var(--accent-violet)",
+                              backgroundColor: "rgba(139, 92, 246, 0.08)",
+                            },
+                          }}
+                        >
+                          Research Codebase (GitHub)
+                        </Button>
+                      )}
+                    </Box>
                   )}
                 </Box>
               </Box>
