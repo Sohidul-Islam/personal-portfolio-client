@@ -1,5 +1,18 @@
-﻿# https://www.robotstxt.org/robotstxt.html
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
 Sitemap: https://sohidul-islam.vercel.app/sitemap.xml
+Host: https://sohidul-islam.vercel.app

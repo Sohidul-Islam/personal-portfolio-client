@@ -17,6 +17,7 @@ export const personalInfo = {
     socials: {
         github: "https://github.com/Sohidul-Islam",
         linkedin: "https://www.linkedin.com/in/sishufol",
+        medium: "https://medium.com/@sishufol",
         facebook: "https://www.facebook.com/sishufol",
         twitter: "https://twitter.com/sishufol",
         portfolio: "https://sohidul-islam.vercel.app",
@@ -24,6 +25,22 @@ export const personalInfo = {
         codeforces: "https://codeforces.com/profile/sohidul_pciu",
         stopstalk: "https://www.stopstalk.com/user/profile/sishufol"
     },
+    searchVariations: [
+        "sishufol",
+        "Sishufol",
+        "siShufol",
+        "si shufol",
+        "sohidul islam",
+        "sohidul islam shufol",
+        "SOHIDUL ISLAM SHUFOL",
+        "Sohidul Islam Shufol",
+        "Shufol",
+        "SI Shufol",
+        "sohidul.dev",
+        "sishufol.com",
+        "sishufol.dev",
+        "sishfuol"
+    ],
 
     summary: "Software Engineer II with 3+ years of experience engineering scalable, high-availability web applications using React.js, Next.js, TypeScript, Node.js, NestJS, PostgreSQL, and MySQL. Proven track record deploying cloud services on AWS, architecting real-time systems with WebSockets, and automating workflows with LLMs and queue architectures.",
 

@@ -18,6 +18,19 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import { personalInfo } from "../../data/portfolioData";
 import profileImg from "../../images/shufol.jpg";
 
+const MediumIcon = ({ size = 18, ...props }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+    {...props}
+  >
+    <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+  </svg>
+);
+
 export default function Hero() {
   return (
     <Box
@@ -108,7 +121,7 @@ export default function Hero() {
                     fontFamily: "var(--font-mono)",
                   }}
                 >
-                  Sohidul Islam Shufol (sishufol)
+                  Sohidul Islam Shufol (sishufol / si shufol)
                 </Box>
                 Engineering{" "}
                 <span className="gradient-text">Scalable &amp; Intelligent</span>{" "}
@@ -322,6 +335,27 @@ export default function Hero() {
                   </IconButton>
 
                   <IconButton
+                    href={personalInfo.socials.medium}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Medium articles by Sohidul Islam (sishufol)"
+                    sx={{
+                      color: "var(--text-primary)",
+                      border: "1px solid var(--border-subtle)",
+                      backgroundColor: "var(--bg-card)",
+                      borderRadius: "10px",
+                      p: 1.2,
+                      "&:hover": {
+                        borderColor: "var(--accent-cyan)",
+                        color: "var(--accent-cyan)",
+                        transform: "translateY(-2px)",
+                      },
+                    }}
+                  >
+                    <MediumIcon size={18} />
+                  </IconButton>
+
+                  <IconButton
                     href={`mailto:${personalInfo.email}`}
                     aria-label="Send email to Sohidul Islam"
                     sx={{
@@ -420,7 +454,8 @@ export default function Hero() {
                 >
                   <img
                     src={profileImg}
-                    alt="Sohidul Islam Shufol (sishufol / si shufol) - Software Engineer II &amp; Full-Stack Developer"
+                    alt="Sohidul Islam Shufol (sishufol / si shufol / SOHIDUL ISLAM SHUFOL) - Software Engineer II & Full-Stack Developer"
+                    title="Sohidul Islam Shufol (sishufol) - Software Engineer II"
                     loading="eager"
                     style={{
                       width: "100%",

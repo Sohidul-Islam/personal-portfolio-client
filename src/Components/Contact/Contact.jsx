@@ -25,6 +25,19 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import emailjs from "@emailjs/browser";
 import { personalInfo } from "../../data/portfolioData";
 
+const MediumIcon = ({ size = 18, ...props }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+    {...props}
+  >
+    <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+  </svg>
+);
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -432,6 +445,29 @@ export default function Contact() {
                       }}
                     >
                       Facebook
+                    </Button>
+                    <Button
+                      component="a"
+                      href={personalInfo.socials.medium}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      startIcon={<MediumIcon size={16} />}
+                      size="small"
+                      sx={{
+                        borderRadius: "10px",
+                        backgroundColor: "var(--bg-primary)",
+                        border: "1px solid var(--border-subtle)",
+                        color: "var(--text-primary)",
+                        fontWeight: 600,
+                        textTransform: "none",
+                        fontSize: "0.82rem",
+                        "&:hover": {
+                          borderColor: "var(--accent-cyan)",
+                          color: "var(--accent-cyan)",
+                        },
+                      }}
+                    >
+                      Medium
                     </Button>
                     <Button
                       component="a"

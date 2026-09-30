@@ -135,8 +135,8 @@ export default function About() {
                       mb: 2,
                     }}
                   >
-                    I am <strong>Sohidul Islam (Shufol)</strong>, known across developer communities and official platforms as <strong>sishufol</strong> (and <strong>si shufol</strong> / <strong>sohidul.dev</strong> / <strong>sishufol.com</strong>), a{" "}
-                    <strong>Software Engineer II &amp; Full-Stack Developer</strong>{" "}
+                    I am <strong>Sohidul Islam Shufol</strong>, recognized across developer communities, research indices, and tech platforms as <strong>sishufol</strong> (also known as <strong>siShufol</strong>, <strong>si shufol</strong>, <strong>sohidul.dev</strong>, and <strong>sishufol.com</strong>), a{" "}
+                    <strong>Software Engineer II &amp; Full-Stack Architect</strong>{" "}
                     with over 3 years of commercial experience delivering enterprise-grade
                     web platforms. I specialize in translating domain complexity into
                     clean architectures, high-performance APIs, and intuitive user experiences.
