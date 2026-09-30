@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Typography, Grid, Chip, Button } from "@mui/material";
+import { Box, Container, Typography, Chip, Button } from "@mui/material";
 import { motion } from "framer-motion";
 import {
   GraduationCap,
@@ -7,6 +7,7 @@ import {
   MapPin,
   FileText,
   ExternalLink,
+  Award,
 } from "lucide-react";
 import { education } from "../../data/portfolioData";
 
@@ -14,6 +15,8 @@ export default function Education() {
   return (
     <Box
       id="education"
+      component="section"
+      aria-label="Academic Background and Research"
       sx={{
         py: { xs: 8, md: 12 },
         position: "relative",
@@ -22,7 +25,7 @@ export default function Education() {
         borderBottom: "1px solid var(--border-subtle)",
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         {/* Section Header */}
         <Box sx={{ textAlign: "center", mb: 8 }}>
           <motion.div
@@ -42,7 +45,7 @@ export default function Education() {
                 display: "block",
               }}
             >
-              Academic Qualifications
+              Academic Qualifications &amp; Research
             </Typography>
             <Typography
               variant="h2"
@@ -53,228 +56,240 @@ export default function Education() {
                 letterSpacing: "-1px",
               }}
             >
-              Education & <span className="gradient-text">Research</span>
+              Education &amp; <span className="gradient-text">Research</span>
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                color: "var(--text-secondary)",
+                mt: 1.5,
+                maxWidth: "600px",
+                mx: "auto",
+                fontSize: "1rem",
+              }}
+            >
+              Rigorous computer science foundations combined with published machine learning research.
             </Typography>
           </motion.div>
         </Box>
 
-        {/* Education Grid */}
-        <Grid container spacing={4} justifyContent="center">
+        {/* Education Card Container */}
+        <Box sx={{ maxWidth: "860px", mx: "auto" }}>
           {education.map((item, idx) => (
-            <Grid item xs={12} md={idx === 0 ? 12 : 6} key={item.id}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+            >
+              <Box
+                className="glass-card"
+                sx={{
+                  p: { xs: 3.5, sm: 4.5 },
+                  borderRadius: "22px",
+                  position: "relative",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    borderColor: "var(--border-accent)",
+                    boxShadow: "var(--shadow-glow)",
+                    transform: "translateY(-3px)",
+                  },
+                }}
               >
+                {/* Header Row */}
                 <Box
-                  className="glass-card"
                   sx={{
-                    p: { xs: 3.5, md: 4 },
-                    borderRadius: "24px",
-                    height: "100%",
                     display: "flex",
-                    flexDirection: "column",
+                    alignItems: "center",
                     justifyContent: "space-between",
-                    transition: "all 0.3s ease",
-                    "&:hover": {
-                      borderColor: "var(--border-accent)",
-                      boxShadow: "var(--shadow-glow)",
-                      transform: "translateY(-4px)",
-                    },
+                    mb: 2.5,
+                    flexWrap: "wrap",
+                    gap: 1.5,
                   }}
                 >
-                  <Box>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1.8 }}>
+                    <Box
+                      sx={{
+                        width: 48,
+                        height: 48,
+                        borderRadius: "14px",
+                        backgroundColor: "var(--bg-primary)",
+                        border: "1px solid var(--border-subtle)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "var(--accent-cyan)",
+                        flexShrink: 0,
+                      }}
+                    >
+                      <GraduationCap size={24} />
+                    </Box>
+                    <Box>
+                      <Typography
+                        variant="h3"
+                        sx={{
+                          fontWeight: 800,
+                          color: "var(--text-primary)",
+                          fontSize: { xs: "1.25rem", sm: "1.4rem" },
+                          letterSpacing: "-0.3px",
+                        }}
+                      >
+                        {item.degree}
+                      </Typography>
+                      <Typography
+                        variant="subtitle1"
+                        sx={{
+                          color: "var(--accent-cyan)",
+                          fontWeight: 700,
+                          fontSize: "1rem",
+                        }}
+                      >
+                        {item.institution}
+                      </Typography>
+                    </Box>
+                  </Box>
+
+                  {item.badge && (
+                    <Chip
+                      icon={<Award size={14} color="var(--accent-cyan)" />}
+                      label={item.badge}
+                      size="small"
+                      sx={{
+                        backgroundColor: "rgba(0, 240, 255, 0.12)",
+                        color: "var(--accent-cyan)",
+                        fontWeight: 700,
+                        border: "1px solid rgba(0, 240, 255, 0.25)",
+                      }}
+                    />
+                  )}
+                </Box>
+
+                {/* Meta details */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    alignItems: "center",
+                    gap: 2,
+                    mb: 3,
+                  }}
+                >
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 0.6 }}>
+                    <Calendar size={14} color="var(--text-muted)" />
+                    <Typography
+                      variant="caption"
+                      sx={{ color: "var(--text-secondary)", fontWeight: 600 }}
+                    >
+                      {item.period}
+                    </Typography>
+                  </Box>
+
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 0.6 }}>
+                    <MapPin size={14} color="var(--text-muted)" />
+                    <Typography variant="caption" sx={{ color: "var(--text-muted)", fontWeight: 600 }}>
+                      {item.location}
+                    </Typography>
+                  </Box>
+
+                  <Chip
+                    label={item.grade}
+                    size="small"
+                    sx={{
+                      backgroundColor: "var(--bg-primary)",
+                      border: "1px solid var(--border-subtle)",
+                      color: "var(--text-primary)",
+                      fontWeight: 700,
+                      fontSize: "0.75rem",
+                    }}
+                  />
+                </Box>
+
+                {/* Thesis & IEEE Paper Showcase */}
+                {item.thesis && (
+                  <Box
+                    sx={{
+                      p: 3,
+                      borderRadius: "14px",
+                      backgroundColor: "var(--bg-primary)",
+                      border: "1px solid var(--border-subtle)",
+                      mb: 2.5,
+                    }}
+                  >
                     <Box
                       sx={{
                         display: "flex",
                         alignItems: "center",
-                        justifyContent: "space-between",
-                        mb: 2,
-                        flexWrap: "wrap",
                         gap: 1,
+                        mb: 1,
                       }}
                     >
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 1.5 }}
-                      >
-                        <Box
-                          sx={{
-                            width: 44,
-                            height: 44,
-                            borderRadius: "12px",
-                            backgroundColor: "var(--bg-primary)",
-                            border: "1px solid var(--border-subtle)",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            color: "var(--accent-cyan)",
-                          }}
-                        >
-                          <GraduationCap size={24} />
-                        </Box>
-                        <Box>
-                          <Typography
-                            variant="h6"
-                            sx={{
-                              fontWeight: 800,
-                              color: "var(--text-primary)",
-                              fontSize: "1.2rem",
-                            }}
-                          >
-                            {item.degree}
-                          </Typography>
-                          <Typography
-                            variant="subtitle2"
-                            sx={{
-                              color: "var(--accent-cyan)",
-                              fontWeight: 700,
-                            }}
-                          >
-                            {item.institution}
-                          </Typography>
-                        </Box>
-                      </Box>
-
-                      {item.badge && (
-                        <Chip
-                          label={item.badge}
-                          size="small"
-                          sx={{
-                            backgroundColor: "rgba(0, 240, 255, 0.15)",
-                            color: "var(--accent-cyan)",
-                            fontWeight: 700,
-                          }}
-                        />
-                      )}
-                    </Box>
-
-                    <Box
-                      sx={{ display: "flex", flexWrap: "wrap", gap: 2, mb: 3 }}
-                    >
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 0.6 }}
-                      >
-                        <Calendar size={14} color="var(--text-muted)" />
-                        <Typography
-                          variant="caption"
-                          sx={{
-                            color: "var(--text-secondary)",
-                            fontWeight: 600,
-                          }}
-                        >
-                          {item.period}
-                        </Typography>
-                      </Box>
-
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", gap: 0.6 }}
-                      >
-                        <MapPin size={14} color="var(--text-muted)" />
-                        <Typography
-                          variant="caption"
-                          sx={{ color: "var(--text-muted)" }}
-                        >
-                          {item.location}
-                        </Typography>
-                      </Box>
-
-                      <Chip
-                        label={item.grade}
-                        size="small"
-                        sx={{
-                          backgroundColor: "var(--bg-primary)",
-                          border: "1px solid var(--border-subtle)",
-                          color: "var(--text-primary)",
-                          fontWeight: 700,
-                          fontSize: "0.75rem",
-                        }}
-                      />
-                    </Box>
-
-                    {item.thesis && (
-                      <Box
-                        sx={{
-                          p: 2,
-                          borderRadius: "12px",
-                          backgroundColor: "var(--bg-primary)",
-                          border: "1px solid var(--border-subtle)",
-                          mb: 2,
-                        }}
-                      >
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 1,
-                            mb: 0.5,
-                          }}
-                        >
-                          <FileText size={16} color="var(--accent-violet)" />
-                          <Typography
-                            variant="caption"
-                            sx={{
-                              fontWeight: 700,
-                              color: "var(--text-muted)",
-                              textTransform: "uppercase",
-                            }}
-                          >
-                            Undergraduate Thesis Project
-                          </Typography>
-                        </Box>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: "var(--text-secondary)",
-                            fontWeight: 600,
-                            lineHeight: 1.6,
-                            mb: item.publicationUrl ? 1.5 : 0,
-                          }}
-                        >
-                          {item.thesis}
-                        </Typography>
-                        {item.publicationUrl && (
-                          <Button
-                            variant="outlined"
-                            size="small"
-                            href={item.publicationUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            endIcon={<ExternalLink size={14} />}
-                            sx={{
-                              borderRadius: "8px",
-                              borderColor: "var(--border-accent)",
-                              color: "var(--accent-cyan)",
-                              fontWeight: 700,
-                              textTransform: "none",
-                              fontSize: "0.8rem",
-                              "&:hover": {
-                                borderColor: "var(--accent-cyan)",
-                                backgroundColor: "rgba(0, 240, 255, 0.08)",
-                              },
-                            }}
-                          >
-                            IEEE Xplore Publication
-                          </Button>
-                        )}
-                      </Box>
-                    )}
-
-                    {item.details && (
+                      <FileText size={16} color="var(--accent-violet)" />
                       <Typography
-                        variant="body2"
-                        sx={{ color: "var(--text-secondary)", lineHeight: 1.6 }}
+                        variant="caption"
+                        sx={{
+                          fontWeight: 700,
+                          color: "var(--accent-violet)",
+                          textTransform: "uppercase",
+                          letterSpacing: "0.8px",
+                          fontSize: "0.72rem",
+                        }}
                       >
-                        {item.details}
+                        Undergraduate Thesis &amp; IEEE Published Research
                       </Typography>
+                    </Box>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        color: "var(--text-primary)",
+                        fontWeight: 600,
+                        fontSize: "0.95rem",
+                        lineHeight: 1.6,
+                        mb: item.publicationUrl ? 2 : 0,
+                      }}
+                    >
+                      "{item.thesis}"
+                    </Typography>
+
+                    {item.publicationUrl && (
+                      <Button
+                        variant="outlined"
+                        size="small"
+                        href={item.publicationUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        endIcon={<ExternalLink size={14} />}
+                        sx={{
+                          borderRadius: "8px",
+                          borderColor: "var(--border-accent)",
+                          color: "var(--accent-cyan)",
+                          fontWeight: 700,
+                          textTransform: "none",
+                          fontSize: "0.82rem",
+                          "&:hover": {
+                            borderColor: "var(--accent-cyan)",
+                            backgroundColor: "rgba(0, 240, 255, 0.08)",
+                          },
+                        }}
+                      >
+                        View Official Publication on IEEE Xplore
+                      </Button>
                     )}
                   </Box>
-                </Box>
-              </motion.div>
-            </Grid>
+                )}
+
+                {item.details && (
+                  <Typography
+                    variant="body2"
+                    sx={{ color: "var(--text-secondary)", lineHeight: 1.65, fontSize: "0.9rem" }}
+                  >
+                    {item.details}
+                  </Typography>
+                )}
+              </Box>
+            </motion.div>
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   );

@@ -53,6 +53,7 @@ export default function Navbar() {
 
   return (
     <AppBar
+      component="header"
       position="fixed"
       elevation={0}
       sx={{
@@ -68,7 +69,7 @@ export default function Navbar() {
       }}
     >
       <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
+        <Toolbar component="nav" aria-label="Main Navigation" disableGutters sx={{ justifyContent: "space-between" }}>
           {/* Logo Brand */}
           <ScrollLink
             to="hero"

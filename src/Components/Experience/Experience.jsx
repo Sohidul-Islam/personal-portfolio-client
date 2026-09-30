@@ -6,6 +6,7 @@ import {
   MapPin,
   CheckCircle2,
   Building2,
+  Briefcase,
 } from "lucide-react";
 import { experiences } from "../../data/portfolioData";
 
@@ -13,13 +14,15 @@ export default function Experience() {
   return (
     <Box
       id="experience"
+      component="section"
+      aria-label="Professional Experience and Employment History"
       sx={{
         py: { xs: 8, md: 12 },
         position: "relative",
         backgroundColor: "var(--bg-primary)",
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         {/* Section Header */}
         <Box sx={{ textAlign: "center", mb: 8 }}>
           <motion.div
@@ -39,7 +42,7 @@ export default function Experience() {
                 display: "block",
               }}
             >
-              Career Journey
+              Career Trajectory
             </Typography>
             <Typography
               variant="h2"
@@ -52,247 +55,239 @@ export default function Experience() {
             >
               Professional <span className="gradient-text">Experience</span>
             </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                color: "var(--text-secondary)",
+                mt: 1.5,
+                maxWidth: "640px",
+                mx: "auto",
+                fontSize: "1rem",
+              }}
+            >
+              Engineering enterprise full-stack systems, cloud architectures, and
+              real-time features in fast-paced software environments.
+            </Typography>
           </motion.div>
         </Box>
 
-        {/* Experience Timeline */}
-        <Box sx={{ position: "relative", maxWidth: "1000px", mx: "auto" }}>
-          {/* Vertical Timeline Line */}
+        {/* Cohesive Vertical Timeline */}
+        <Box sx={{ position: "relative", pl: { xs: 3, sm: 6 } }}>
+          {/* Vertical Timeline Guide Line */}
           <Box
             sx={{
               position: "absolute",
-              top: 0,
-              bottom: 0,
-              left: { xs: "20px", md: "50%" },
+              top: 15,
+              bottom: 15,
+              left: { xs: 7, sm: 19 },
               width: "2px",
-              backgroundColor: "var(--border-subtle)",
-              transform: { md: "translateX(-50%)" },
-              zIndex: 0,
+              background:
+                "linear-gradient(180deg, var(--accent-cyan) 0%, rgba(0, 240, 255, 0.2) 80%, transparent 100%)",
             }}
           />
 
-          {experiences.map((exp, idx) => {
-            const isEven = idx % 2 === 0;
-            return (
-              <Box
-                key={exp.id}
-                sx={{
-                  position: "relative",
-                  mb: 6,
-                  display: "flex",
-                  flexDirection: {
-                    xs: "column",
-                    md: isEven ? "row-reverse" : "row",
-                  },
-                  alignItems: "center",
-                }}
-              >
-                {/* Center Node / Dot */}
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 5 }}>
+            {experiences.map((exp, idx) => (
+              <Box key={exp.id} sx={{ position: "relative" }}>
+                {/* Timeline Milestone Dot */}
                 <Box
                   sx={{
                     position: "absolute",
-                    left: { xs: "20px", md: "50%" },
-                    top: "24px",
-                    transform: "translate(-50%, -50%)",
-                    width: 20,
-                    height: 20,
+                    left: { xs: -24, sm: -38 },
+                    top: 24,
+                    width: { xs: 16, sm: 20 },
+                    height: { xs: 16, sm: 20 },
                     borderRadius: "50%",
                     backgroundColor: exp.current
                       ? "var(--accent-cyan)"
-                      : "var(--bg-card)",
+                      : "var(--bg-primary)",
                     border: "3px solid var(--accent-cyan)",
-                    boxShadow: "var(--shadow-glow)",
+                    boxShadow: exp.current ? "0 0 15px var(--accent-cyan)" : "none",
                     zIndex: 2,
                   }}
                 />
 
-                {/* Card Container */}
-                <Box
-                  sx={{
-                    width: { xs: "100%", md: "calc(50% - 40px)" },
-                    ml: { xs: "45px", md: isEven ? 0 : "auto" },
-                    mr: { xs: 0, md: isEven ? "auto" : 0 },
-                  }}
+                <motion.div
+                  initial={{ opacity: 0, x: 25 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
                 >
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  <Box
+                    className="glass-card"
+                    sx={{
+                      p: { xs: 3, sm: 4 },
+                      borderRadius: "20px",
+                      position: "relative",
+                      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                      "&:hover": {
+                        borderColor: "var(--border-accent)",
+                        boxShadow: "var(--shadow-glow)",
+                        transform: "translateY(-3px)",
+                      },
+                    }}
                   >
+                    {/* Top Row: Role, Status, and Period */}
                     <Box
-                      className="glass-card"
                       sx={{
-                        p: { xs: 3, md: 4 },
-                        borderRadius: "20px",
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          borderColor: "var(--border-accent)",
-                          boxShadow: "var(--shadow-glow)",
-                          transform: "translateY(-4px)",
-                        },
+                        display: "flex",
+                        flexWrap: "wrap",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        gap: 1.5,
+                        mb: 1.5,
                       }}
                     >
-                      {/* Header info */}
-                      <Box
-                        sx={{
-                          display: "flex",
-                          flexWrap: "wrap",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          gap: 1,
-                          mb: 1.5,
-                        }}
-                      >
+                      <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, flexWrap: "wrap" }}>
                         <Typography
-                          variant="h5"
+                          variant="h3"
                           sx={{
                             fontWeight: 800,
                             color: "var(--text-primary)",
-                            fontSize: "1.25rem",
+                            fontSize: { xs: "1.2rem", sm: "1.35rem" },
+                            letterSpacing: "-0.3px",
                           }}
                         >
                           {exp.role}
                         </Typography>
-
                         {exp.current && (
                           <Chip
-                            label="Current Position"
+                            label="Active Role"
                             size="small"
                             sx={{
-                              backgroundColor: "rgba(0, 240, 255, 0.15)",
+                              backgroundColor: "rgba(0, 240, 255, 0.12)",
                               color: "var(--accent-cyan)",
                               fontWeight: 700,
                               fontSize: "0.7rem",
+                              border: "1px solid rgba(0, 240, 255, 0.3)",
                             }}
                           />
                         )}
                       </Box>
 
-                      {/* Company & Meta */}
                       <Box
                         sx={{
                           display: "flex",
-                          flexWrap: "wrap",
                           alignItems: "center",
-                          gap: 2,
-                          mb: 3,
+                          gap: 0.8,
+                          backgroundColor: "var(--bg-primary)",
+                          px: 1.8,
+                          py: 0.6,
+                          borderRadius: "10px",
+                          border: "1px solid var(--border-subtle)",
                         }}
                       >
-                        <Box
+                        <Calendar size={14} color="var(--accent-cyan)" />
+                        <Typography
+                          variant="caption"
                           sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 0.8,
+                            color: "var(--text-primary)",
+                            fontWeight: 700,
+                            fontSize: "0.78rem",
                           }}
                         >
-                          <Building2 size={16} color="var(--accent-cyan)" />
-                          <Typography
-                            variant="subtitle2"
-                            sx={{
-                              fontWeight: 700,
-                              color: "var(--accent-cyan)",
-                            }}
-                          >
-                            {exp.company}
-                          </Typography>
-                        </Box>
-
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 0.6,
-                          }}
-                        >
-                          <Calendar size={14} color="var(--text-muted)" />
-                          <Typography
-                            variant="caption"
-                            sx={{
-                              color: "var(--text-secondary)",
-                              fontWeight: 600,
-                            }}
-                          >
-                            {exp.period}
-                          </Typography>
-                        </Box>
-
-                        <Box
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 0.6,
-                          }}
-                        >
-                          <MapPin size={14} color="var(--text-muted)" />
-                          <Typography
-                            variant="caption"
-                            sx={{ color: "var(--text-muted)" }}
-                          >
-                            {exp.location}
-                          </Typography>
-                        </Box>
-                      </Box>
-
-                      {/* Responsibilities list */}
-                      <Box
-                        sx={{
-                          display: "flex",
-                          flexDirection: "column",
-                          gap: 1.5,
-                          mb: 3,
-                        }}
-                      >
-                        {exp.points.map((pt, pIdx) => (
-                          <Box
-                            key={pIdx}
-                            sx={{
-                              display: "flex",
-                              alignItems: "flex-start",
-                              gap: 1.5,
-                            }}
-                          >
-                            <CheckCircle2
-                              size={16}
-                              color="var(--accent-cyan)"
-                              style={{ marginTop: "3px", flexShrink: 0 }}
-                            />
-                            <Typography
-                              variant="body2"
-                              sx={{
-                                color: "var(--text-secondary)",
-                                lineHeight: 1.6,
-                              }}
-                            >
-                              {pt}
-                            </Typography>
-                          </Box>
-                        ))}
-                      </Box>
-
-                      {/* Technology Pills */}
-                      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                        {exp.technologies.map((tech, tIdx) => (
-                          <Chip
-                            key={tIdx}
-                            label={tech}
-                            size="small"
-                            sx={{
-                              backgroundColor: "var(--bg-primary)",
-                              border: "1px solid var(--border-subtle)",
-                              color: "var(--text-secondary)",
-                              fontSize: "0.72rem",
-                              fontWeight: 600,
-                            }}
-                          />
-                        ))}
+                          {exp.period}
+                        </Typography>
                       </Box>
                     </Box>
-                  </motion.div>
-                </Box>
+
+                    {/* Company, Type, and Location Bar */}
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        alignItems: "center",
+                        gap: 2,
+                        mb: 2.5,
+                        color: "var(--text-secondary)",
+                        fontSize: "0.85rem",
+                      }}
+                    >
+                      <Box sx={{ display: "flex", alignItems: "center", gap: 0.8 }}>
+                        <Building2 size={16} color="var(--accent-cyan)" />
+                        <Typography
+                          variant="subtitle2"
+                          sx={{ fontWeight: 700, color: "var(--accent-cyan)" }}
+                        >
+                          {exp.company}
+                        </Typography>
+                      </Box>
+
+                      <Box sx={{ display: "flex", alignItems: "center", gap: 0.6 }}>
+                        <Briefcase size={14} color="var(--text-muted)" />
+                        <Typography variant="caption" sx={{ color: "var(--text-muted)", fontWeight: 600 }}>
+                          {exp.type}
+                        </Typography>
+                      </Box>
+
+                      <Box sx={{ display: "flex", alignItems: "center", gap: 0.6 }}>
+                        <MapPin size={14} color="var(--text-muted)" />
+                        <Typography variant="caption" sx={{ color: "var(--text-muted)", fontWeight: 600 }}>
+                          {exp.location}
+                        </Typography>
+                      </Box>
+                    </Box>
+
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: "var(--text-secondary)",
+                        fontSize: "0.92rem",
+                        lineHeight: 1.65,
+                        mb: 2.5,
+                      }}
+                    >
+                      {exp.description}
+                    </Typography>
+
+                    {/* Key Accomplishments Checklist */}
+                    <Box sx={{ display: "flex", flexDirection: "column", gap: 1.3, mb: 3 }}>
+                      {exp.points.map((pt, pIdx) => (
+                        <Box
+                          key={pIdx}
+                          sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}
+                        >
+                          <CheckCircle2
+                            size={16}
+                            color="var(--accent-cyan)"
+                            style={{ marginTop: "3px", flexShrink: 0 }}
+                          />
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              color: "var(--text-secondary)",
+                              lineHeight: 1.6,
+                              fontSize: "0.88rem",
+                            }}
+                          >
+                            {pt}
+                          </Typography>
+                        </Box>
+                      ))}
+                    </Box>
+
+                    {/* Technologies Tag Group */}
+                    <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.8 }}>
+                      {exp.technologies.map((tech, tIdx) => (
+                        <Chip
+                          key={tIdx}
+                          label={tech}
+                          size="small"
+                          sx={{
+                            backgroundColor: "var(--bg-primary)",
+                            border: "1px solid var(--border-subtle)",
+                            color: "var(--text-secondary)",
+                            fontSize: "0.72rem",
+                            fontWeight: 600,
+                          }}
+                        />
+                      ))}
+                    </Box>
+                  </Box>
+                </motion.div>
               </Box>
-            );
-          })}
+            ))}
+          </Box>
         </Box>
       </Container>
     </Box>

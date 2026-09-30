@@ -27,14 +27,16 @@ function App() {
         }}
       >
         <Navbar />
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Achievements />
-        <Education />
-        <Contact />
+        <Box component="main" id="main-content">
+          <Hero />
+          <About />
+          <Skills />
+          <Experience />
+          <Projects />
+          <Achievements />
+          <Education />
+          <Contact />
+        </Box>
         <Footer />
       </Box>
     </CustomThemeProvider>
@@ -42,4 +44,3 @@ function App() {
 }
 
 export default App;
-

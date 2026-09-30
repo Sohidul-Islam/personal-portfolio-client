@@ -21,6 +21,8 @@ export default function Hero() {
   return (
     <Box
       id="hero"
+      component="section"
+      aria-label="Introduction and Overview"
       sx={{
         minHeight: "100vh",
         pt: { xs: 12, md: 16 },
@@ -80,20 +82,20 @@ export default function Hero() {
                 </Typography>
               </Box>
 
-              {/* Main Headline */}
+              {/* Main Headline (H1 for SEO) */}
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: "2.5rem", sm: "3.5rem", md: "4.2rem" },
+                  fontSize: { xs: "2.4rem", sm: "3.4rem", md: "4.1rem" },
                   fontWeight: 800,
-                  lineHeight: 1.1,
+                  lineHeight: 1.12,
                   letterSpacing: "-1.5px",
                   color: "var(--text-primary)",
                   mb: 2,
                 }}
               >
                 Engineering{" "}
-                <span className="gradient-text">Scalable & Intelligent</span>{" "}
+                <span className="gradient-text">Scalable &amp; Intelligent</span>{" "}
                 Digital Products.
               </Typography>
 
@@ -102,18 +104,19 @@ export default function Hero() {
                 sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 3 }}
               >
                 <Typography
-                  variant="h5"
+                  variant="h2"
                   sx={{
-                    fontSize: { xs: "1.2rem", sm: "1.5rem" },
+                    fontSize: { xs: "1.2rem", sm: "1.45rem" },
                     fontWeight: 600,
                     color: "var(--text-secondary)",
+                    m: 0,
                   }}
                 >
                   I'm a{" "}
                 </Typography>
                 <Box
                   sx={{
-                    fontSize: { xs: "1.2rem", sm: "1.5rem" },
+                    fontSize: { xs: "1.2rem", sm: "1.45rem" },
                     fontWeight: 700,
                     color: "var(--accent-cyan)",
                     fontFamily: "var(--font-mono)",
@@ -142,9 +145,9 @@ export default function Hero() {
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: { xs: "1rem", sm: "1.1rem" },
+                  fontSize: { xs: "1rem", sm: "1.08rem" },
                   color: "var(--text-secondary)",
-                  lineHeight: 1.7,
+                  lineHeight: 1.75,
                   mb: 4,
                   maxWidth: "640px",
                 }}
@@ -243,7 +246,7 @@ export default function Hero() {
                     href={personalInfo.socials.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="GitHub"
+                    aria-label="GitHub profile of Sohidul Islam"
                     sx={{
                       color: "var(--text-primary)",
                       border: "1px solid var(--border-subtle)",
@@ -264,7 +267,7 @@ export default function Hero() {
                     href={personalInfo.socials.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="LinkedIn"
+                    aria-label="LinkedIn profile of Sohidul Islam"
                     sx={{
                       color: "var(--text-primary)",
                       border: "1px solid var(--border-subtle)",
@@ -283,7 +286,7 @@ export default function Hero() {
 
                   <IconButton
                     href={`mailto:${personalInfo.email}`}
-                    aria-label="Email"
+                    aria-label="Send email to Sohidul Islam"
                     sx={{
                       color: "var(--text-primary)",
                       border: "1px solid var(--border-subtle)",
@@ -306,6 +309,7 @@ export default function Hero() {
                     component="a"
                     href={personalInfo.socials.leetcode}
                     target="_blank"
+                    rel="noopener noreferrer"
                     clickable
                     label="LeetCode"
                     size="small"
@@ -325,6 +329,7 @@ export default function Hero() {
                     component="a"
                     href={personalInfo.socials.codeforces}
                     target="_blank"
+                    rel="noopener noreferrer"
                     clickable
                     label="Codeforces"
                     size="small"
@@ -378,7 +383,8 @@ export default function Hero() {
                 >
                   <img
                     src={profileImg}
-                    alt={personalInfo.name}
+                    alt="Sohidul Islam - Software Engineer II"
+                    loading="eager"
                     style={{
                       width: "100%",
                       height: "100%",
@@ -387,7 +393,7 @@ export default function Hero() {
                     }}
                   />
 
-                  {/* Cyber Overlay Tech Tags */}
+                  {/* Tech Overlay Badge */}
                   <Box
                     sx={{
                       position: "absolute",
@@ -396,9 +402,9 @@ export default function Hero() {
                       right: 12,
                       p: 1.5,
                       borderRadius: "12px",
-                      backgroundColor: "rgba(10, 13, 20, 0.85)",
+                      backgroundColor: "rgba(10, 13, 20, 0.88)",
                       backdropFilter: "blur(12px)",
-                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      border: "1px solid rgba(255, 255, 255, 0.12)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "space-between",
@@ -414,13 +420,14 @@ export default function Hero() {
                       </Typography>
                     </Box>
                     <Chip
-                      label="Senior Level"
+                      label="Software Engineer II"
                       size="small"
                       sx={{
                         backgroundColor: "rgba(0, 240, 255, 0.15)",
                         color: "var(--accent-cyan)",
                         fontWeight: 700,
                         fontSize: "0.7rem",
+                        border: "1px solid rgba(0, 240, 255, 0.3)",
                       }}
                     />
                   </Box>
@@ -433,7 +440,7 @@ export default function Hero() {
                       <Box
                         sx={{
                           p: 1.8,
-                          borderRadius: "12px",
+                          borderRadius: "14px",
                           backgroundColor: "var(--bg-primary)",
                           border: "1px solid var(--border-subtle)",
                           textAlign: "center",
@@ -452,7 +459,7 @@ export default function Hero() {
                               idx % 2 === 0
                                 ? "var(--accent-cyan)"
                                 : "var(--accent-violet)",
-                            fontSize: "1.6rem",
+                            fontSize: "1.55rem",
                             mb: 0.2,
                           }}
                         >
@@ -463,6 +470,7 @@ export default function Hero() {
                           sx={{
                             color: "var(--text-secondary)",
                             fontWeight: 600,
+                            fontSize: "0.75rem",
                           }}
                         >
                           {stat.label}

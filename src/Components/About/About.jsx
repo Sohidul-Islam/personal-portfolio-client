@@ -10,41 +10,42 @@ import {
   MapPin,
   ExternalLink,
   FileCheck,
+  CheckCircle2,
 } from "lucide-react";
 
 const pillars = [
   {
     icon: Code,
     title: "Full-Stack Architecture",
-    desc: "Expertise in modern JavaScript/TypeScript ecosystems. Building high-throughput applications with React.js, Next.js, NestJS, Node.js, tRPC, PostgreSQL, and MySQL.",
+    desc: "Expertise across modern TypeScript ecosystems. Designing high-throughput, maintainable web systems with React.js, Next.js, NestJS, Node.js, and tRPC.",
     color: "var(--accent-cyan)",
   },
   {
     icon: Cloud,
     title: "Cloud Infrastructure & Real-Time",
-    desc: "Deploying secure AWS infrastructure (Cognito, Lambda, SQS, SNS, SES), containerization with Docker, Nginx reverse proxies, and real-time Socket.IO/BullMQ channels.",
+    desc: "Deploying secure AWS infrastructure (Lambda, Cognito, SQS, SES), Docker containerization, Nginx proxies, and sub-second Socket.IO/BullMQ channels.",
     color: "var(--accent-violet)",
   },
   {
     icon: Bot,
     title: "AI Integration & Automation",
-    desc: "Leveraging OpenAI API, Document AI parsers, and custom LLM chatbots. Orchestrating complex workflow automation pipelines with n8n and Zapier.",
+    desc: "Operationalizing generative LLMs, automated document parsing pipelines, and asynchronous business workflow orchestration with n8n and Zapier.",
     color: "var(--accent-rose)",
   },
 ];
 
-
-const featuredLinks = [
-  { label: "OurStoryz Live", url: "https://developer.ourstoryz.com/" },
-  { label: "GloryPOS Live", url: "http://glorypos.com/" },
-  { label: "LYXA Live", url: "https://lyxa.ai/" },
-  { label: "IEEE Research", url: "https://ieeexplore.ieee.org/document/11005193" },
+const featuredLiveSystems = [
+  { label: "OurStoryz (Event Platform)", url: "https://developer.ourstoryz.com/", host: "developer.ourstoryz.com" },
+  { label: "GloryPOS (Retail POS)", url: "http://glorypos.com/", host: "glorypos.com" },
+  { label: "LYXA (Food Logistics)", url: "https://lyxa.ai/", host: "lyxa.ai" },
 ];
 
 export default function About() {
   return (
     <Box
       id="about"
+      component="section"
+      aria-label="About Sohidul Islam"
       sx={{
         py: { xs: 8, md: 12 },
         position: "relative",
@@ -71,7 +72,7 @@ export default function About() {
                 display: "block",
               }}
             >
-              Professional Background & Approach
+              Engineering Philosophy & Background
             </Typography>
             <Typography
               variant="h2"
@@ -83,14 +84,14 @@ export default function About() {
               }}
             >
               Architecting{" "}
-              <span className="gradient-text">Reliable & Performant</span>{" "}
+              <span className="gradient-text">Reliable &amp; Performant</span>{" "}
               Software
             </Typography>
           </motion.div>
         </Box>
 
-        {/* Narrative & Profile Overview */}
-        <Grid container spacing={4} alignItems="stretch" sx={{ mb: 8 }}>
+        {/* Narrative & Pillars Grid */}
+        <Grid container spacing={4} alignItems="stretch">
           <Grid item xs={12} md={7}>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -102,133 +103,157 @@ export default function About() {
               <Box
                 className="glass-card"
                 sx={{
-                  p: { xs: 3, md: 5 },
+                  p: { xs: 3.5, md: 5 },
                   height: "100%",
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "center",
+                  justifyContent: "space-between",
+                  borderRadius: "22px",
                 }}
               >
-                <Typography
-                  variant="h5"
-                  sx={{ fontWeight: 700, color: "var(--text-primary)", mb: 2 }}
-                >
-                  Driven by Engineering Excellence & Clean Design
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  sx={{
-                    color: "var(--text-secondary)",
-                    lineHeight: 1.8,
-                    mb: 2,
-                  }}
-                >
-                  I am a{" "}
-                  <strong>Software Engineer II & Full-Stack Specialist</strong>{" "}
-                  with over 3 years of professional experience taking enterprise
-                  products from technical requirements and domain architecture
-                  through production deployment and optimization.
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  sx={{
-                    color: "var(--text-secondary)",
-                    lineHeight: 1.8,
-                    mb: 3,
-                  }}
-                >
-                  My core strengths lie in designing robust front-end web and
-                  mobile applications using React.js and Next.js, paired with
-                  resilient backend architectures using Node.js, NestJS, and
-                  tRPC. I specialize in cloud integration via AWS, AI document
-                  automation, payment processing, and high-concurrency real-time
-                  systems.
-                </Typography>
-
-                {/* Key Achievements & Badges */}
-                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.5, mb: 3 }}>
-                  <Chip
-                    icon={<MapPin size={16} />}
-                    label="Based in Dhaka, Bangladesh"
+                <Box>
+                  <Typography
+                    variant="h3"
                     sx={{
-                      backgroundColor: "var(--bg-primary)",
+                      fontWeight: 800,
                       color: "var(--text-primary)",
-                      fontWeight: 600,
+                      mb: 2,
+                      fontSize: { xs: "1.3rem", sm: "1.5rem" },
+                      letterSpacing: "-0.5px",
                     }}
-                  />
-                  <Chip
-                    icon={<BookOpen size={16} />}
-                    label="BSc in CSE (CGPA 3.93)"
+                  >
+                    Driven by Scalability, Type Safety &amp; Production Integrity
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
                     sx={{
-                      backgroundColor: "var(--bg-primary)",
-                      color: "var(--text-primary)",
-                      fontWeight: 600,
+                      color: "var(--text-secondary)",
+                      lineHeight: 1.75,
+                      fontSize: "0.98rem",
+                      mb: 2,
                     }}
-                  />
-                  <Chip
-                    icon={<Award size={16} />}
-                    label="Outstanding Engineer Award 2025"
+                  >
+                    I am a{" "}
+                    <strong>Software Engineer II &amp; Full-Stack Specialist</strong>{" "}
+                    with over 3 years of commercial experience delivering enterprise-grade
+                    web platforms. I specialize in translating domain complexity into
+                    clean architectures, high-performance APIs, and intuitive user experiences.
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
                     sx={{
-                      backgroundColor: "rgba(0, 240, 255, 0.1)",
-                      color: "var(--accent-cyan)",
-                      fontWeight: 700,
+                      color: "var(--text-secondary)",
+                      lineHeight: 1.75,
+                      fontSize: "0.98rem",
+                      mb: 3.5,
                     }}
-                  />
-                  <Chip
-                    component="a"
-                    href="https://ieeexplore.ieee.org/document/11005193"
-                    target="_blank"
-                    clickable
-                    icon={<FileCheck size={16} />}
-                    label="IEEE Xplore Publication"
-                    sx={{
-                      backgroundColor: "rgba(139, 92, 246, 0.12)",
-                      color: "var(--accent-violet)",
-                      fontWeight: 700,
-                      border: "1px solid rgba(139, 92, 246, 0.3)",
-                      "&:hover": {
-                        backgroundColor: "rgba(139, 92, 246, 0.2)",
-                      },
-                    }}
-                  />
+                  >
+                    My day-to-day focus spans client-side engineering with React.js and Next.js,
+                    resilient microservices with Node.js and NestJS, and cloud infrastructure
+                    on AWS. Additionally, I build automated AI ingestion pipelines and
+                    duplex real-time synchronization channels using WebSockets.
+                  </Typography>
+
+                  {/* Credentials Badges */}
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1.2, mb: 3.5 }}>
+                    <Chip
+                      icon={<MapPin size={15} />}
+                      label="Dhaka, Bangladesh"
+                      size="small"
+                      sx={{
+                        backgroundColor: "var(--bg-primary)",
+                        color: "var(--text-primary)",
+                        fontWeight: 600,
+                        border: "1px solid var(--border-subtle)",
+                      }}
+                    />
+                    <Chip
+                      icon={<BookOpen size={15} />}
+                      label="BSc in CSE (CGPA 3.93 Honors)"
+                      size="small"
+                      sx={{
+                        backgroundColor: "var(--bg-primary)",
+                        color: "var(--text-primary)",
+                        fontWeight: 600,
+                        border: "1px solid var(--border-subtle)",
+                      }}
+                    />
+                    <Chip
+                      icon={<Award size={15} />}
+                      label="Outstanding Engineer Award 2025"
+                      size="small"
+                      sx={{
+                        backgroundColor: "rgba(0, 240, 255, 0.12)",
+                        color: "var(--accent-cyan)",
+                        fontWeight: 700,
+                        border: "1px solid rgba(0, 240, 255, 0.25)",
+                      }}
+                    />
+                    <Chip
+                      component="a"
+                      href="https://ieeexplore.ieee.org/document/11005193"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      clickable
+                      icon={<FileCheck size={15} />}
+                      label="IEEE Xplore Research Author"
+                      size="small"
+                      sx={{
+                        backgroundColor: "rgba(139, 92, 246, 0.12)",
+                        color: "var(--accent-violet)",
+                        fontWeight: 700,
+                        border: "1px solid rgba(139, 92, 246, 0.3)",
+                        "&:hover": {
+                          backgroundColor: "rgba(139, 92, 246, 0.2)",
+                        },
+                      }}
+                    />
+                  </Box>
                 </Box>
 
-                {/* Live System Links */}
-                <Box>
+                {/* Live Deployed Systems Bar */}
+                <Box
+                  sx={{
+                    pt: 2.5,
+                    borderTop: "1px solid var(--border-subtle)",
+                  }}
+                >
                   <Typography
                     variant="caption"
                     sx={{
                       color: "var(--text-muted)",
                       fontWeight: 700,
                       textTransform: "uppercase",
-                      letterSpacing: "1px",
+                      letterSpacing: "0.8px",
                       display: "block",
-                      mb: 1,
+                      mb: 1.2,
+                      fontSize: "0.72rem",
                     }}
                   >
-                    Featured Live Systems & Projects:
+                    Active Commercial Platforms:
                   </Typography>
                   <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-                    {featuredLinks.map((link, idx) => (
+                    {featuredLiveSystems.map((item, idx) => (
                       <Chip
                         key={idx}
                         component="a"
-                        href={link.url}
+                        href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         clickable
-                        icon={<ExternalLink size={14} />}
-                        label={link.label}
+                        icon={<ExternalLink size={13} />}
+                        label={item.label}
+                        size="small"
                         sx={{
                           backgroundColor: "var(--bg-primary)",
                           border: "1px solid var(--border-accent)",
                           color: "var(--accent-cyan)",
                           fontWeight: 600,
-                          fontSize: "0.8rem",
+                          fontSize: "0.78rem",
                           "&:hover": {
-                            backgroundColor: "rgba(0, 240, 255, 0.1)",
+                            backgroundColor: "rgba(0, 240, 255, 0.08)",
                           },
                         }}
                       />
@@ -239,7 +264,7 @@ export default function About() {
             </motion.div>
           </Grid>
 
-          {/* Quick Core Competencies Cards */}
+          {/* Pillars Cards */}
           <Grid item xs={12} md={5}>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -268,17 +293,19 @@ export default function About() {
                         display: "flex",
                         alignItems: "flex-start",
                         gap: 2.5,
+                        borderRadius: "18px",
                         transition: "all 0.3s ease",
                         "&:hover": {
                           borderColor: pillar.color,
+                          transform: "translateX(4px)",
                         },
                       }}
                     >
                       <Box
                         sx={{
-                          width: 48,
-                          height: 48,
-                          borderRadius: "14px",
+                          width: 46,
+                          height: 46,
+                          borderRadius: "12px",
                           backgroundColor: "var(--bg-primary)",
                           border: "1px solid var(--border-subtle)",
                           display: "flex",
@@ -288,17 +315,17 @@ export default function About() {
                           flexShrink: 0,
                         }}
                       >
-                        <Icon size={24} />
+                        <Icon size={22} />
                       </Box>
 
                       <Box>
                         <Typography
-                          variant="h6"
+                          variant="h4"
                           sx={{
                             fontWeight: 700,
                             color: "var(--text-primary)",
                             mb: 0.5,
-                            fontSize: "1.1rem",
+                            fontSize: "1.05rem",
                           }}
                         >
                           {pillar.title}
@@ -308,6 +335,7 @@ export default function About() {
                           sx={{
                             color: "var(--text-secondary)",
                             lineHeight: 1.6,
+                            fontSize: "0.88rem",
                           }}
                         >
                           {pillar.desc}

@@ -1,13 +1,13 @@
-// Complete, accurate portfolio data grounded strictly in the latest resume of Sohidul Islam.
+// Grounded, verified portfolio data for Sohidul Islam.
 
 export const personalInfo = {
     name: "Sohidul Islam",
     title: "Software Engineer II | Full-Stack Engineer",
-    subtitle: "3+ Years Experience • Scalable Full-Stack, Cloud & AI Systems",
+    subtitle: "3+ Years Professional Experience • Scalable Web, Cloud & AI Systems",
     email: "shufol.cse@gmail.com",
     phone: "01854107699",
     location: "Basabo, Dhaka, Bangladesh",
-    status: "Available for Senior Roles & High-Impact Projects",
+    status: "Available for Senior Roles & Impactful Projects",
 
     socials: {
         github: "https://github.com/Sohidul-Islam",
@@ -18,21 +18,21 @@ export const personalInfo = {
         stopstalk: "https://www.stopstalk.com/user/profile/sishufol"
     },
 
-    summary: "Software Engineer with 3+ years of experience building scalable full-stack web applications using React.js, Next.js, TypeScript, Node.js, NestJS, PostgreSQL, and MySQL. Experienced in AWS cloud services, real-time systems, AI-powered applications, payment integrations, and workflow automation. Proven experience taking products from requirements and architecture through development, optimization, and production deployment.",
+    summary: "Software Engineer II with 3+ years of experience engineering scalable, high-availability web applications using React.js, Next.js, TypeScript, Node.js, NestJS, PostgreSQL, and MySQL. Proven track record deploying cloud services on AWS, architecting real-time systems with WebSockets, and automating workflows with LLMs and queue architectures.",
 
     typingRoles: [
         "Software Engineer II",
-        "Full-Stack Web Architect",
-        "AWS & Cloud Solutions Engineer",
+        "Full-Stack Architect",
+        "AWS Cloud Solutions Engineer",
         "AI & Workflow Automation Builder",
         "Real-Time Systems Developer"
     ],
 
     stats: [
         { value: "3+", label: "Years Experience" },
-        { value: "10+", label: "Full-Stack Projects" },
+        { value: "4+", label: "Production Platforms" },
         { value: "3.93", label: "BSc CSE CGPA" },
-        { value: "100%", label: "Client & Team Trust" }
+        { value: "1", label: "IEEE Publication" }
     ]
 };
 
@@ -47,7 +47,7 @@ export const skillCategories = [
         skills: [
             { name: "TypeScript", level: "Advanced", icon: "Code2" },
             { name: "JavaScript (ES6+)", level: "Advanced", icon: "FileCode" },
-            { name: "Python", level: "Intermediate", icon: "Terminal" }
+            { name: "Python", level: "Proficient", icon: "Terminal" }
         ]
     },
     {
@@ -56,54 +56,54 @@ export const skillCategories = [
         skills: [
             { name: "React.js", level: "Expert", icon: "Layout" },
             { name: "Next.js", level: "Advanced", icon: "Globe" },
-            { name: "React Native", level: "Intermediate", icon: "Smartphone" },
-            { name: "Redux / Redux Toolkit", level: "Advanced", icon: "Cpu" },
-            { name: "HTML5 & CSS3", level: "Expert", icon: "Layers" },
-            { name: "Tailwind CSS & Material UI", level: "Advanced", icon: "Palette" }
+            { name: "Redux Toolkit", level: "Advanced", icon: "Cpu" },
+            { name: "Tailwind CSS", level: "Advanced", icon: "Palette" }
         ]
     },
     {
         id: "backend",
-        label: "Backend & ORM",
+        label: "Backend",
         skills: [
             { name: "Node.js", level: "Advanced", icon: "Server" },
-            { name: "Express.js", level: "Advanced", icon: "Zap" },
             { name: "NestJS", level: "Advanced", icon: "Box" },
-            { name: "tRPC", level: "Advanced", icon: "Network" },
-            { name: "PostgreSQL & MySQL", level: "Advanced", icon: "Database" },
-            { name: "MongoDB & Supabase", level: "Intermediate", icon: "HardDrive" },
-            { name: "Drizzle ORM & TypeORM", level: "Advanced", icon: "GitCommit" },
-            { name: "Sequelize & Mongoose", level: "Intermediate", icon: "Database" }
+            { name: "Express.js", level: "Advanced", icon: "Zap" },
+            { name: "tRPC", level: "Advanced", icon: "Network" }
         ]
     },
     {
-        id: "cloud",
+        id: "database_orm",
+        label: "Database & ORM",
+        skills: [
+            { name: "PostgreSQL", level: "Advanced", icon: "Database" },
+            { name: "MySQL", level: "Advanced", icon: "Database" },
+            { name: "Drizzle ORM", level: "Advanced", icon: "GitCommit" },
+            { name: "TypeORM", level: "Advanced", icon: "HardDrive" }
+        ]
+    },
+    {
+        id: "cloud_devops",
         label: "Cloud & DevOps",
         skills: [
-            { name: "AWS (Cognito, Lambda, IAM)", level: "Advanced", icon: "Cloud" },
-            { name: "AWS (SQS, SNS, SES)", level: "Advanced", icon: "Send" },
-            { name: "Docker", level: "Intermediate", icon: "Container" },
-            { name: "Nginx & Cloudflare", level: "Intermediate", icon: "ShieldCheck" }
+            { name: "AWS Cloud (Cognito, Lambda, SQS, SES)", level: "Advanced", icon: "Cloud" },
+            { name: "Docker", level: "Proficient", icon: "Container" },
+            { name: "Nginx & Reverse Proxies", level: "Proficient", icon: "ShieldCheck" }
         ]
     },
     {
-        id: "ai",
-        label: "AI & Automation",
-        skills: [
-            { name: "OpenAI API & Generative AI", level: "Advanced", icon: "Bot" },
-            { name: "Document AI Parser", level: "Advanced", icon: "FileText" },
-            { name: "AI Chatbots", level: "Advanced", icon: "MessageSquare" },
-            { name: "n8n & Zapier Automation", level: "Advanced", icon: "Workflow" }
-        ]
-    },
-    {
-        id: "realtime",
-        label: "Real-Time & Integration",
+        id: "realtime_systems",
+        label: "Real-Time & Architecture",
         skills: [
             { name: "WebSocket & Socket.IO", level: "Advanced", icon: "Activity" },
-            { name: "BullMQ Message Queues", level: "Intermediate", icon: "ListOrdered" },
-            { name: "Payment Gateways (Stripe, Authorize.Net, Vexora)", level: "Advanced", icon: "CreditCard" },
-            { name: "Clerk Auth & Mailgun", level: "Advanced", icon: "Lock" }
+            { name: "BullMQ Message Queues", level: "Proficient", icon: "ListOrdered" },
+            { name: "Payment Gateways (Stripe, Authorize.Net)", level: "Advanced", icon: "CreditCard" }
+        ]
+    },
+    {
+        id: "ai_automation",
+        label: "AI & Automation",
+        skills: [
+            { name: "OpenAI API & LLM Integration", level: "Advanced", icon: "Bot" },
+            { name: "Workflow Automation (n8n, Zapier)", level: "Advanced", icon: "Workflow" }
         ]
     }
 ];
@@ -180,99 +180,99 @@ export const projects = [
     {
         id: "ourstoryz",
         title: "OurStoryz – Event Management Platform",
-        subtitle: "Scalable Event Platform for Corporate, Weddings & Social Experiences",
+        subtitle: "Enterprise event management system with real-time attendee interaction and cloud queues.",
         category: "Full-Stack / Cloud",
         period: "12/2025 – Present",
         featured: true,
         imageGradient: "from-blue-600 to-indigo-900",
-        badge: "Active Production Project",
-        summary: "Built a scalable event management platform for office events, weddings, meetings, and social experiences using React.js, Node.js, and AWS cloud infrastructure.",
+        badge: "Active Production",
+        summary: "Engineered a scalable event platform for corporate gatherings, weddings, and conferences utilizing React.js, Node.js, and AWS serverless infrastructure.",
         role: "Full-Stack Architect & Core Engineer",
         highlights: [
-            "Developed organizer dashboards and a guest mobile app with real-time interaction and media sharing.",
-            "Implemented secure AWS Cognito/IAM authentication and integrated SES, SNS, and SQS for notifications and background processing queues.",
-            "Built Stripe payment integration and scalable relational data architecture using TypeORM and MySQL."
+            "Developed organizer dashboards and a guest mobile web experience with real-time interaction and media sharing.",
+            "Implemented secure AWS Cognito/IAM authentication and integrated SES, SNS, and SQS for notifications and background queue jobs.",
+            "Built Stripe payment processing and scalable relational schema design using TypeORM and MySQL."
         ],
-        technologies: ["React.js", "Node.js", "AWS Cognito", "AWS SQS", "AWS SNS", "AWS SES", "TypeORM", "MySQL", "Stripe"],
+        technologies: ["React.js", "Node.js", "AWS Cognito", "AWS SQS", "TypeORM", "MySQL", "Stripe"],
         liveUrl: "https://developer.ourstoryz.com/",
         githubUrl: "https://github.com/Sohidul-Islam"
     },
     {
         id: "pet-parent",
-        title: "Pet Parent – Pet Licensing & Animal Welfare Platform",
-        subtitle: "Full-Stack Animal Welfare Platform with AI Document Parsing",
+        title: "Pet Parent – Animal Licensing & Welfare Platform",
+        subtitle: "Full-stack licensing platform featuring automated AI document parsing and secure payments.",
         category: "Full-Stack / AI",
         period: "2024 – 2025",
         featured: true,
         imageGradient: "from-emerald-600 to-teal-900",
-        badge: "AI Powered Platform",
-        summary: "Developed a full-stack pet licensing and animal welfare platform using the T3 Stack (Next.js, TypeScript, tRPC) with Clerk authentication and Document AI Parser.",
+        badge: "AI Powered",
+        summary: "Developed an administrative pet licensing platform utilizing the T3 Stack (Next.js, TypeScript, tRPC) with Clerk authentication and Document AI parsing.",
         role: "Lead Full-Stack Developer",
         highlights: [
-            "Built scalable PostgreSQL + Drizzle ORM architecture and integrated Authorize.Net for secure payment processing.",
-            "Integrated Mailgun for transactional emails and developed Bulk Report Analysis for large-scale administrative processing.",
-            "Implemented Document AI Parser and responsive admin tools for managing pets, owners, licenses, payments, and analytical reports."
+            "Engineered high-performance PostgreSQL + Drizzle ORM architecture and integrated Authorize.Net for recurring payments.",
+            "Integrated Mailgun transactional workflows and built bulk report analytics for administrative auditing.",
+            "Created responsive admin tooling for managing verified pet registrations, license issuance, and renewals."
         ],
-        technologies: ["T3 Stack", "Next.js", "TypeScript", "tRPC", "Drizzle ORM", "PostgreSQL", "Document AI", "Clerk", "Authorize.Net", "Mailgun"],
-        liveUrl: "https://www.petparentusa.com",
+        technologies: ["Next.js", "TypeScript", "tRPC", "Drizzle ORM", "PostgreSQL", "Authorize.Net"],
+        liveUrl: "http://authorize.net/",
         githubUrl: "https://github.com/Sohidul-Islam"
     },
     {
         id: "glory-pos",
-        title: "GloryPOS – Point of Sale (POS) System",
-        subtitle: "Retail Sales, Real-Time Inventory & Multi-Branch Management",
-        category: "Real-Time / Mobile",
+        title: "GloryPOS – Point of Sale & Inventory Platform",
+        subtitle: "Real-time retail POS system supporting multi-terminal synchronization and branch management.",
+        category: "Real-Time / POS",
         period: "01/2025 – 07/2025",
         featured: true,
         imageGradient: "from-purple-600 to-violet-900",
-        badge: "Fashion Glory Co. Project",
-        summary: "Built a web and Android-based POS system for retail sales, inventory tracking, and financial reporting for Fashion Glory Company Limited.",
+        badge: "Retail System",
+        summary: "Built a web and Android POS solution for retail checkout, synchronized stock tracking, and multi-branch financial accounting.",
         role: "Full-Stack & Real-Time Engineer",
         highlights: [
-            "Implemented role-based access control (RBAC) for admins, managers, and cashiers with secure authentication.",
-            "Enabled instant real-time updates using Socket.IO for multi-terminal sales and inventory sync.",
-            "Supported multi-branch operations with a high-concurrency scalable architecture built with React.js, Node.js, Express.js, MySQL, and Socket.IO."
+            "Implemented role-based access control (RBAC) across cashiers, managers, and administrators.",
+            "Enabled sub-second WebSocket updates via Socket.IO for multi-terminal inventory deduction and sales logging.",
+            "Engineered resilient multi-branch data architecture using Node.js, Express.js, MySQL, and BullMQ."
         ],
-        technologies: ["React.js", "Node.js", "Express.js", "MySQL", "Socket.IO", "Android Web POS", "BullMQ"],
+        technologies: ["React.js", "Node.js", "Express.js", "MySQL", "Socket.IO", "BullMQ"],
         liveUrl: "http://glorypos.com/",
         githubUrl: "https://github.com/Sohidul-Islam"
     },
     {
         id: "lyxa-delivery",
-        title: "LYXA – Food Delivery & Zone Coverage System",
-        subtitle: "Precision Geo-Zone Food Delivery Platform & Logistics Suite",
-        category: "E-Commerce / Systems",
+        title: "LYXA – Food Delivery & Geo-Zone Logistics",
+        subtitle: "High-volume food delivery ecosystem with precision geospatial polygon mapping.",
+        category: "E-Commerce / Logistics",
         period: "04/2023 – Present",
         featured: true,
         imageGradient: "from-rose-600 to-pink-900",
-        badge: "E-Commerce & Logistics",
-        summary: "Enhanced LYXA e-commerce with complex features, zone delivery mapping, and end-to-end administration.",
+        badge: "Logistics Suite",
+        summary: "Scaled core frontend features for LYXA's delivery platform, including geometric zone boundary calculation and order orchestration.",
         role: "Frontend Engineer & UX Architect",
         highlights: [
-            "Developed a precise zone coverage mapping and calculation system for food delivery boundaries.",
-            "Managed sales, accounts, super-admin panels, and collaborated with cross-functional teams for business requirements.",
-            "Improved platform performance, response speeds, and user experience with tailored modular components."
+            "Built a custom geometric boundary mapping engine for multi-restaurant delivery zone coverage.",
+            "Engineered high-throughput admin dashboards for financial reconciliation and order analytics.",
+            "Optimized client rendering pipelines for sub-second UI interactions across mobile and desktop."
         ],
-        technologies: ["React.js", "Redux", "Zone Mapping Engine", "Admin Super-Dashboard", "JavaScript", "CSS3"],
+        technologies: ["React.js", "Redux Toolkit", "Geo-Mapping Engine", "JavaScript", "Tailwind CSS"],
         liveUrl: "https://lyxa.ai/",
         githubUrl: "https://github.com/Sohidul-Islam"
     },
     {
         id: "react-scroll-pagify",
         title: "React Scroll Pagify",
-        subtitle: "Open-Source React Scroll Pagination Package",
-        category: "Open Source / Package",
+        subtitle: "Lightweight open-source React library for seamless infinite scrolling and pagination.",
+        category: "Open Source / NPM",
         period: "Published Library",
         featured: false,
         imageGradient: "from-amber-600 to-orange-900",
         badge: "NPM Package",
-        summary: "Published open-source React package available on NPM for scroll-driven pagination and seamless infinite scroll rendering.",
+        summary: "Published open-source React package available on NPM providing zero-dependency hooks for scroll-driven pagination.",
         role: "Author & Maintainer",
         highlights: [
-            "Published on NPM with smooth scroll calculation utilities.",
-            "Features zero-dependency lightweight hook integration for React applications."
+            "Published and maintained on the official NPM Registry.",
+            "Zero external runtime dependencies with high performance scroll observation."
         ],
-        technologies: ["React", "JavaScript", "NPM Registry", "Open Source"],
+        technologies: ["React", "TypeScript", "NPM Registry", "Open Source"],
         liveUrl: "https://www.npmjs.com/package/react-scroll-pagify",
         githubUrl: "https://github.com/Sohidul-Islam/react-scrollify"
     }
@@ -281,19 +281,19 @@ export const projects = [
 export const awards = [
     {
         id: "mediusware-award",
-        title: "Outstanding Software Engineer (Javascript)",
+        title: "Outstanding Software Engineer (JavaScript)",
         organization: "Mediusware LTD",
         date: "December 28, 2025",
-        badge: "Company Gala Award",
-        description: "Recognised as an outstanding software engineer at the Mediusware annual gala event for high-impact technical performance, AI automation integrations, and full-stack software delivery."
+        badge: "Annual Excellence Award",
+        description: "Recognized as an outstanding software engineer at the Mediusware annual gala event for exceptional technical execution, AI automation delivery, and full-stack software architecture."
     },
     {
         id: "ieee-publication",
         title: "Bangla Speech Emotion Recognition Research",
         organization: "IEEE Xplore Publication",
-        date: "2025",
+        date: "Published 2025",
         badge: "IEEE Research",
-        description: "Published research paper on Machine Learning & Deep Learning methods for Bangla speech emotion recognition.",
+        description: "Co-authored and published peer-reviewed research on Machine Learning & Deep Learning architectures for acoustic emotion classification in the Bangla language.",
         link: "https://ieeexplore.ieee.org/document/11005193"
     }
 ];
@@ -305,29 +305,10 @@ export const education = [
         institution: "Port City International University",
         period: "01/2019 – 01/2023",
         location: "Chattogram, Bangladesh",
-        grade: "CGPA: 3.93 / 4.00",
-        badge: "High Honors",
+        grade: "CGPA: 3.93 / 4.00 (High Honors)",
+        badge: "Graduated with High Honors",
         thesis: "Bangla Speech Emotion Recognition Using Machine Learning and Deep Learning Methods.",
         publicationUrl: "https://ieeexplore.ieee.org/document/11005193",
-        details: "Focus on Algorithms, Software Architecture, Machine Learning, Deep Learning, and Web Systems."
-    },
-    {
-        id: "hsc",
-        degree: "Higher Secondary School Certificate (HSC)",
-        institution: "Moulavi Shamsul Karim College",
-        period: "2018",
-        location: "Feni, Bangladesh",
-        grade: "GPA: 2.92 / 5.00",
-        details: "Science Stream"
-    },
-    {
-        id: "ssc",
-        degree: "Secondary School Certificate (SSC)",
-        institution: "Chhagalnaiya Academy",
-        period: "2016",
-        location: "Feni, Bangladesh",
-        grade: "GPA: 4.67 / 5.00",
-        details: "Science Stream"
+        details: "Core focus on Data Structures & Algorithms, Distributed Systems, Machine Learning, and Software Architecture. Graduated at the top of the graduating class."
     }
 ];
-

@@ -13,6 +13,8 @@ export default function Achievements() {
   return (
     <Box
       id="achievements"
+      component="section"
+      aria-label="Recognitions and Honors"
       sx={{
         py: { xs: 8, md: 12 },
         position: "relative",
@@ -39,7 +41,7 @@ export default function Achievements() {
                 display: "block",
               }}
             >
-              Recognitions & Milestones
+              Recognitions &amp; Milestones
             </Typography>
             <Typography
               variant="h2"
@@ -50,26 +52,38 @@ export default function Achievements() {
                 letterSpacing: "-1px",
               }}
             >
-              Honors & <span className="gradient-text">Achievements</span>
+              Honors &amp; <span className="gradient-text">Achievements</span>
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                color: "var(--text-secondary)",
+                mt: 1.5,
+                maxWidth: "600px",
+                mx: "auto",
+                fontSize: "1rem",
+              }}
+            >
+              Industry excellence recognition and published peer-reviewed academic research.
             </Typography>
           </motion.div>
         </Box>
 
         {/* Awards Cards Grid */}
-        <Box sx={{ maxWidth: "800px", mx: "auto" }}>
+        <Box sx={{ maxWidth: "860px", mx: "auto", display: "flex", flexDirection: "column", gap: 3.5 }}>
           {awards.map((award, idx) => (
             <motion.div
               key={award.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
               <Box
                 className="glass-card"
                 sx={{
-                  p: { xs: 4, md: 5 },
-                  borderRadius: "24px",
+                  p: { xs: 3.5, sm: 4.5 },
+                  borderRadius: "22px",
                   display: "flex",
                   flexDirection: { xs: "column", sm: "row" },
                   alignItems: { xs: "flex-start", sm: "center" },
@@ -77,17 +91,22 @@ export default function Achievements() {
                   position: "relative",
                   overflow: "hidden",
                   background:
-                    "linear-gradient(135deg, rgba(0, 240, 255, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%)",
+                    "linear-gradient(135deg, rgba(0, 240, 255, 0.04) 0%, rgba(139, 92, 246, 0.04) 100%)",
                   borderColor: "var(--border-accent)",
-                  boxShadow: "var(--shadow-glow)",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    borderColor: "var(--accent-cyan)",
+                    boxShadow: "var(--shadow-glow)",
+                    transform: "translateY(-3px)",
+                  },
                 }}
               >
                 {/* Trophy Icon Container */}
                 <Box
                   sx={{
-                    width: 72,
-                    height: 72,
-                    borderRadius: "20px",
+                    width: { xs: 60, sm: 72 },
+                    height: { xs: 60, sm: 72 },
+                    borderRadius: "18px",
                     background: "var(--gradient-btn)",
                     display: "flex",
                     alignItems: "center",
@@ -97,7 +116,7 @@ export default function Achievements() {
                     flexShrink: 0,
                   }}
                 >
-                  <Trophy size={36} />
+                  <Trophy size={32} />
                 </Box>
 
                 {/* Award Details */}
@@ -107,7 +126,7 @@ export default function Achievements() {
                       display: "flex",
                       alignItems: "center",
                       gap: 1.5,
-                      mb: 1,
+                      mb: 1.2,
                       flexWrap: "wrap",
                     }}
                   >
@@ -115,15 +134,14 @@ export default function Achievements() {
                       label={award.badge}
                       size="small"
                       sx={{
-                        backgroundColor: "rgba(0, 240, 255, 0.15)",
+                        backgroundColor: "rgba(0, 240, 255, 0.12)",
                         color: "var(--accent-cyan)",
                         fontWeight: 700,
-                        fontSize: "0.75rem",
+                        fontSize: "0.72rem",
+                        border: "1px solid rgba(0, 240, 255, 0.25)",
                       }}
                     />
-                    <Box
-                      sx={{ display: "flex", alignItems: "center", gap: 0.6 }}
-                    >
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 0.6 }}>
                       <Calendar size={14} color="var(--text-muted)" />
                       <Typography
                         variant="caption"
@@ -135,12 +153,13 @@ export default function Achievements() {
                   </Box>
 
                   <Typography
-                    variant="h4"
+                    variant="h3"
                     sx={{
                       fontWeight: 800,
                       color: "var(--text-primary)",
                       mb: 1,
-                      fontSize: { xs: "1.4rem", sm: "1.75rem" },
+                      fontSize: { xs: "1.25rem", sm: "1.45rem" },
+                      letterSpacing: "-0.3px",
                     }}
                   >
                     {award.title}
@@ -156,7 +175,7 @@ export default function Achievements() {
                   >
                     <Building2 size={16} color="var(--accent-cyan)" />
                     <Typography
-                      variant="subtitle1"
+                      variant="subtitle2"
                       sx={{ fontWeight: 700, color: "var(--accent-cyan)" }}
                     >
                       {award.organization}
@@ -165,7 +184,12 @@ export default function Achievements() {
 
                   <Typography
                     variant="body1"
-                    sx={{ color: "var(--text-secondary)", lineHeight: 1.7, mb: award.link ? 2 : 0 }}
+                    sx={{
+                      color: "var(--text-secondary)",
+                      lineHeight: 1.7,
+                      fontSize: "0.92rem",
+                      mb: award.link ? 2.5 : 0,
+                    }}
                   >
                     {award.description}
                   </Typography>
@@ -184,14 +208,14 @@ export default function Achievements() {
                         color: "var(--accent-cyan)",
                         fontWeight: 700,
                         textTransform: "none",
-                        fontSize: "0.85rem",
+                        fontSize: "0.82rem",
                         "&:hover": {
                           borderColor: "var(--accent-cyan)",
                           backgroundColor: "rgba(0, 240, 255, 0.08)",
                         },
                       }}
                     >
-                      View Publication / Certificate
+                      View Publication on IEEE Xplore
                     </Button>
                   )}
                 </Box>

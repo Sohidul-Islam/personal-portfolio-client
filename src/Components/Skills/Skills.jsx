@@ -3,88 +3,76 @@ import { Box, Container, Typography, Grid, Chip, Button } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Code2,
-  FileCode,
-  Terminal,
   Layout,
-  Globe,
-  Smartphone,
-  Cpu,
-  Layers,
-  Palette,
   Server,
-  Zap,
-  Box as BoxIcon,
-  Network,
   Database,
-  HardDrive,
-  GitCommit,
   Cloud,
-  Send,
-  Container as DockerIcon,
-  ShieldCheck,
-  Bot,
-  FileText,
-  MessageSquare,
-  Workflow,
   Activity,
-  ListOrdered,
-  CreditCard,
-  Lock,
+  Bot,
+  CheckCircle2,
 } from "lucide-react";
 import { skillCategories } from "../../data/portfolioData";
 
-const iconMap = {
-  Code2,
-  FileCode,
-  Terminal,
-  Layout,
-  Globe,
-  Smartphone,
-  Cpu,
-  Layers,
-  Palette,
-  Server,
-  Zap,
-  Box: BoxIcon,
-  Network,
-  Database,
-  HardDrive,
-  GitCommit,
-  Cloud,
-  Send,
-  Container: DockerIcon,
-  ShieldCheck,
-  Bot,
-  FileText,
-  MessageSquare,
-  Workflow,
-  Activity,
-  ListOrdered,
-  CreditCard,
-  Lock,
+const categoryMeta = {
+  languages: {
+    icon: Code2,
+    title: "Languages",
+    desc: "Type-safe, modern programming languages for frontend, backend, and scripting.",
+    color: "var(--accent-cyan)",
+  },
+  frontend: {
+    icon: Layout,
+    title: "Frontend Engineering",
+    desc: "Building reactive, accessible, and high-performance user interfaces and SPAs.",
+    color: "var(--accent-violet)",
+  },
+  backend: {
+    icon: Server,
+    title: "Backend & APIs",
+    desc: "Robust server-side microservices, REST APIs, and type-safe RPC endpoints.",
+    color: "var(--accent-cyan)",
+  },
+  database_orm: {
+    icon: Database,
+    title: "Database & ORM",
+    desc: "Relational schema design, migrations, high-throughput queries, and ORM abstractions.",
+    color: "var(--accent-emerald)",
+  },
+  cloud_devops: {
+    icon: Cloud,
+    title: "Cloud & DevOps",
+    desc: "Serverless pipelines, containerized environments, and secure cloud networking.",
+    color: "var(--accent-cyan)",
+  },
+  realtime_systems: {
+    icon: Activity,
+    title: "Real-Time & Architecture",
+    desc: "Low-latency WebSocket duplex communication, async message queues, and billing.",
+    color: "var(--accent-violet)",
+  },
+  ai_automation: {
+    icon: Bot,
+    title: "AI & Workflow Automation",
+    desc: "Integrating generative LLMs, automated document parsers, and event workflows.",
+    color: "var(--accent-rose)",
+  },
 };
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState("all");
 
-  const allSkillsList = skillCategories
-    .filter((cat) => cat.id !== "all")
-    .flatMap((cat) =>
-      cat.skills.map((skill) => ({
-        ...skill,
-        categoryLabel: cat.label,
-        categoryId: cat.id,
-      })),
-    );
+  const categories = skillCategories.filter((c) => c.id !== "all");
 
-  const displayedSkills =
+  const displayedCategories =
     activeCategory === "all"
-      ? allSkillsList
-      : allSkillsList.filter((skill) => skill.categoryId === activeCategory);
+      ? categories
+      : categories.filter((c) => c.id === activeCategory);
 
   return (
     <Box
       id="skills"
+      component="section"
+      aria-label="Technical Skills and Stack"
       sx={{
         py: { xs: 8, md: 12 },
         position: "relative",
@@ -113,7 +101,7 @@ export default function Skills() {
                 display: "block",
               }}
             >
-              Technical Expertise
+              Technical Capabilities
             </Typography>
             <Typography
               variant="h2"
@@ -124,18 +112,31 @@ export default function Skills() {
                 letterSpacing: "-1px",
               }}
             >
-              Skills & <span className="gradient-text">Technologies</span>
+              Core <span className="gradient-text">Skills & Technologies</span>
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                color: "var(--text-secondary)",
+                mt: 1.5,
+                maxWidth: "680px",
+                mx: "auto",
+                fontSize: "1rem",
+              }}
+            >
+              A focused, production-proven technology stack grounded strictly in
+              real-world commercial engineering experience.
             </Typography>
           </motion.div>
         </Box>
 
-        {/* Category Tabs */}
+        {/* Category Filter Pills */}
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
             flexWrap: "wrap",
-            gap: 1.5,
+            gap: 1.2,
             mb: 6,
           }}
         >
@@ -143,13 +144,14 @@ export default function Skills() {
             <Button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
+              aria-pressed={activeCategory === cat.id}
               sx={{
                 borderRadius: "30px",
-                px: 3,
-                py: 1,
+                px: 2.8,
+                py: 0.9,
                 textTransform: "none",
                 fontWeight: 600,
-                fontSize: "0.9rem",
+                fontSize: "0.88rem",
                 backgroundColor:
                   activeCategory === cat.id
                     ? "var(--gradient-btn)"
@@ -162,7 +164,7 @@ export default function Skills() {
                     : "1px solid var(--border-subtle)",
                 boxShadow:
                   activeCategory === cat.id ? "var(--shadow-glow)" : "none",
-                transition: "all 0.3s ease",
+                transition: "all 0.25s ease",
                 "&:hover": {
                   backgroundColor:
                     activeCategory === cat.id
@@ -180,113 +182,148 @@ export default function Skills() {
           ))}
         </Box>
 
-        {/* Skills Grid */}
-        <Grid container spacing={3}>
+        {/* Categorized Skills Cards Grid */}
+        <Grid container spacing={3.5}>
           <AnimatePresence mode="popLayout">
-            {displayedSkills.map((skill, index) => {
-              const IconComponent = iconMap[skill.icon] || Code2;
+            {displayedCategories.map((category, idx) => {
+              const meta = categoryMeta[category.id] || {
+                icon: Code2,
+                title: category.label,
+                desc: "",
+                color: "var(--accent-cyan)",
+              };
+              const CategoryIcon = meta.icon;
+
               return (
                 <Grid
                   item
                   xs={12}
-                  sm={6}
-                  md={4}
-                  lg={3}
-                  key={`${skill.name}-${index}`}
+                  md={6}
+                  lg={category.id === "ai_automation" ? 12 : 4}
+                  key={category.id}
                 >
                   <motion.div
                     layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.3, delay: index * 0.03 }}
+                    initial={{ opacity: 0, y: 25 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.35, delay: idx * 0.05 }}
+                    style={{ height: "100%" }}
                   >
                     <Box
                       className="glass-card"
                       sx={{
-                        p: 2.5,
-                        display: "flex",
-                        alignItems: "center",
-                        gap: 2,
+                        p: 3.5,
+                        borderRadius: "20px",
                         height: "100%",
-                        transition: "all 0.3s ease",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                         "&:hover": {
-                          borderColor: "var(--border-accent)",
+                          borderColor: meta.color,
+                          boxShadow: "var(--shadow-glow)",
                           transform: "translateY(-4px)",
                         },
                       }}
                     >
-                      <Box
-                        sx={{
-                          width: 44,
-                          height: 44,
-                          borderRadius: "12px",
-                          backgroundColor: "var(--bg-primary)",
-                          border: "1px solid var(--border-subtle)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          color: "var(--accent-cyan)",
-                          flexShrink: 0,
-                        }}
-                      >
-                        <IconComponent size={22} />
-                      </Box>
-
-                      <Box sx={{ flexGrow: 1, minWidth: 0 }}>
-                        <Typography
-                          variant="subtitle1"
-                          noWrap
-                          sx={{
-                            fontWeight: 700,
-                            color: "var(--text-primary)",
-                            fontSize: "0.98rem",
-                            mb: 0.2,
-                          }}
-                        >
-                          {skill.name}
-                        </Typography>
-
+                      <Box>
+                        {/* Header with Icon and Title */}
                         <Box
                           sx={{
                             display: "flex",
                             alignItems: "center",
-                            justifyContent: "space-between",
-                            gap: 1,
+                            gap: 1.8,
+                            mb: 2,
                           }}
                         >
-                          <Typography
-                            variant="caption"
+                          <Box
                             sx={{
-                              color: "var(--text-muted)",
-                              fontSize: "0.75rem",
+                              width: 44,
+                              height: 44,
+                              borderRadius: "12px",
+                              backgroundColor: "var(--bg-primary)",
+                              border: "1px solid var(--border-subtle)",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              color: meta.color,
+                              flexShrink: 0,
                             }}
                           >
-                            {skill.categoryLabel}
-                          </Typography>
+                            <CategoryIcon size={22} />
+                          </Box>
+                          <Box>
+                            <Typography
+                              variant="h3"
+                              sx={{
+                                fontWeight: 800,
+                                fontSize: "1.15rem",
+                                color: "var(--text-primary)",
+                                letterSpacing: "-0.3px",
+                              }}
+                            >
+                              {meta.title}
+                            </Typography>
+                            <Typography
+                              variant="caption"
+                              sx={{
+                                color: "var(--text-muted)",
+                                display: "block",
+                                fontSize: "0.75rem",
+                                fontWeight: 500,
+                              }}
+                            >
+                              {category.skills.length} core technologies
+                            </Typography>
+                          </Box>
+                        </Box>
 
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            color: "var(--text-secondary)",
+                            fontSize: "0.86rem",
+                            lineHeight: 1.6,
+                            mb: 3,
+                          }}
+                        >
+                          {meta.desc}
+                        </Typography>
+                      </Box>
+
+                      {/* Technology Pills List */}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexWrap: "wrap",
+                          gap: 1,
+                          pt: 2,
+                          borderTop: "1px solid var(--border-subtle)",
+                        }}
+                      >
+                        {category.skills.map((skill, sIdx) => (
                           <Chip
-                            label={skill.level}
+                            key={sIdx}
+                            icon={<CheckCircle2 size={13} color={meta.color} />}
+                            label={skill.name}
                             size="small"
                             sx={{
-                              height: 20,
-                              fontSize: "0.65rem",
-                              fontWeight: 700,
-                              backgroundColor:
-                                skill.level === "Expert"
-                                  ? "rgba(0, 240, 255, 0.15)"
-                                  : skill.level === "Advanced"
-                                  ? "rgba(139, 92, 246, 0.15)"
-                                  : "rgba(255, 255, 255, 0.08)",
-                              color:
-                                skill.level === "Expert"
-                                  ? "var(--accent-cyan)"
-                                  : skill.level === "Advanced"
-                                  ? "var(--accent-violet)"
-                                  : "var(--text-secondary)",
+                              backgroundColor: "var(--bg-primary)",
+                              border: "1px solid var(--border-subtle)",
+                              color: "var(--text-primary)",
+                              fontWeight: 600,
+                              fontSize: "0.78rem",
+                              py: 1.8,
+                              px: 0.5,
+                              transition: "all 0.2s ease",
+                              "&:hover": {
+                                borderColor: meta.color,
+                                backgroundColor: "rgba(0, 240, 255, 0.05)",
+                              },
                             }}
                           />
-                        </Box>
+                        ))}
                       </Box>
                     </Box>
                   </motion.div>
