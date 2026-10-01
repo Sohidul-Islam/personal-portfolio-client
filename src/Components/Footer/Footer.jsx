@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Container, Typography, IconButton } from "@mui/material";
 import { ArrowUp, Terminal } from "lucide-react";
+import Magnetic from "../Motion/Magnetic";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -28,32 +29,34 @@ export default function Footer() {
           }}
         >
           {/* Logo Brand */}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-            <Box
-              sx={{
-                width: 36,
-                height: 36,
-                borderRadius: "10px",
-                background: "var(--gradient-btn)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#fff",
-              }}
-            >
-              <Terminal size={18} />
+          <Magnetic strength={0.15}>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, cursor: "pointer" }} onClick={scrollToTop}>
+              <Box
+                sx={{
+                  width: 36,
+                  height: 36,
+                  borderRadius: "10px",
+                  background: "var(--gradient-btn)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#fff",
+                }}
+              >
+                <Terminal size={18} />
+              </Box>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 800,
+                  color: "var(--text-primary)",
+                  letterSpacing: "-0.5px",
+                }}
+              >
+                Sohidul<span style={{ color: "var(--accent-cyan)" }}>.dev</span>
+              </Typography>
             </Box>
-            <Typography
-              variant="h6"
-              sx={{
-                fontWeight: 800,
-                color: "var(--text-primary)",
-                letterSpacing: "-0.5px",
-              }}
-            >
-              Sohidul<span style={{ color: "var(--accent-cyan)" }}>.dev</span>
-            </Typography>
-          </Box>
+          </Magnetic>
 
           {/* Copyright Text */}
           <Typography
@@ -63,26 +66,28 @@ export default function Footer() {
             © {new Date().getFullYear()} Sohidul Islam Shufol (sishufol) • Software Engineer II • sohidul.dev
           </Typography>
 
-          {/* Back To Top Button */}
-          <IconButton
-            onClick={scrollToTop}
-            aria-label="Back to top"
-            sx={{
-              color: "var(--text-primary)",
-              border: "1px solid var(--border-subtle)",
-              backgroundColor: "var(--bg-card)",
-              borderRadius: "12px",
-              p: 1.2,
-              transition: "all 0.2s ease",
-              "&:hover": {
-                borderColor: "var(--accent-cyan)",
-                color: "var(--accent-cyan)",
-                transform: "translateY(-3px)",
-              },
-            }}
-          >
-            <ArrowUp size={20} />
-          </IconButton>
+          {/* Back To Top Button with Magnetic effect */}
+          <Magnetic strength={0.3}>
+            <IconButton
+              onClick={scrollToTop}
+              aria-label="Back to top"
+              sx={{
+                color: "var(--text-primary)",
+                border: "1px solid var(--border-subtle)",
+                backgroundColor: "var(--bg-card)",
+                borderRadius: "12px",
+                p: 1.2,
+                transition: "all 0.2s ease",
+                "&:hover": {
+                  borderColor: "var(--accent-cyan)",
+                  color: "var(--accent-cyan)",
+                  transform: "translateY(-3px)",
+                },
+              }}
+            >
+              <ArrowUp size={20} />
+            </IconButton>
+          </Magnetic>
         </Box>
       </Container>
     </Box>

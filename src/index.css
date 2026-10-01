@@ -180,6 +180,23 @@ body {
   z-index: 0;
 }
 
+/* Custom Cursor Desktop Active */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active a,
+  body.custom-cursor-active button,
+  body.custom-cursor-active [role="button"],
+  body.custom-cursor-active .clickable {
+    cursor: none !important;
+  }
+
+  body.custom-cursor-active input,
+  body.custom-cursor-active textarea,
+  body.custom-cursor-active [contenteditable="true"] {
+    cursor: text !important;
+  }
+}
+
 /* Respect Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -191,3 +208,4 @@ body {
     scroll-behavior: auto !important;
   }
 }
+

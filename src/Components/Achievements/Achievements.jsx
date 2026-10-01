@@ -9,6 +9,7 @@ import {
   Code2,
 } from "lucide-react";
 import { awards } from "../../data/portfolioData";
+import TiltCard from "../Motion/TiltCard";
 
 export default function Achievements() {
   return (
@@ -80,28 +81,32 @@ export default function Achievements() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
-              <Box
-                className="glass-card"
-                sx={{
-                  p: { xs: 3.5, sm: 4.5 },
-                  borderRadius: "22px",
-                  display: "flex",
-                  flexDirection: { xs: "column", sm: "row" },
-                  alignItems: { xs: "flex-start", sm: "center" },
-                  gap: 3.5,
-                  position: "relative",
-                  overflow: "hidden",
-                  background:
-                    "linear-gradient(135deg, rgba(0, 240, 255, 0.04) 0%, rgba(139, 92, 246, 0.04) 100%)",
-                  borderColor: "var(--border-accent)",
-                  transition: "all 0.3s ease",
-                  "&:hover": {
-                    borderColor: "var(--accent-cyan)",
-                    boxShadow: "var(--shadow-glow)",
-                    transform: "translateY(-3px)",
-                  },
-                }}
+              <TiltCard
+                maxTilt={3}
+                scaleOnHover={1.012}
+                style={{ borderRadius: "22px" }}
               >
+                <Box
+                  className="glass-card"
+                  sx={{
+                    p: { xs: 3.5, sm: 4.5 },
+                    borderRadius: "22px",
+                    display: "flex",
+                    flexDirection: { xs: "column", sm: "row" },
+                    alignItems: { xs: "flex-start", sm: "center" },
+                    gap: 3.5,
+                    position: "relative",
+                    overflow: "hidden",
+                    background:
+                      "linear-gradient(135deg, rgba(0, 240, 255, 0.04) 0%, rgba(139, 92, 246, 0.04) 100%)",
+                    borderColor: "var(--border-accent)",
+                    transition: "border-color 0.25s ease, box-shadow 0.25s ease",
+                    "&:hover": {
+                      borderColor: "var(--accent-cyan)",
+                      boxShadow: "var(--shadow-glow)",
+                    },
+                  }}
+                >
                 {/* Trophy Icon Container */}
                 <Box
                   sx={{
@@ -251,7 +256,8 @@ export default function Achievements() {
                   )}
                 </Box>
               </Box>
-            </motion.div>
+            </TiltCard>
+          </motion.div>
           ))}
         </Box>
       </Container>

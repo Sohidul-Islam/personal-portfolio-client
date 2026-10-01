@@ -9,6 +9,7 @@ import {
   Briefcase,
 } from "lucide-react";
 import { experiences } from "../../data/portfolioData";
+import TiltCard from "../Motion/TiltCard";
 
 export default function Experience() {
   return (
@@ -113,20 +114,24 @@ export default function Experience() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.08 }}
                 >
-                  <Box
-                    className="glass-card"
-                    sx={{
-                      p: { xs: 3, sm: 4 },
-                      borderRadius: "20px",
-                      position: "relative",
-                      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                      "&:hover": {
-                        borderColor: "var(--border-accent)",
-                        boxShadow: "var(--shadow-glow)",
-                        transform: "translateY(-3px)",
-                      },
-                    }}
+                  <TiltCard
+                    maxTilt={3}
+                    scaleOnHover={1.01}
+                    style={{ borderRadius: "20px" }}
                   >
+                    <Box
+                      className="glass-card"
+                      sx={{
+                        p: { xs: 3, sm: 4 },
+                        borderRadius: "20px",
+                        position: "relative",
+                        transition: "border-color 0.25s ease, box-shadow 0.25s ease",
+                        "&:hover": {
+                          borderColor: "var(--border-accent)",
+                          boxShadow: "var(--shadow-glow)",
+                        },
+                      }}
+                    >
                     {/* Top Row: Role, Status, and Period */}
                     <Box
                       sx={{
@@ -284,7 +289,8 @@ export default function Experience() {
                       ))}
                     </Box>
                   </Box>
-                </motion.div>
+                </TiltCard>
+              </motion.div>
               </Box>
             ))}
           </Box>

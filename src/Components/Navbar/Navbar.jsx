@@ -23,6 +23,7 @@ import {
   Download,
 } from "lucide-react";
 import { useThemeContext } from "../../context/ThemeContext";
+import Magnetic from "../Motion/Magnetic";
 
 const navItems = [
   { name: "About", target: "about" },
@@ -71,74 +72,76 @@ export default function Navbar() {
       <Container maxWidth="xl">
         <Toolbar component="nav" aria-label="Main Navigation" disableGutters sx={{ justifyContent: "space-between" }}>
           {/* Logo Brand */}
-          <ScrollLink
-            to="hero"
-            spy={true}
-            smooth={true}
-            duration={500}
-            style={{ cursor: "pointer" }}
-          >
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-              <Box
-                sx={{
-                  width: 42,
-                  height: 42,
-                  borderRadius: "12px",
-                  background: "var(--gradient-btn)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#fff",
-                  boxShadow: "var(--shadow-glow)",
-                }}
-              >
-                <Terminal size={22} />
-              </Box>
-              <Box>
-                <Typography
-                  variant="h6"
-                  sx={{
-                    fontWeight: 800,
-                    letterSpacing: "-0.5px",
-                    color: "var(--text-primary)",
-                    fontSize: "1.25rem",
-                    lineHeight: 1.1,
-                  }}
-                >
-                  Sohidul
-                  <span style={{ color: "var(--accent-cyan)" }}>.dev</span>
-                </Typography>
+          <Magnetic strength={0.15}>
+            <ScrollLink
+              to="hero"
+              spy={true}
+              smooth={true}
+              duration={500}
+              style={{ cursor: "pointer" }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
                 <Box
                   sx={{
+                    width: 42,
+                    height: 42,
+                    borderRadius: "12px",
+                    background: "var(--gradient-btn)",
                     display: "flex",
                     alignItems: "center",
-                    gap: 0.8,
-                    mt: 0.2,
+                    justifyContent: "center",
+                    color: "#fff",
+                    boxShadow: "var(--shadow-glow)",
                   }}
                 >
-                  <Box
-                    sx={{
-                      width: 7,
-                      height: 7,
-                      borderRadius: "50%",
-                      backgroundColor: "var(--accent-emerald)",
-                      boxShadow: "0 0 8px var(--accent-emerald)",
-                    }}
-                  />
+                  <Terminal size={22} />
+                </Box>
+                <Box>
                   <Typography
-                    variant="caption"
+                    variant="h6"
                     sx={{
-                      color: "var(--text-secondary)",
-                      fontSize: "0.7rem",
-                      fontWeight: 600,
+                      fontWeight: 800,
+                      letterSpacing: "-0.5px",
+                      color: "var(--text-primary)",
+                      fontSize: "1.25rem",
+                      lineHeight: 1.1,
                     }}
                   >
-                    Software Engineer II
+                    Sohidul
+                    <span style={{ color: "var(--accent-cyan)" }}>.dev</span>
                   </Typography>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 0.8,
+                      mt: 0.2,
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: 7,
+                        height: 7,
+                        borderRadius: "50%",
+                        backgroundColor: "var(--accent-emerald)",
+                        boxShadow: "0 0 8px var(--accent-emerald)",
+                      }}
+                    />
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        color: "var(--text-secondary)",
+                        fontSize: "0.7rem",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Software Engineer II
+                    </Typography>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
-          </ScrollLink>
+            </ScrollLink>
+          </Magnetic>
 
           {/* Desktop Nav Items */}
           <Box
@@ -182,56 +185,60 @@ export default function Navbar() {
 
           {/* Actions & Theme Toggle */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-            {/* Theme Toggle Button */}
-            <IconButton
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              sx={{
-                color: "var(--text-primary)",
-                border: "1px solid var(--border-subtle)",
-                backgroundColor: "var(--bg-card)",
-                borderRadius: "12px",
-                p: 1,
-                transition: "all 0.2s ease",
-                "&:hover": {
-                  borderColor: "var(--border-accent)",
-                  backgroundColor: "var(--bg-card-hover)",
-                  transform: "scale(1.05)",
-                },
-              }}
-            >
-              {isDark ? (
-                <Sun size={20} color="var(--accent-cyan)" />
-              ) : (
-                <Moon size={20} color="var(--accent-violet)" />
-              )}
-            </IconButton>
+            {/* Theme Toggle Button with Magnetic effect */}
+            <Magnetic strength={0.25}>
+              <IconButton
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+                sx={{
+                  color: "var(--text-primary)",
+                  border: "1px solid var(--border-subtle)",
+                  backgroundColor: "var(--bg-card)",
+                  borderRadius: "12px",
+                  p: 1,
+                  transition: "all 0.2s ease",
+                  "&:hover": {
+                    borderColor: "var(--border-accent)",
+                    backgroundColor: "var(--bg-card-hover)",
+                    transform: "scale(1.05)",
+                  },
+                }}
+              >
+                {isDark ? (
+                  <Sun size={20} color="var(--accent-cyan)" />
+                ) : (
+                  <Moon size={20} color="var(--accent-violet)" />
+                )}
+              </IconButton>
+            </Magnetic>
 
-            {/* Resume Button */}
-            <Button
-              variant="outlined"
-              size="small"
-              href="/Sohidul Islam CV.pdf" download="Sohidul_Islam_CV.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              startIcon={<Download size={16} />}
-              sx={{
-                display: { xs: "none", sm: "inline-flex" },
-                borderRadius: "10px",
-                borderColor: "var(--border-accent)",
-                color: "var(--text-primary)",
-                fontWeight: 600,
-                textTransform: "none",
-                px: 2,
-                py: 0.8,
-                "&:hover": {
-                  borderColor: "var(--accent-cyan)",
-                  backgroundColor: "rgba(0, 240, 255, 0.08)",
-                },
-              }}
-            >
-              Resume
-            </Button>
+            {/* Resume Button with Magnetic effect */}
+            <Magnetic strength={0.2}>
+              <Button
+                variant="outlined"
+                size="small"
+                href="/Sohidul Islam CV.pdf" download="Sohidul_Islam_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                startIcon={<Download size={16} />}
+                sx={{
+                  display: { xs: "none", sm: "inline-flex" },
+                  borderRadius: "10px",
+                  borderColor: "var(--border-accent)",
+                  color: "var(--text-primary)",
+                  fontWeight: 600,
+                  textTransform: "none",
+                  px: 2,
+                  py: 0.8,
+                  "&:hover": {
+                    borderColor: "var(--accent-cyan)",
+                    backgroundColor: "rgba(0, 240, 255, 0.08)",
+                  },
+                }}
+              >
+                Resume
+              </Button>
+            </Magnetic>
 
             {/* Mobile Menu Toggle */}
             <IconButton

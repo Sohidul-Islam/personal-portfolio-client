@@ -24,6 +24,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import emailjs from "@emailjs/browser";
 import { personalInfo } from "../../data/portfolioData";
+import TiltCard from "../Motion/TiltCard";
+import Magnetic from "../Motion/Magnetic";
 
 const MediumIcon = ({ size = 18, ...props }) => (
   <svg
@@ -175,17 +177,22 @@ export default function Contact() {
               transition={{ duration: 0.6 }}
               style={{ height: "100%" }}
             >
-              <Box
-                className="glass-card"
-                sx={{
-                  p: { xs: 3.5, sm: 4.5 },
-                  borderRadius: "22px",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                }}
+              <TiltCard
+                maxTilt={3}
+                scaleOnHover={1.01}
+                style={{ height: "100%", borderRadius: "22px" }}
               >
+                <Box
+                  className="glass-card"
+                  sx={{
+                    p: { xs: 3.5, sm: 4.5 },
+                    borderRadius: "22px",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
                 <Box>
                   <Typography
                     variant="h3"
@@ -518,7 +525,8 @@ export default function Contact() {
                   </Box>
                 </Box>
               </Box>
-            </motion.div>
+            </TiltCard>
+          </motion.div>
           </Grid>
 
           {/* Right Column: Contact Form */}
@@ -688,29 +696,31 @@ export default function Contact() {
                 </Box>
 
                 <Box sx={{ pt: 3 }}>
-                  <Button
-                    fullWidth
-                    type="submit"
-                    disabled={loading}
-                    variant="contained"
-                    size="large"
-                    endIcon={<Send size={18} />}
-                    sx={{
-                      borderRadius: "12px",
-                      background: "var(--gradient-btn)",
-                      color: "#fff",
-                      fontWeight: 700,
-                      py: 1.4,
-                      textTransform: "none",
-                      fontSize: "1rem",
-                      boxShadow: "var(--shadow-glow)",
-                      "&:hover": {
-                        boxShadow: "0 0 30px rgba(0, 240, 255, 0.4)",
-                      },
-                    }}
-                  >
-                    {loading ? "Sending Message..." : "Send Message"}
-                  </Button>
+                  <Magnetic strength={0.15} style={{ width: "100%", display: "block" }}>
+                    <Button
+                      fullWidth
+                      type="submit"
+                      disabled={loading}
+                      variant="contained"
+                      size="large"
+                      endIcon={<Send size={18} />}
+                      sx={{
+                        borderRadius: "12px",
+                        background: "var(--gradient-btn)",
+                        color: "#fff",
+                        fontWeight: 700,
+                        py: 1.4,
+                        textTransform: "none",
+                        fontSize: "1rem",
+                        boxShadow: "var(--shadow-glow)",
+                        "&:hover": {
+                          boxShadow: "0 0 30px rgba(0, 240, 255, 0.4)",
+                        },
+                      }}
+                    >
+                      {loading ? "Sending Message..." : "Send Message"}
+                    </Button>
+                  </Magnetic>
                 </Box>
               </Box>
             </motion.div>

@@ -13,6 +13,7 @@ import {
   FileCheck,
   CheckCircle2,
 } from "lucide-react";
+import TiltCard from "../Motion/TiltCard";
 
 const pillars = [
   {
@@ -316,64 +317,70 @@ export default function About() {
                 {pillars.map((pillar, idx) => {
                   const Icon = pillar.icon;
                   return (
-                    <Box
+                    <TiltCard
                       key={idx}
-                      className="glass-card"
-                      sx={{
-                        p: 3,
-                        flex: 1,
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: 2.5,
-                        borderRadius: "18px",
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          borderColor: pillar.color,
-                          transform: "translateX(4px)",
-                        },
-                      }}
+                      maxTilt={4}
+                      scaleOnHover={1.02}
+                      style={{ borderRadius: "18px", flex: 1 }}
                     >
                       <Box
+                        className="glass-card"
                         sx={{
-                          width: 46,
-                          height: 46,
-                          borderRadius: "12px",
-                          backgroundColor: "var(--bg-primary)",
-                          border: "1px solid var(--border-subtle)",
+                          p: 3,
+                          height: "100%",
                           display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          color: pillar.color,
-                          flexShrink: 0,
+                          alignItems: "flex-start",
+                          gap: 2.5,
+                          borderRadius: "18px",
+                          transition: "border-color 0.25s ease, box-shadow 0.25s ease",
+                          "&:hover": {
+                            borderColor: pillar.color,
+                            boxShadow: `0 0 20px ${pillar.color}25`,
+                          },
                         }}
                       >
-                        <Icon size={22} />
-                      </Box>
+                        <Box
+                          sx={{
+                            width: 46,
+                            height: 46,
+                            borderRadius: "12px",
+                            backgroundColor: "var(--bg-primary)",
+                            border: "1px solid var(--border-subtle)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            color: pillar.color,
+                            flexShrink: 0,
+                          }}
+                        >
+                          <Icon size={22} />
+                        </Box>
 
-                      <Box>
-                        <Typography
-                          variant="h4"
-                          sx={{
-                            fontWeight: 700,
-                            color: "var(--text-primary)",
-                            mb: 0.5,
-                            fontSize: "1.05rem",
-                          }}
-                        >
-                          {pillar.title}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: "var(--text-secondary)",
-                            lineHeight: 1.6,
-                            fontSize: "0.88rem",
-                          }}
-                        >
-                          {pillar.desc}
-                        </Typography>
+                        <Box>
+                          <Typography
+                            variant="h4"
+                            sx={{
+                              fontWeight: 700,
+                              color: "var(--text-primary)",
+                              mb: 0.5,
+                              fontSize: "1.05rem",
+                            }}
+                          >
+                            {pillar.title}
+                          </Typography>
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              color: "var(--text-secondary)",
+                              lineHeight: 1.6,
+                              fontSize: "0.88rem",
+                            }}
+                          >
+                            {pillar.desc}
+                          </Typography>
+                        </Box>
                       </Box>
-                    </Box>
+                    </TiltCard>
                   );
                 })}
               </Box>

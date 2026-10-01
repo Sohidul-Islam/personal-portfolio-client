@@ -13,6 +13,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { skillCategories } from "../../data/portfolioData";
+import TiltCard from "../Motion/TiltCard";
 
 const categoryMeta = {
   languages: {
@@ -217,23 +218,27 @@ export default function Skills() {
                     transition={{ duration: 0.35, delay: idx * 0.05 }}
                     style={{ height: "100%" }}
                   >
-                    <Box
-                      className="glass-card"
-                      sx={{
-                        p: 3.5,
-                        borderRadius: "20px",
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "space-between",
-                        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                        "&:hover": {
-                          borderColor: meta.color,
-                          boxShadow: "var(--shadow-glow)",
-                          transform: "translateY(-4px)",
-                        },
-                      }}
+                    <TiltCard
+                      maxTilt={4}
+                      scaleOnHover={1.015}
+                      style={{ height: "100%", borderRadius: "20px" }}
                     >
+                      <Box
+                        className="glass-card"
+                        sx={{
+                          p: 3.5,
+                          borderRadius: "20px",
+                          height: "100%",
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "space-between",
+                          transition: "border-color 0.25s ease, box-shadow 0.25s ease",
+                          "&:hover": {
+                            borderColor: meta.color,
+                            boxShadow: `0 0 20px ${meta.color}25`,
+                          },
+                        }}
+                      >
                       <Box>
                         {/* Header with Icon and Title */}
                         <Box
@@ -333,7 +338,8 @@ export default function Skills() {
                         ))}
                       </Box>
                     </Box>
-                  </motion.div>
+                  </TiltCard>
+                </motion.div>
                 </Grid>
               );
             })}

@@ -8,7 +8,7 @@ import {
   IconButton,
   Chip,
 } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Link as ScrollLink } from "react-scroll";
 import { Mail, ArrowRight, Cpu } from "lucide-react";
@@ -17,6 +17,8 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { personalInfo } from "../../data/portfolioData";
 import profileImg from "../../images/shufol.jpg";
+import TiltCard from "../Motion/TiltCard";
+import Magnetic from "../Motion/Magnetic";
 
 const MediumIcon = ({ size = 18, ...props }) => (
   <svg
@@ -32,11 +34,33 @@ const MediumIcon = ({ size = 18, ...props }) => (
 );
 
 export default function Hero() {
+  // Smooth mouse-follow parallax for ambient orbs
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const orbSpringConfig = { damping: 40, stiffness: 85 };
+  const smoothMouseX = useSpring(mouseX, orbSpringConfig);
+  const smoothMouseY = useSpring(mouseY, orbSpringConfig);
+
+  const cyanOrbX = useTransform(smoothMouseX, [-600, 600], [-35, 35]);
+  const cyanOrbY = useTransform(smoothMouseY, [-600, 600], [-35, 35]);
+  const violetOrbX = useTransform(smoothMouseX, [-600, 600], [45, -45]);
+  const violetOrbY = useTransform(smoothMouseY, [-600, 600], [45, -45]);
+
+  const handleHeroMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    mouseX.set(clientX - centerX);
+    mouseY.set(clientY - centerY);
+  };
+
   return (
     <Box
       id="hero"
       component="section"
       aria-label="Introduction and Overview"
+      onMouseMove={handleHeroMouseMove}
       sx={{
         minHeight: "100vh",
         pt: { xs: 12, md: 16 },
@@ -47,9 +71,27 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* Ambient background glow effects */}
-      <Box className="bg-ambient-cyan" sx={{ top: "-10%", left: "-10%" }} />
-      <Box className="bg-ambient-violet" sx={{ bottom: "0%", right: "-10%" }} />
+      {/* Ambient background glow effects with mouse-follow parallax */}
+      <motion.div
+        aria-hidden="true"
+        className="bg-ambient-cyan"
+        style={{
+          top: "-10%",
+          left: "-10%",
+          x: cyanOrbX,
+          y: cyanOrbY,
+        }}
+      />
+      <motion.div
+        aria-hidden="true"
+        className="bg-ambient-violet"
+        style={{
+          bottom: "0%",
+          right: "-10%",
+          x: violetOrbX,
+          y: violetOrbY,
+        }}
+      />
 
       <Container maxWidth="xl">
         <Grid container spacing={6} alignItems="center">
@@ -184,69 +226,73 @@ export default function Hero() {
                 {personalInfo.summary}
               </Typography>
 
-              {/* CTA Buttons */}
+              {/* CTA Buttons with Magnetic effect */}
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2, mb: 5 }}>
-                <ScrollLink
-                  to="projects"
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  duration={500}
-                >
-                  <Button
-                    variant="contained"
-                    size="large"
-                    endIcon={<ArrowRight size={18} />}
-                    sx={{
-                      borderRadius: "12px",
-                      background: "var(--gradient-btn)",
-                      color: "#fff",
-                      fontWeight: 700,
-                      px: 3.5,
-                      py: 1.4,
-                      textTransform: "none",
-                      fontSize: "1rem",
-                      boxShadow: "var(--shadow-glow)",
-                      "&:hover": {
-                        transform: "translateY(-2px)",
-                        boxShadow: "0 0 30px rgba(0, 240, 255, 0.4)",
-                      },
-                    }}
+                <Magnetic strength={0.25}>
+                  <ScrollLink
+                    to="projects"
+                    spy={true}
+                    smooth={true}
+                    offset={-80}
+                    duration={500}
                   >
-                    View Case Studies
-                  </Button>
-                </ScrollLink>
+                    <Button
+                      variant="contained"
+                      size="large"
+                      endIcon={<ArrowRight size={18} />}
+                      sx={{
+                        borderRadius: "12px",
+                        background: "var(--gradient-btn)",
+                        color: "#fff",
+                        fontWeight: 700,
+                        px: 3.5,
+                        py: 1.4,
+                        textTransform: "none",
+                        fontSize: "1rem",
+                        boxShadow: "var(--shadow-glow)",
+                        "&:hover": {
+                          transform: "translateY(-2px)",
+                          boxShadow: "0 0 30px rgba(0, 240, 255, 0.4)",
+                        },
+                      }}
+                    >
+                      View Case Studies
+                    </Button>
+                  </ScrollLink>
+                </Magnetic>
 
-                <ScrollLink
-                  to="contact"
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  duration={500}
-                >
-                  <Button
-                    variant="outlined"
-                    size="large"
-                    sx={{
-                      borderRadius: "12px",
-                      borderColor: "var(--border-subtle)",
-                      color: "var(--text-primary)",
-                      fontWeight: 600,
-                      px: 3.5,
-                      py: 1.4,
-                      textTransform: "none",
-                      fontSize: "1rem",
-                      backgroundColor: "var(--bg-card)",
-                      "&:hover": {
-                        borderColor: "var(--border-accent)",
-                        backgroundColor: "var(--bg-card-hover)",
-                        transform: "translateY(-2px)",
-                      },
-                    }}
+                <Magnetic strength={0.25}>
+                  <ScrollLink
+                    to="contact"
+                    spy={true}
+                    smooth={true}
+                    offset={-80}
+                    duration={500}
                   >
-                    Get In Touch
-                  </Button>
-                </ScrollLink>
+                    <Button
+                      variant="outlined"
+                      size="large"
+                      sx={{
+                        borderRadius: "12px",
+                        borderColor: "var(--border-subtle)",
+                        color: "var(--text-primary)",
+                        fontWeight: 600,
+                        px: 3.5,
+                        py: 1.4,
+                        textTransform: "none",
+                        fontSize: "1rem",
+                        backgroundColor: "var(--bg-card)",
+                        "&:hover": {
+                          borderColor: "var(--border-accent)",
+                          backgroundColor: "var(--bg-card-hover)",
+                          transform: "translateY(-2px)",
+                        },
+                      }}
+                    >
+                      Get In Touch
+                    </Button>
+                  </ScrollLink>
+                </Magnetic>
               </Box>
 
               {/* Social Links & Platform Badges */}
@@ -271,173 +317,188 @@ export default function Hero() {
                 </Typography>
 
                 <Box sx={{ display: "flex", gap: 1 }}>
-                  <IconButton
-                    href={personalInfo.socials.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub profile of Sohidul Islam"
-                    sx={{
-                      color: "var(--text-primary)",
-                      border: "1px solid var(--border-subtle)",
-                      backgroundColor: "var(--bg-card)",
-                      borderRadius: "10px",
-                      p: 1.2,
-                      "&:hover": {
-                        borderColor: "var(--accent-cyan)",
-                        color: "var(--accent-cyan)",
-                        transform: "translateY(-2px)",
-                      },
-                    }}
-                  >
-                    <GitHubIcon fontSize="small" />
-                  </IconButton>
+                  <Magnetic strength={0.3}>
+                    <IconButton
+                      href={personalInfo.socials.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub profile of Sohidul Islam"
+                      sx={{
+                        color: "var(--text-primary)",
+                        border: "1px solid var(--border-subtle)",
+                        backgroundColor: "var(--bg-card)",
+                        borderRadius: "10px",
+                        p: 1.2,
+                        "&:hover": {
+                          borderColor: "var(--accent-cyan)",
+                          color: "var(--accent-cyan)",
+                          transform: "translateY(-2px)",
+                        },
+                      }}
+                    >
+                      <GitHubIcon fontSize="small" />
+                    </IconButton>
+                  </Magnetic>
 
-                  <IconButton
-                    href={personalInfo.socials.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn profile of Sohidul Islam"
-                    sx={{
-                      color: "var(--text-primary)",
-                      border: "1px solid var(--border-subtle)",
-                      backgroundColor: "var(--bg-card)",
-                      borderRadius: "10px",
-                      p: 1.2,
-                      "&:hover": {
-                        borderColor: "var(--accent-cyan)",
-                        color: "var(--accent-cyan)",
-                        transform: "translateY(-2px)",
-                      },
-                    }}
-                  >
-                    <LinkedInIcon fontSize="small" />
-                  </IconButton>
+                  <Magnetic strength={0.3}>
+                    <IconButton
+                      href={personalInfo.socials.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn profile of Sohidul Islam"
+                      sx={{
+                        color: "var(--text-primary)",
+                        border: "1px solid var(--border-subtle)",
+                        backgroundColor: "var(--bg-card)",
+                        borderRadius: "10px",
+                        p: 1.2,
+                        "&:hover": {
+                          borderColor: "var(--accent-cyan)",
+                          color: "var(--accent-cyan)",
+                          transform: "translateY(-2px)",
+                        },
+                      }}
+                    >
+                      <LinkedInIcon fontSize="small" />
+                    </IconButton>
+                  </Magnetic>
 
-                  <IconButton
-                    href={personalInfo.socials.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook profile of Sohidul Islam (sishufol)"
-                    sx={{
-                      color: "var(--text-primary)",
-                      border: "1px solid var(--border-subtle)",
-                      backgroundColor: "var(--bg-card)",
-                      borderRadius: "10px",
-                      p: 1.2,
-                      "&:hover": {
-                        borderColor: "var(--accent-cyan)",
-                        color: "var(--accent-cyan)",
-                        transform: "translateY(-2px)",
-                      },
-                    }}
-                  >
-                    <FacebookIcon fontSize="small" />
-                  </IconButton>
+                  <Magnetic strength={0.3}>
+                    <IconButton
+                      href={personalInfo.socials.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook profile of Sohidul Islam (sishufol)"
+                      sx={{
+                        color: "var(--text-primary)",
+                        border: "1px solid var(--border-subtle)",
+                        backgroundColor: "var(--bg-card)",
+                        borderRadius: "10px",
+                        p: 1.2,
+                        "&:hover": {
+                          borderColor: "var(--accent-cyan)",
+                          color: "var(--accent-cyan)",
+                          transform: "translateY(-2px)",
+                        },
+                      }}
+                    >
+                      <FacebookIcon fontSize="small" />
+                    </IconButton>
+                  </Magnetic>
 
-                  <IconButton
-                    href={personalInfo.socials.medium}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Medium articles by Sohidul Islam (sishufol)"
-                    sx={{
-                      color: "var(--text-primary)",
-                      border: "1px solid var(--border-subtle)",
-                      backgroundColor: "var(--bg-card)",
-                      borderRadius: "10px",
-                      p: 1.2,
-                      "&:hover": {
-                        borderColor: "var(--accent-cyan)",
-                        color: "var(--accent-cyan)",
-                        transform: "translateY(-2px)",
-                      },
-                    }}
-                  >
-                    <MediumIcon size={18} />
-                  </IconButton>
+                  <Magnetic strength={0.3}>
+                    <IconButton
+                      href={personalInfo.socials.medium}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Medium articles by Sohidul Islam (sishufol)"
+                      sx={{
+                        color: "var(--text-primary)",
+                        border: "1px solid var(--border-subtle)",
+                        backgroundColor: "var(--bg-card)",
+                        borderRadius: "10px",
+                        p: 1.2,
+                        "&:hover": {
+                          borderColor: "var(--accent-cyan)",
+                          color: "var(--accent-cyan)",
+                          transform: "translateY(-2px)",
+                        },
+                      }}
+                    >
+                      <MediumIcon size={18} />
+                    </IconButton>
+                  </Magnetic>
 
-                  <IconButton
-                    href={`mailto:${personalInfo.email}`}
-                    aria-label="Send email to Sohidul Islam"
-                    sx={{
-                      color: "var(--text-primary)",
-                      border: "1px solid var(--border-subtle)",
-                      backgroundColor: "var(--bg-card)",
-                      borderRadius: "10px",
-                      p: 1.2,
-                      "&:hover": {
-                        borderColor: "var(--accent-cyan)",
-                        color: "var(--accent-cyan)",
-                        transform: "translateY(-2px)",
-                      },
-                    }}
-                  >
-                    <Mail size={20} />
-                  </IconButton>
+                  <Magnetic strength={0.3}>
+                    <IconButton
+                      href={`mailto:${personalInfo.email}`}
+                      aria-label="Send email to Sohidul Islam"
+                      sx={{
+                        color: "var(--text-primary)",
+                        border: "1px solid var(--border-subtle)",
+                        backgroundColor: "var(--bg-card)",
+                        borderRadius: "10px",
+                        p: 1.2,
+                        "&:hover": {
+                          borderColor: "var(--accent-cyan)",
+                          color: "var(--accent-cyan)",
+                          transform: "translateY(-2px)",
+                        },
+                      }}
+                    >
+                      <Mail size={20} />
+                    </IconButton>
+                  </Magnetic>
                 </Box>
 
                 <Box sx={{ display: "flex", gap: 1 }}>
-                  <Chip
-                    component="a"
-                    href={personalInfo.socials.leetcode}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    clickable
-                    label="LeetCode"
-                    size="small"
-                    sx={{
-                      backgroundColor: "var(--bg-card)",
-                      border: "1px solid var(--border-subtle)",
-                      color: "var(--text-secondary)",
-                      fontWeight: 600,
-                      fontSize: "0.75rem",
-                      "&:hover": {
-                        borderColor: "var(--accent-cyan)",
-                        color: "var(--accent-cyan)",
-                      },
-                    }}
-                  />
-                  <Chip
-                    component="a"
-                    href={personalInfo.socials.codeforces}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    clickable
-                    label="Codeforces"
-                    size="small"
-                    sx={{
-                      backgroundColor: "var(--bg-card)",
-                      border: "1px solid var(--border-subtle)",
-                      color: "var(--text-secondary)",
-                      fontWeight: 600,
-                      fontSize: "0.75rem",
-                      "&:hover": {
-                        borderColor: "var(--accent-violet)",
-                        color: "var(--accent-violet)",
-                      },
-                    }}
-                  />
+                  <Magnetic strength={0.2}>
+                    <Chip
+                      component="a"
+                      href={personalInfo.socials.leetcode}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      clickable
+                      label="LeetCode"
+                      size="small"
+                      sx={{
+                        backgroundColor: "var(--bg-card)",
+                        border: "1px solid var(--border-subtle)",
+                        color: "var(--text-secondary)",
+                        fontWeight: 600,
+                        fontSize: "0.75rem",
+                        "&:hover": {
+                          borderColor: "var(--accent-cyan)",
+                          color: "var(--accent-cyan)",
+                        },
+                      }}
+                    />
+                  </Magnetic>
+                  <Magnetic strength={0.2}>
+                    <Chip
+                      component="a"
+                      href={personalInfo.socials.codeforces}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      clickable
+                      label="Codeforces"
+                      size="small"
+                      sx={{
+                        backgroundColor: "var(--bg-card)",
+                        border: "1px solid var(--border-subtle)",
+                        color: "var(--text-secondary)",
+                        fontWeight: 600,
+                        fontSize: "0.75rem",
+                        "&:hover": {
+                          borderColor: "var(--accent-violet)",
+                          color: "var(--accent-violet)",
+                        },
+                      }}
+                    />
+                  </Magnetic>
                 </Box>
               </Box>
             </motion.div>
           </Grid>
 
-          {/* Right Column: Interactive Profile Card / Stats */}
+          {/* Right Column: Interactive Profile Card / Stats with 3D Tilt */}
           <Grid item xs={12} md={5}>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <Box
-                className="glass-card"
-                sx={{
-                  p: 3,
-                  position: "relative",
-                  overflow: "hidden",
-                  borderRadius: "24px",
-                  background: "var(--bg-card)",
-                }}
-              >
+              <TiltCard maxTilt={6} scaleOnHover={1.015} style={{ borderRadius: "24px" }}>
+                <Box
+                  className="glass-card"
+                  sx={{
+                    p: 3,
+                    position: "relative",
+                    overflow: "hidden",
+                    borderRadius: "24px",
+                    background: "var(--bg-card)",
+                  }}
+                >
                 {/* Image Container with Glow */}
                 <Box
                   sx={{
@@ -552,8 +613,9 @@ export default function Hero() {
                   ))}
                 </Grid>
               </Box>
-            </motion.div>
-          </Grid>
+            </TiltCard>
+          </motion.div>
+        </Grid>
         </Grid>
       </Container>
     </Box>

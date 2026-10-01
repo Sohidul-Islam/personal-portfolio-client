@@ -12,6 +12,8 @@ import Achievements from './Components/Achievements/Achievements';
 import Education from './Components/Education/Education';
 import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
+import CustomCursor from './Components/Motion/CustomCursor';
+import ScrollProgress from './Components/Motion/ScrollProgress';
 import './index.css';
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
     <CustomThemeProvider>
       <Head />
       <CssBaseline />
+      <ScrollProgress />
+      <CustomCursor />
       <Box
         sx={{
           minHeight: '100vh',

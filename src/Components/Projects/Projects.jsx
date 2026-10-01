@@ -5,6 +5,7 @@ import { ExternalLink, ArrowRight, Globe, Github } from "lucide-react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { projects } from "../../data/portfolioData";
 import ProjectModal from "../ProjectModal/ProjectModal";
+import TiltCard from "../Motion/TiltCard";
 
 const getFaviconUrl = (url) => {
   try {
@@ -111,24 +112,28 @@ export default function Projects() {
                   transition={{ duration: 0.5, delay: idx * 0.08 }}
                   style={{ height: "100%" }}
                 >
-                  <Box
-                    className="glass-card"
-                    sx={{
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                      p: { xs: 3, sm: 3.5 },
-                      borderRadius: "22px",
-                      position: "relative",
-                      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                      "&:hover": {
-                        borderColor: "var(--border-accent)",
-                        boxShadow: "var(--shadow-glow)",
-                        transform: "translateY(-5px)",
-                      },
-                    }}
+                  <TiltCard
+                    maxTilt={5}
+                    scaleOnHover={1.015}
+                    style={{ height: "100%", borderRadius: "22px" }}
                   >
+                    <Box
+                      className="glass-card"
+                      sx={{
+                        height: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                        p: { xs: 3, sm: 3.5 },
+                        borderRadius: "22px",
+                        position: "relative",
+                        transition: "border-color 0.25s ease, box-shadow 0.25s ease",
+                        "&:hover": {
+                          borderColor: "var(--border-accent)",
+                          boxShadow: "var(--shadow-glow)",
+                        },
+                      }}
+                    >
                     <Box>
                       {/* Top Meta Bar */}
                       <Box
@@ -363,7 +368,8 @@ export default function Projects() {
                       </Box>
                     </Box>
                   </Box>
-                </motion.div>
+                </TiltCard>
+              </motion.div>
               </Grid>
             );
           })}
