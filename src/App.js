@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, CssBaseline } from '@mui/material';
 import { CustomThemeProvider } from './context/ThemeContext';
+import Head from './Components/Head/Head';
 import Navbar from './Components/Navbar/Navbar';
 import Hero from './Components/Hero/Hero';
 import About from './Components/About/About';
@@ -16,6 +17,7 @@ import './index.css';
 function App() {
   return (
     <CustomThemeProvider>
+      <Head />
       <CssBaseline />
       <Box
         sx={{
