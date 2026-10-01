@@ -25,13 +25,17 @@ export const generateSchemaGraph = () => {
   const alumniOfEntities = education.map((edu) => ({
     "@type": edu.id === "bsc-cse" ? "CollegeOrUniversity" : "EducationalOrganization",
     "name": edu.institution,
-    "address": edu.location,
     "sameAs": edu.institution.includes("Port City") ? "https://www.portcity.edu.bd" : undefined,
+    "location": {
+      "@type": "PostalAddress",
+      "addressLocality": edu.location.split(",")[0].trim(),
+      "addressCountry": "BD",
+    },
   }));
 
   const credentials = education.map((edu) => ({
     "@type": "EducationalOccupationalCredential",
-    "credentialCategory": "Degree",
+    "credentialCategory": "degree",
     "name": edu.degree,
     "recognizedBy": {
       "@type": "EducationalOrganization",
@@ -39,26 +43,33 @@ export const generateSchemaGraph = () => {
     },
   }));
 
-  const projectEntities = projects.map((proj) => ({
-    "@type": proj.id === "react-scroll-pagify" ? ["SoftwareSourceCode", "SoftwareApplication"] : "SoftwareApplication",
-    "@id": `${baseUrl}/#project-${proj.id}`,
-    "name": proj.title,
-    "alternateName": proj.subtitle,
-    "description": proj.summary,
-    "applicationCategory": proj.category,
-    "operatingSystem": "Web",
-    "author": { "@id": `${baseUrl}/#person` },
-    "creator": { "@id": `${baseUrl}/#person` },
-    "programmingLanguage": proj.technologies,
-    "codeRepository": proj.githubUrl,
-    "url": proj.liveUrl || proj.githubUrl,
-    "featureList": proj.highlights,
-  }));
+  const projectEntities = projects.map((proj) => {
+    const primaryLang =
+      proj.technologies.find((t) => ["TypeScript", "JavaScript", "Python"].includes(t)) || "JavaScript";
+
+    return {
+      "@type": "SoftwareSourceCode",
+      "@id": `${baseUrl}/#project-${proj.id}`,
+      "name": proj.title,
+      "abstract": proj.subtitle,
+      "description": proj.summary,
+      "codeRepository": proj.githubUrl,
+      "programmingLanguage": primaryLang,
+      "runtimePlatform": proj.technologies.join(", "),
+      "keywords": proj.technologies.join(", "),
+      "url": proj.liveUrl || proj.githubUrl,
+      "author": { "@id": `${baseUrl}/#person` },
+      "creator": { "@id": `${baseUrl}/#person` },
+    };
+  });
 
   const ieeePaperEntity = {
     "@type": "ScholarlyArticle",
     "@id": `${baseUrl}/#ieee-paper`,
+    "headline": "Bangla Speech Emotion Recognition Using Machine Learning and Deep Learning Methods",
     "name": "Bangla Speech Emotion Recognition Using Machine Learning and Deep Learning Methods",
+    "datePublished": "2025",
+    "inLanguage": "en",
     "author": { "@id": `${baseUrl}/#person` },
     "publisher": {
       "@type": "Organization",
@@ -66,7 +77,6 @@ export const generateSchemaGraph = () => {
       "url": "https://ieeexplore.ieee.org",
     },
     "url": "https://ieeexplore.ieee.org/document/11005193",
-    "sameAs": "https://github.com/Sohidul-Islam/BANGLA-SPEECH-EMOTION-RECOGNITION-USING-MACHINE-LEARNING-AND-DEEP-LEARNING-METHODS",
   };
 
   const personEntity = {
@@ -127,7 +137,7 @@ export const generateSchemaGraph = () => {
     "worksFor": experiences.map((exp) => ({
       "@type": "Organization",
       "name": exp.company,
-      "description": exp.role,
+      ...(exp.website ? { "url": exp.website } : {}),
     })),
     "alumniOf": alumniOfEntities,
     "hasCredential": credentials,
@@ -136,11 +146,10 @@ export const generateSchemaGraph = () => {
       "@type": "Occupation",
       "name": "Software Engineer II",
       "occupationLocation": {
-        "@type": "City",
-        "name": "Dhaka",
-        "addressCountry": "BD",
+        "@type": "AdministrativeArea",
+        "name": "Dhaka, Bangladesh",
       },
-      "skills": ["React.js", "Next.js", "TypeScript", "Node.js", "NestJS", "AWS Cloud", "PostgreSQL", "MySQL", "WebSockets"],
+      "skills": "React.js, Next.js, TypeScript, Node.js, NestJS, AWS Cloud, PostgreSQL, MySQL, WebSockets",
     },
   };
 

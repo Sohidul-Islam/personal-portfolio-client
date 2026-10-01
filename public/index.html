@@ -222,41 +222,53 @@
               {
                 "@type": "Organization",
                 "name": "Mediusware Ltd",
-                "description": "Software Engineer II | Full-Stack Engineer"
+                "url": "https://mediusware.com"
               },
               {
                 "@type": "Organization",
                 "name": "Fashion Glory Company Limited",
-                "description": "Software Engineer | Full-Stack Engineer"
+                "url": "https://www.fashiongloryltd.com/"
               },
               {
                 "@type": "Organization",
                 "name": "LYXA",
-                "description": "Frontend Developer"
+                "url": "https://lyxa.ai"
               }
             ],
             "alumniOf": [
               {
                 "@type": "CollegeOrUniversity",
                 "name": "Port City International University",
-                "address": "Chattogram, Bangladesh",
-                "sameAs": "https://www.portcity.edu.bd"
+                "sameAs": "https://www.portcity.edu.bd",
+                "location": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Chattogram",
+                  "addressCountry": "BD"
+                }
               },
               {
                 "@type": "EducationalOrganization",
                 "name": "Moulavi Shamsul Karim College",
-                "address": "Feni, Bangladesh"
+                "location": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Feni",
+                  "addressCountry": "BD"
+                }
               },
               {
                 "@type": "EducationalOrganization",
                 "name": "Chhagalnaiya Academy",
-                "address": "Feni, Bangladesh"
+                "location": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Feni",
+                  "addressCountry": "BD"
+                }
               }
             ],
             "hasCredential": [
               {
                 "@type": "EducationalOccupationalCredential",
-                "credentialCategory": "Degree",
+                "credentialCategory": "degree",
                 "name": "BSc in Computer Science & Engineering (CSE)",
                 "recognizedBy": {
                   "@type": "EducationalOrganization",
@@ -265,7 +277,7 @@
               },
               {
                 "@type": "EducationalOccupationalCredential",
-                "credentialCategory": "Degree",
+                "credentialCategory": "degree",
                 "name": "Higher Secondary Certificate (HSC)",
                 "recognizedBy": {
                   "@type": "EducationalOrganization",
@@ -274,7 +286,7 @@
               },
               {
                 "@type": "EducationalOccupationalCredential",
-                "credentialCategory": "Degree",
+                "credentialCategory": "degree",
                 "name": "Secondary School Certificate (SSC)",
                 "recognizedBy": {
                   "@type": "EducationalOrganization",
@@ -290,21 +302,10 @@
               "@type": "Occupation",
               "name": "Software Engineer II",
               "occupationLocation": {
-                "@type": "City",
-                "name": "Dhaka",
-                "addressCountry": "BD"
+                "@type": "AdministrativeArea",
+                "name": "Dhaka, Bangladesh"
               },
-              "skills": [
-                "React.js",
-                "Next.js",
-                "TypeScript",
-                "Node.js",
-                "NestJS",
-                "AWS Cloud",
-                "PostgreSQL",
-                "MySQL",
-                "WebSockets"
-              ]
+              "skills": "React.js, Next.js, TypeScript, Node.js, NestJS, AWS Cloud, PostgreSQL, MySQL, WebSockets"
             }
           },
           {
@@ -413,7 +414,10 @@
           {
             "@type": "ScholarlyArticle",
             "@id": "https://sohidul-islam.vercel.app/#ieee-paper",
+            "headline": "Bangla Speech Emotion Recognition Using Machine Learning and Deep Learning Methods",
             "name": "Bangla Speech Emotion Recognition Using Machine Learning and Deep Learning Methods",
+            "datePublished": "2025",
+            "inLanguage": "en",
             "author": {
               "@id": "https://sohidul-islam.vercel.app/#person"
             },
@@ -422,158 +426,97 @@
               "name": "IEEE Xplore",
               "url": "https://ieeexplore.ieee.org"
             },
-            "url": "https://ieeexplore.ieee.org/document/11005193",
-            "sameAs": "https://github.com/Sohidul-Islam/BANGLA-SPEECH-EMOTION-RECOGNITION-USING-MACHINE-LEARNING-AND-DEEP-LEARNING-METHODS"
+            "url": "https://ieeexplore.ieee.org/document/11005193"
           },
           {
-            "@type": "SoftwareApplication",
+            "@type": "SoftwareSourceCode",
             "@id": "https://sohidul-islam.vercel.app/#project-ourstoryz",
             "name": "OurStoryz – Event Management Platform",
-            "alternateName": "Enterprise event management system with real-time attendee interaction and cloud queues.",
+            "abstract": "Enterprise event management system with real-time attendee interaction and cloud queues.",
             "description": "Engineered a scalable event platform for corporate gatherings, weddings, and conferences utilizing React.js, Node.js, and AWS serverless infrastructure.",
-            "applicationCategory": "Full-Stack / Cloud",
-            "operatingSystem": "Web",
+            "codeRepository": "https://github.com/Sohidul-Islam",
+            "programmingLanguage": "JavaScript",
+            "runtimePlatform": "React.js, Node.js, AWS Cognito, AWS SQS, TypeORM, MySQL, Stripe",
+            "keywords": "React.js, Node.js, AWS Cognito, AWS SQS, TypeORM, MySQL, Stripe",
+            "url": "https://developer.ourstoryz.com/",
             "author": {
               "@id": "https://sohidul-islam.vercel.app/#person"
             },
             "creator": {
               "@id": "https://sohidul-islam.vercel.app/#person"
-            },
-            "programmingLanguage": [
-              "React.js",
-              "Node.js",
-              "AWS Cognito",
-              "AWS SQS",
-              "TypeORM",
-              "MySQL",
-              "Stripe"
-            ],
-            "codeRepository": "https://github.com/Sohidul-Islam",
-            "url": "https://developer.ourstoryz.com/",
-            "featureList": [
-              "Developed organizer dashboards and a guest mobile web experience with real-time interaction and media sharing.",
-              "Implemented secure AWS Cognito/IAM authentication and integrated SES, SNS, and SQS for notifications and background queue jobs.",
-              "Built Stripe payment processing and scalable relational schema design using TypeORM and MySQL."
-            ]
+            }
           },
           {
-            "@type": "SoftwareApplication",
+            "@type": "SoftwareSourceCode",
             "@id": "https://sohidul-islam.vercel.app/#project-pet-parent",
             "name": "Pet Parent – Animal Licensing & Welfare Platform",
-            "alternateName": "Full-stack licensing platform featuring automated AI document parsing and secure payments.",
+            "abstract": "Full-stack licensing platform featuring automated AI document parsing and secure payments.",
             "description": "Developed an administrative pet licensing platform utilizing the T3 Stack (Next.js, TypeScript, tRPC) with Clerk authentication and Document AI parsing.",
-            "applicationCategory": "Full-Stack / AI",
-            "operatingSystem": "Web",
+            "codeRepository": "https://github.com/Sohidul-Islam",
+            "programmingLanguage": "TypeScript",
+            "runtimePlatform": "Next.js, TypeScript, tRPC, Drizzle ORM, PostgreSQL, Authorize.Net",
+            "keywords": "Next.js, TypeScript, tRPC, Drizzle ORM, PostgreSQL, Authorize.Net",
+            "url": "http://authorize.net/",
             "author": {
               "@id": "https://sohidul-islam.vercel.app/#person"
             },
             "creator": {
               "@id": "https://sohidul-islam.vercel.app/#person"
-            },
-            "programmingLanguage": [
-              "Next.js",
-              "TypeScript",
-              "tRPC",
-              "Drizzle ORM",
-              "PostgreSQL",
-              "Authorize.Net"
-            ],
-            "codeRepository": "https://github.com/Sohidul-Islam",
-            "url": "http://authorize.net/",
-            "featureList": [
-              "Engineered high-performance PostgreSQL + Drizzle ORM architecture and integrated Authorize.Net for recurring payments.",
-              "Integrated Mailgun transactional workflows and built bulk report analytics for administrative auditing.",
-              "Created responsive admin tooling for managing verified pet registrations, license issuance, and renewals."
-            ]
+            }
           },
           {
-            "@type": "SoftwareApplication",
+            "@type": "SoftwareSourceCode",
             "@id": "https://sohidul-islam.vercel.app/#project-glory-pos",
             "name": "GloryPOS – Point of Sale & Inventory Platform",
-            "alternateName": "Real-time retail POS system supporting multi-terminal synchronization and branch management.",
+            "abstract": "Real-time retail POS system supporting multi-terminal synchronization and branch management.",
             "description": "Built a web and Android POS solution for retail checkout, synchronized stock tracking, and multi-branch financial accounting.",
-            "applicationCategory": "Real-Time / POS",
-            "operatingSystem": "Web",
+            "codeRepository": "https://github.com/Sohidul-Islam",
+            "programmingLanguage": "JavaScript",
+            "runtimePlatform": "React.js, Node.js, Express.js, MySQL, Socket.IO, BullMQ",
+            "keywords": "React.js, Node.js, Express.js, MySQL, Socket.IO, BullMQ",
+            "url": "http://glorypos.com/",
             "author": {
               "@id": "https://sohidul-islam.vercel.app/#person"
             },
             "creator": {
               "@id": "https://sohidul-islam.vercel.app/#person"
-            },
-            "programmingLanguage": [
-              "React.js",
-              "Node.js",
-              "Express.js",
-              "MySQL",
-              "Socket.IO",
-              "BullMQ"
-            ],
-            "codeRepository": "https://github.com/Sohidul-Islam",
-            "url": "http://glorypos.com/",
-            "featureList": [
-              "Implemented role-based access control (RBAC) across cashiers, managers, and administrators.",
-              "Enabled sub-second WebSocket updates via Socket.IO for multi-terminal inventory deduction and sales logging.",
-              "Engineered resilient multi-branch data architecture using Node.js, Express.js, MySQL, and BullMQ."
-            ]
+            }
           },
           {
-            "@type": "SoftwareApplication",
+            "@type": "SoftwareSourceCode",
             "@id": "https://sohidul-islam.vercel.app/#project-lyxa-delivery",
             "name": "LYXA – Food Delivery & Geo-Zone Logistics",
-            "alternateName": "High-volume food delivery ecosystem with precision geospatial polygon mapping.",
+            "abstract": "High-volume food delivery ecosystem with precision geospatial polygon mapping.",
             "description": "Scaled core frontend features for LYXA's delivery platform, including geometric zone boundary calculation and order orchestration.",
-            "applicationCategory": "E-Commerce / Logistics",
-            "operatingSystem": "Web",
+            "codeRepository": "https://github.com/Sohidul-Islam",
+            "programmingLanguage": "JavaScript",
+            "runtimePlatform": "React.js, Redux Toolkit, Geo-Mapping Engine, JavaScript, Tailwind CSS",
+            "keywords": "React.js, Redux Toolkit, Geo-Mapping Engine, JavaScript, Tailwind CSS",
+            "url": "https://lyxa.ai/",
             "author": {
               "@id": "https://sohidul-islam.vercel.app/#person"
             },
             "creator": {
               "@id": "https://sohidul-islam.vercel.app/#person"
-            },
-            "programmingLanguage": [
-              "React.js",
-              "Redux Toolkit",
-              "Geo-Mapping Engine",
-              "JavaScript",
-              "Tailwind CSS"
-            ],
-            "codeRepository": "https://github.com/Sohidul-Islam",
-            "url": "https://lyxa.ai/",
-            "featureList": [
-              "Built a custom geometric boundary mapping engine for multi-restaurant delivery zone coverage.",
-              "Engineered high-throughput admin dashboards for financial reconciliation and order analytics.",
-              "Optimized client rendering pipelines for sub-second UI interactions across mobile and desktop."
-            ]
+            }
           },
           {
-            "@type": [
-              "SoftwareSourceCode",
-              "SoftwareApplication"
-            ],
+            "@type": "SoftwareSourceCode",
             "@id": "https://sohidul-islam.vercel.app/#project-react-scroll-pagify",
             "name": "React Scroll Pagify",
-            "alternateName": "Lightweight open-source React library for seamless infinite scrolling and pagination.",
+            "abstract": "Lightweight open-source React library for seamless infinite scrolling and pagination.",
             "description": "Published open-source React package available on NPM providing zero-dependency hooks for scroll-driven pagination.",
-            "applicationCategory": "Open Source / NPM",
-            "operatingSystem": "Web",
+            "codeRepository": "https://github.com/Sohidul-Islam/react-scrollify",
+            "programmingLanguage": "TypeScript",
+            "runtimePlatform": "React, TypeScript, NPM Registry, Open Source",
+            "keywords": "React, TypeScript, NPM Package, Infinite Scroll, Open Source",
+            "url": "https://www.npmjs.com/package/react-scroll-pagify",
             "author": {
               "@id": "https://sohidul-islam.vercel.app/#person"
             },
             "creator": {
               "@id": "https://sohidul-islam.vercel.app/#person"
-            },
-            "programmingLanguage": [
-              "React",
-              "TypeScript",
-              "NPM Registry",
-              "Open Source"
-            ],
-            "codeRepository": "https://github.com/Sohidul-Islam/react-scrollify",
-            "url": "https://www.npmjs.com/package/react-scroll-pagify",
-            "featureList": [
-              "Published and maintained on the official NPM Registry.",
-              "Zero external runtime dependencies with high performance scroll observation."
-            ]
+            }
           }
         ]
       }

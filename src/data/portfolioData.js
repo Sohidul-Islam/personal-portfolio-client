@@ -146,6 +146,7 @@ export const experiences = [
         type: "Full-Time",
         period: "03/2024 – Present",
         location: "Dhaka, Bangladesh",
+        website: "https://mediusware.com",
         current: true,
         description: "Engaged in designing and deploying scalable full-stack applications, AI automation pipelines, and cloud systems for high-growth client environments.",
         points: [
@@ -163,6 +164,7 @@ export const experiences = [
         type: "Part-Time • Remote",
         period: "11/2024 – Present",
         location: "Phuket, Thailand (Remote)",
+        website: "https://www.fashiongloryltd.com/",
         current: true,
         description: "Driving end-to-end full-stack development for multi-branch retail POS, e-commerce, and mobile platforms across Thailand.",
         points: [
@@ -180,6 +182,7 @@ export const experiences = [
         type: "Full-Time",
         period: "08/2023 – 03/2024",
         location: "Dhaka, Bangladesh",
+        website: "https://lyxa.ai/",
         current: false,
         description: "Pioneered core frontend engineering and UX enhancements for LYXA's food delivery & logistics ecosystem.",
         points: [
