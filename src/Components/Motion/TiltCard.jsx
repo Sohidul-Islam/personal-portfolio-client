@@ -12,6 +12,7 @@ export default function TiltCard({
 }) {
   const cardRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [glarePos, setGlarePos] = useState({ x: "50%", y: "50%" });
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -22,10 +23,6 @@ export default function TiltCard({
 
   const rotateX = useTransform(smoothY, [-0.5, 0.5], [maxTilt, -maxTilt]);
   const rotateY = useTransform(smoothX, [-0.5, 0.5], [-maxTilt, maxTilt]);
-
-  // Glare position
-  const glareX = useTransform(smoothX, [-0.5, 0.5], ["0%", "100%"]);
-  const glareY = useTransform(smoothY, [-0.5, 0.5], ["0%", "100%"]);
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
@@ -38,6 +35,12 @@ export default function TiltCard({
 
     x.set(normalizedX);
     y.set(normalizedY);
+
+    if (glare) {
+      const px = ((clientX / rect.width) * 100).toFixed(1) + "%";
+      const py = ((clientY / rect.height) * 100).toFixed(1) + "%";
+      setGlarePos({ x: px, y: py });
+    }
   };
 
   const handleMouseEnter = () => {
@@ -78,20 +81,23 @@ export default function TiltCard({
           height: "100%",
           width: "100%",
           position: "relative",
+          pointerEvents: "none",
         }}
       >
-        {children}
+        <div style={{ pointerEvents: "auto", height: "100%" }}>
+          {children}
+        </div>
 
         {/* Subtle Specular Glare Reflection */}
         {glare && isHovered && (
-          <motion.div
+          <div
             aria-hidden="true"
             style={{
               position: "absolute",
               inset: 0,
               borderRadius: "inherit",
               pointerEvents: "none",
-              background: `radial-gradient(circle 280px at ${glareX} ${glareY}, rgba(0, 240, 255, 0.08), transparent 70%)`,
+              background: `radial-gradient(circle 280px at ${glarePos.x} ${glarePos.y}, rgba(0, 240, 255, 0.08), transparent 70%)`,
               zIndex: 3,
             }}
           />
