@@ -118,6 +118,7 @@ export const generateSchemaGraph = () => {
     ],
     "gender": "https://schema.org/Male",
     "jobTitle": personalInfo.title,
+    "disambiguatingDescription": "Bangladeshi software engineer, full-stack architect, and IEEE-published AI researcher, distinct from the cricketer Shohidul Islam.",
     "description": personalInfo.summary,
     "url": `${baseUrl}/`,
     "image": {
@@ -125,7 +126,7 @@ export const generateSchemaGraph = () => {
       "@id": `${baseUrl}/#profile-image`,
       "url": `${baseUrl}/profile.jpg`,
       "contentUrl": `${baseUrl}/profile.jpg`,
-      "caption": "Sohidul Islam Shufol (sishufol / Shufol / Sohidul software engineer) - Software Engineer II & Full-Stack Architect",
+      "caption": "Sohidul Islam Shufol - Software Engineer II & Full-Stack Architect",
       "representativeOfPage": true,
     },
     "email": `mailto:${personalInfo.email}`,
