@@ -65,7 +65,6 @@ export default function TiltCard({
       transition={{ duration: 0.25, ease: "easeOut" }}
       style={{
         perspective: 1000,
-        transformStyle: "preserve-3d",
         position: "relative",
         height: "100%",
         ...style,
@@ -77,7 +76,6 @@ export default function TiltCard({
         style={{
           rotateX,
           rotateY,
-          transformStyle: "preserve-3d",
           height: "100%",
           width: "100%",
           position: "relative",

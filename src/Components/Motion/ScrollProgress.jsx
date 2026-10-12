@@ -21,6 +21,7 @@ export default function ScrollProgress() {
         transformOrigin: "0%",
         scaleX,
         zIndex: 9999,
+        pointerEvents: "none",
         boxShadow: "0 0 10px rgba(0, 240, 255, 0.5)",
       }}
     />
