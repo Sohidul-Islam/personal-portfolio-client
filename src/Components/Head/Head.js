@@ -181,7 +181,7 @@ export const generateSchemaGraph = () => {
     "@type": "WebSite",
     "@id": `${baseUrl}/#website`,
     "url": `${baseUrl}/`,
-    "name": "Sohidul Islam Shufol (sishufol / Shufol / Sohidul software engineer)",
+    "name": "Sohidul Islam Shufol Portfolio",
     "alternateName": personalInfo.searchVariations,
     "description": `Official website and engineering portfolio of ${personalInfo.fullNameWithNick} — Software Engineer II & Full-Stack Architect.`,
     "publisher": { "@id": `${baseUrl}/#person` },
@@ -193,7 +193,7 @@ export const generateSchemaGraph = () => {
     "@type": "ProfilePage",
     "@id": `${baseUrl}/#profilepage`,
     "url": `${baseUrl}/`,
-    "name": "Sohidul Islam Shufol (সহিদুল ইসলাম সুফল / sishufol / Shufol / Sohidul software engineer) - Professional Profile & Portfolio",
+    "name": "Sohidul Islam Shufol — Professional Profile & Portfolio",
     "description": personalInfo.summary,
     "datePublished": "2024-03-01",
     "dateModified": new Date().toISOString().split("T")[0],
@@ -236,14 +236,14 @@ export default function Head() {
   useEffect(() => {
     // 1. Ensure Document Title is optimized
     document.title =
-      "Sohidul Islam Shufol (sishufol / Shufol / Sohidul software engineer) | Software Engineer II & Full-Stack Architect | sohidul.dev";
+      "Sohidul Islam Shufol — Software Engineer II | Full-Stack Developer Portfolio";
 
     // 2. Dynamically synchronize meta description
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute(
         "content",
-        "Official portfolio of Sohidul Islam Shufol (Shufol / sishufol / Sohidul software engineer / sohidul.dev / sishufol.com) — Software Engineer II & Full-Stack Architect building scalable web applications, real-time architectures, AI automation, and AWS cloud systems."
+        "Software Engineer II building scalable web applications, real-time architectures, and AWS cloud systems with React.js, Next.js, TypeScript, Node.js, and NestJS. IEEE published researcher. Portfolio and case studies by Sohidul Islam Shufol."
       );
     }
 
