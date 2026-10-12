@@ -21,6 +21,7 @@ export default function ProjectModal({ project, open, onClose }) {
       onClose={onClose}
       maxWidth="md"
       fullWidth
+      scroll="paper"
       PaperProps={{
         sx: {
           borderRadius: "24px",
@@ -29,10 +30,13 @@ export default function ProjectModal({ project, open, onClose }) {
           border: "1px solid var(--border-subtle)",
           boxShadow: "var(--shadow-glow)",
           overflow: "hidden",
+          maxHeight: { xs: "95vh", sm: "90vh" },
+          mx: { xs: 1.5, sm: 3 },
+          width: { xs: "calc(100% - 24px)", sm: "100%" },
         },
       }}
     >
-      <Box sx={{ position: "relative", p: { xs: 3, md: 4 } }}>
+      <Box sx={{ position: "relative", p: { xs: 3, md: 4 }, overflowY: "auto", maxHeight: { xs: "95vh", sm: "90vh" } }}>
         {/* Close Button */}
         <IconButton
           onClick={onClose}
