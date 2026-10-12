@@ -109,6 +109,12 @@ export const generateSchemaGraph = () => {
       "Sohidul JavaScript Developer",
       "Shahidul Islam",
       "Shohidul Islam",
+      "শহিদুল ইসলাম সুফল",
+      "শহিদুল ইসলাম",
+      "সুফল",
+      "শহিদুল",
+      "সহিদুল ইসলাম",
+      "সহিদুল ইসলাম সুফল",
     ],
     "gender": "https://schema.org/Male",
     "jobTitle": personalInfo.title,
@@ -151,6 +157,24 @@ export const generateSchemaGraph = () => {
       },
       "skills": "React.js, Next.js, TypeScript, Node.js, NestJS, AWS Cloud, PostgreSQL, MySQL, WebSockets",
     },
+    "nationality": {
+      "@type": "Country",
+      "name": "Bangladesh",
+      "sameAs": "https://en.wikipedia.org/wiki/Bangladesh",
+    },
+    "birthPlace": {
+      "@type": "Place",
+      "name": "Chhagalnaiya, Feni, Bangladesh",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Feni",
+        "addressCountry": "BD",
+      },
+    },
+    "knowsLanguage": [
+      { "@type": "Language", "name": "English", "alternateName": "en" },
+      { "@type": "Language", "name": "Bangla", "alternateName": "bn" },
+    ],
   };
 
   const websiteEntity = {
@@ -162,15 +186,18 @@ export const generateSchemaGraph = () => {
     "description": `Official website and engineering portfolio of ${personalInfo.fullNameWithNick} — Software Engineer II & Full-Stack Architect.`,
     "publisher": { "@id": `${baseUrl}/#person` },
     "author": { "@id": `${baseUrl}/#person` },
-    "inLanguage": "en-US",
+    "inLanguage": ["en-US", "bn-BD"],
   };
 
   const profilePageEntity = {
     "@type": "ProfilePage",
     "@id": `${baseUrl}/#profilepage`,
     "url": `${baseUrl}/`,
-    "name": "Sohidul Islam Shufol (sishufol / Shufol / Sohidul software engineer) - Professional Profile & Portfolio",
+    "name": "Sohidul Islam Shufol (সহিদুল ইসলাম সুফল / sishufol / Shufol / Sohidul software engineer) - Professional Profile & Portfolio",
     "description": personalInfo.summary,
+    "datePublished": "2024-03-01",
+    "dateModified": new Date().toISOString().split("T")[0],
+    "inLanguage": ["en-US", "bn-BD"],
     "isPartOf": { "@id": `${baseUrl}/#website` },
     "about": { "@id": `${baseUrl}/#person` },
     "mainEntity": { "@id": `${baseUrl}/#person` },

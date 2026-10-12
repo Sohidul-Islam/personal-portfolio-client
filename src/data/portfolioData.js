@@ -39,7 +39,13 @@ export const personalInfo = {
         "sohidul.dev",
         "sishufol.com",
         "sishufol.dev",
-        "sishfuol"
+        "sishfuol",
+        "শহিদুল ইসলাম সুফল",
+        "শহিদুল ইসলাম",
+        "সুফল",
+        "শহিদুল",
+        "সহিদুল ইসলাম",
+        "সহিদুল ইসলাম সুফল"
     ],
 
     summary: "Software Engineer II with 3+ years of experience engineering scalable, high-availability web applications using React.js, Next.js, TypeScript, Node.js, NestJS, PostgreSQL, and MySQL. Proven track record deploying cloud services on AWS, architecting real-time systems with WebSockets, and automating workflows with LLMs and queue architectures.",
