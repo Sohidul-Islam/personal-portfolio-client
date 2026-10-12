@@ -20,6 +20,7 @@ export const generateSchemaGraph = () => {
     personalInfo.socials.stopstalk,
     "https://ieeexplore.ieee.org/document/11005193",
     "https://www.npmjs.com/package/react-scroll-pagify",
+    "https://www.wikidata.org/wiki/Q141713831",
   ].filter(Boolean);
 
   const alumniOfEntities = education.map((edu) => ({
